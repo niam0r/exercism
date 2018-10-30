@@ -1,4 +1,4 @@
-export default const solve = (x, y) => {
+export default function solve(x, y) {
   if ( inBetween(x, -1, 1) && inBetween(y, -1, 1) ) {
     return 10;
   }
