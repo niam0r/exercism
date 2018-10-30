@@ -1,5 +1,8 @@
 export default function solve(x, y) {
-  if ( inBetween(x, -1, 1) && inBetween(y, -1, 1) ) {
+  if ( (typeof x !== 'number') || (typeof y !== 'number') ) {
+    return null;
+  }
+  else if ( inBetween(x, -1, 1) && inBetween(y, -1, 1) ) {
     return 10;
   }
   else if ( inBetween(x, -5, 5) && inBetween(y, -5, 5) ) {
