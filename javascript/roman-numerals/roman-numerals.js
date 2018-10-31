@@ -1,74 +1,12 @@
-export default function toRoman(number) {
-  let roman = '';
-  let thousands, hundreds, tens;
+const convertion =  {'M': 1000, 'CM': 900, 'D': 500, 'CD': 400, 'C': 100, 'XC': 90, 'L': 50, 'XL': 40, 'X': 10, 'IX': 9, 'V': 5, 'IV': 4, 'I': 1};
 
-  if (number >= 1000) {
-    thousands = (number - number % 1000) / 1000
-    roman = 'M'.repeat(thousands);
-    number -= 1000 * thousands;
-  };
-
-  if (number >= 900) {
-    roman += 'CM';
-    number -= 900;
-  }
-
-  if (number >= 500) {
-    roman += 'D';
-    number -= 500;
-  };
-
-  if (number >= 400) {
-    roman += 'CD';
-    number -= 400;
-  };
-
-  if (number >= 100) {
-    hundreds = (number - number % 100) / 100
-    roman += 'C'.repeat(hundreds);
-    number -= 100 * hundreds;
-  };
-
-  if (number >= 90) {
-    roman += 'XC';
-    number -= 90;
-  };
-
-  if (number >= 50) {
-    roman += 'L';
-    number -= 50;
-  };
-
-  if (number >= 40) {
-    roman += 'XL';
-    number -= 40;
-  };
-
-  if (number >= 10) {
-    tens = (number - number % 10) / 10
-    roman += 'X'.repeat(tens);
-    number -= 10 * tens;
-  };
-
-  if (number >= 9) {
-    roman += 'IX';
-    number -= 9;
-  };
-
-  if (number >= 5) {
-    roman += 'V';
-    number -= 5;
-  };
-
-  if (number == 4) {
-    roman += 'IV';
-    number -= 4;
-  };
-
-  if (number >= 1) {
-    roman += 'I'.repeat(number / 1);
+export default function toRoman(arab) {
+  return Object.keys(convertion).map(key => {
+    let roman = '';
+    while (arab >= convertion[key]) {
+      roman += key;
+      arab -= convertion[key];
+    }
     return roman;
-  };
-
-  return roman;
+  }).join('');
 };
