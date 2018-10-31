@@ -3,7 +3,7 @@ const encode = (str) => {
 };
 
 const decode = (str) => {
-
+  return str.replace(/(\d+)(.)/g, (fullMatch, digit, char) => char.repeat(digit));
 };
 
 export { encode, decode };
