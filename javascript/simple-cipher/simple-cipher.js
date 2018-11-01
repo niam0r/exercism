@@ -1,7 +1,7 @@
 // const Cipher = class {
 export const Cipher = class {
   constructor(key = this.generateKey(100)) {
-    this.key = this.checkKey(key);
+    this.key = this.validate(key);
   }
 
   generateKey(length) {
@@ -12,10 +12,12 @@ export const Cipher = class {
     return key;
   }
 
-  checkKey(key) {
+  validate(key) {
     if (!key || (/[A-Z0-9\W]/).test(key)) { throw new Error('Bad key'); }
     return key;
   }
+
+  const alpha = 'abcdefghijklmnopqrstuvwxyz';
 
   encode(string) {
 
