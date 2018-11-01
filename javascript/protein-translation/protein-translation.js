@@ -20,20 +20,17 @@ const convertion = {
 
 const stops = ['UAA', 'UAG', 'UGA'];
 
-// function translate(str) {
-
 export default function translate(str) {
   const translation = [];
   if (str === undefined) { return translation; }
 
   const codons = str.split(/(...)/).filter(obj => obj);
-  const toTranslate = codons.slice(0, codons.findIndex(findStop));
-
-  console.log(toTranslate)
+  let stopIndex = codons.findIndex(findStop) === -1 ? codons.length : codons.findIndex(findStop);
+  const toTranslate = codons.slice(0, stopIndex);
 
   toTranslate.forEach(codon => {
+    if (convertion[codon] == undefined) { throw new Error('Invalid codon'); }
     translation.push(convertion[codon]);
-    console.log(convertion[codon])
   })
 
   return translation;
@@ -43,8 +40,3 @@ function findStop(codon) {
   return stops.includes(codon);
 }
 
-// translate("AUG");
-// translate("AUGUUU");
-// translate("AUGUUUUCU");
-// translate("AUGUUUUCUUAA");
-// translate("AUGUUUUCUUAAAUG");
