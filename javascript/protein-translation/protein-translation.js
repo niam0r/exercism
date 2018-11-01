@@ -12,10 +12,10 @@ const convertion = {
   'UAC': 'Tyrosine',
   'UGU': 'Cysteine',
   'UGC': 'Cysteine',
-  'UGG': 'Tryptophan'//,
-  // 'UAA': 'STOP',
-  // 'UAG': 'STOP',
-  // 'UGA': 'STOP'
+  'UGG': 'Tryptophan',
+  'UAA': 'STOP',
+  'UAG': 'STOP',
+  'UGA': 'STOP'
 };
 
 const stops = ['UAA', 'UAG', 'UGA'];
@@ -25,18 +25,15 @@ export default function translate(str) {
   if (str === undefined) { return translation; }
 
   const codons = str.split(/(...)/).filter(obj => obj);
-  let stopIndex = codons.findIndex(findStop) === -1 ? codons.length : codons.findIndex(findStop);
-  const toTranslate = codons.slice(0, stopIndex);
 
-  toTranslate.forEach(codon => {
+  for (let codon of codons) {
     if (convertion[codon] == undefined) { throw new Error('Invalid codon'); }
+    if (convertion[codon] == 'STOP') { break; }
     translation.push(convertion[codon]);
-  })
+  }
 
   return translation;
 }
 
-function findStop(codon) {
-  return stops.includes(codon);
-}
+
 
