@@ -18,8 +18,6 @@ const convertion = {
   'UGA': 'STOP'
 };
 
-const stops = ['UAA', 'UAG', 'UGA'];
-
 export default function translate(str) {
   const translation = [];
   if (str === undefined) { return translation; }
