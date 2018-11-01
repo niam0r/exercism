@@ -1,9 +1,6 @@
-// export default function validate(number) {
-function validate(number) {
+export function validate(number) {
   const digits = number.toString().split('').map(Number);
-
-
-  console.log(digits);
+  const reducer = (acc, value) => acc + Math.pow(value, digits.length);
+  return number === digits.reduce(reducer, 0);
 }
 
-validate(1234);
