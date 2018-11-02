@@ -51,12 +51,12 @@ describe('Bob', () => {
     expect(result).toEqual('Whoa, chill out!');
   });
 
-  xtest('only numbers', () => {
+  test('only numbers', () => {
     const result = hey('1, 2, 3');
     expect(result).toEqual('Whatever.');
   });
 
-  xtest('question with only numbers', () => {
+  test('question with only numbers', () => {
     const result = hey('4?');
     expect(result).toEqual('Sure.');
   });
@@ -76,7 +76,7 @@ describe('Bob', () => {
     expect(result).toEqual('Whatever.');
   });
 
-  xtest('non-letters with question', () => {
+  test('non-letters with question', () => {
     const result = hey(':) ?');
     expect(result).toEqual('Sure.');
   });
