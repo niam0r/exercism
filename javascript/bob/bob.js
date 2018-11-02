@@ -1,11 +1,13 @@
-/* eslint-disable no-unused-vars */
-//
-// This is only a SKELETON file for the 'Bob' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 export const hey = (message) => {
-  //
-  // YOUR CODE GOES HERE
-  //
+  if (message.trim() == '') {
+    return 'Fine. Be that way!';
+  // } else if (!message.includes(/[a-zA-Z]/)) {
+  //   return 'Whatever.';
+  } else if (message.toUpperCase() == message && message.endsWith('?')) {
+    return 'Calm down, I know what I\'m doing!';
+  } else if (message.toUpperCase() == message) {
+    return 'Whoa, chill out!';
+  } else if (message.trim().endsWith('?')) {
+    return 'Sure.';
+  } else { return 'Whatever.'; }
 };
