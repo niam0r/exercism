@@ -1,7 +1,4 @@
 export function isIsogram(phrase) {
-  if (phrase == '') {
-    return true;
-  } else {
-    // statement
-  }
+  const cleaned = phrase.replace(/[- ]/g, '');
+  return [... new Set(cleaned.toLowerCase())].length == cleaned.length;
 }
