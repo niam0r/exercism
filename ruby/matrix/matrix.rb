@@ -1,16 +1,8 @@
 class Matrix
   attr_reader :rows, :columns
-  def initialize(matrix)
-    @matrix = matrix
-    @rows = []
-    @columns = []
-    splitter
-  end
 
-  def splitter
-    @matrix.split("\n").each_with_index do |group, i|
-      gp = group.split.map(&:to_i)
-      i.even? ? @rows.push(gp) : @columns.push(gp)
-    end
+  def initialize(matrix)
+    @rows = matrix.split("\n").map{ |row| row.split(" ").map{ |e| e.to_i }}
+    @columns = @rows.transpose
   end
 end
