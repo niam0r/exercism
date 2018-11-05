@@ -1,6 +1,6 @@
 class Isogram
-  def self.isogram?(input)
-    processed = input.gsub(/\W/, '').downcase.chars.sort
-    processed.uniq == processed
+   def self.isogram?(input)
+    letters = input.downcase.scan(/\p{Letter}/)
+    letters.uniq == letters
   end
 end
