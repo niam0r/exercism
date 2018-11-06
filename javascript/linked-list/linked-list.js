@@ -22,6 +22,12 @@ class LinkedList {
   count() {
     return this.list.length;
   }
+
+  delete(e) {
+    let i = this.list.findIndex(el => el == e);
+    if (i == -1) { return this.list; }
+    return this.list.splice(i, 1);
+  }
 }
 
 export default LinkedList;
