@@ -2,6 +2,7 @@ class LinkedList {
   constructor() {
     this.list = [];
   }
+
   push(e) {
     return this.list.push(e);
   }
@@ -15,7 +16,11 @@ class LinkedList {
   }
 
   unshift(e) {
-    return this.unshift(e);
+    return this.list.unshift(e);
+  }
+
+  count() {
+    return this.list.length;
   }
 }
 
