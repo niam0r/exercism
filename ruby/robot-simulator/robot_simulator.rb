@@ -39,19 +39,10 @@ class Robot
 end
 
 class Simulator
-  def instructions(string)
-    commands = []
-    string.chars.each do |letter|
-      case letter
-      when 'A'
-        commands.push(:advance)
-      when 'R'
-        commands.push(:turn_right)
-      when 'L'
-        commands.push(:turn_left)
-      end
-    end
-    commands
+  COMMANDS = { 'L' => :turn_left, 'R' => :turn_right, 'A' => :advance }
+
+  def instructions(commands_str)
+    commands_str.chars.map { |cmd| COMMANDS[cmd] }
   end
 
   def place(robot, x:, y:, direction:)
@@ -59,9 +50,7 @@ class Simulator
     robot.orient(direction)
   end
 
-  def evaluate(robot, str_instructions)
-    instructions(str_instructions).each do |command|
-      robot.send(command)
-    end
+  def evaluate(robot, commands_str)
+    instructions(commands_str).each { |cmd| robot.send(cmd) }
   end
 end
