@@ -1,14 +1,14 @@
 export function primeFactors(number) {
-  const results = [];
+  const factors = [];
   let divisor = 2;
 
   while (number > 1) {
     while (number % divisor == 0) {
-      results.push(divisor);
-      number = number / divisor;
+      factors.push(divisor);
+      number /= divisor;
     }
     divisor += 1;
   }
 
-  return results;
+  return factors;
 }
