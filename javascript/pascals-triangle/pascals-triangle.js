@@ -1,17 +1,23 @@
 class Triangle {
-  constructor(n) {
-    this.rows = this.toRows(n);
+  constructor(numRows) {
+    this.rows = this.toRows(numRows);
+    this.lastRow = this.rows[this.rows.length-1];
   }
 
-  toRows(n) {
+  toRows(numRows) {
     const rows = [];
-    const row = [1];
 
-    do {
-      rows.push(row);
-      // row.push(1);
-      n -= 1;
-    } while ( n > 1 );
+    for (let i = 0; i < numRows; i++) {
+      rows[i] = new Array(i+1);
+
+      for (let j = 0; j < i+1; j++) {
+        if (j === 0 || j === i) {
+          rows[i][j] = 1;
+        } else {
+          rows[i][j] = rows[i-1][j-1] + rows[i-1][j];
+        }
+      }
+    }
 
     return rows;
   }
