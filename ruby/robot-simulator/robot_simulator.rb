@@ -36,5 +36,32 @@ class Robot
       @x -= 1
     end
   end
+end
 
+class Simulator
+  def instructions(string)
+    commands = []
+    string.chars.each do |letter|
+      case letter
+      when 'A'
+        commands.push(:advance)
+      when 'R'
+        commands.push(:turn_right)
+      when 'L'
+        commands.push(:turn_left)
+      end
+    end
+    commands
+  end
+
+  def place(robot, x:, y:, direction:)
+    robot.at(x, y)
+    robot.orient(direction)
+  end
+
+  def evaluate(robot, str_instructions)
+    instructions(str_instructions).each do |command|
+      robot.send(command)
+    end
+  end
 end
