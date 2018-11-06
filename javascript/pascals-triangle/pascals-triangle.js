@@ -5,10 +5,16 @@ class Triangle {
 
   toRows(n) {
     const rows = [];
-    const firstRow = [1];
-    if (n === 1) { rows.push(firstRow) }
+    const row = [1];
+
+    do {
+      rows.push(row);
+      // row.push(1);
+      n -= 1;
+    } while ( n > 1 );
+
     return rows;
   }
 }
 
-export default Triangle;
+module.exports = Triangle;
