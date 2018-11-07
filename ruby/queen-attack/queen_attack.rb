@@ -12,7 +12,7 @@ class Queens
   private
 
   def same_diagonal?
-   (@white[0] - @white[1]).abs == (@black[0] - @black[1]).abs
+   (@white[0] - @black[0]).abs == (@white[1] - @black[1]).abs
   end
 
   def same_row_or_col?
