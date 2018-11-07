@@ -43,13 +43,13 @@ class QueenAttackTest < Minitest::Test
   end
 
   def test_can_attack_on_same_row
-    skip
+    # skip
     queens = Queens.new(white: [2, 4], black: [2, 6])
     assert queens.attack?
   end
 
   def test_can_attack_on_same_column
-    skip
+    # skip
     queens = Queens.new(white: [4, 5], black: [2, 5])
     assert queens.attack?
   end
