@@ -31,7 +31,7 @@ class Board
     adjacents.push([x, y+1])
     adjacents.push([x+1, y+1])
 
-    adjacents(xi, yi).each do |adj|
+    adjacents.each do |adj|
       x = adj[0]
       y = adj[1]
       if @@rows[y][x] == '*'
