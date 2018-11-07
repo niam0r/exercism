@@ -6,17 +6,13 @@ class Queens
   end
 
   def attack?
-    same_row? || same_col?
+    same_row_or_col?
   end
 
   private
 
-  def same_row?
-    @white[0] == @black[0]
-  end
-
-  def same_col?
-    @white[1] == @black[1]
+  def same_row_or_col?
+    @white[0] == @black[0] || @white[1] == @black[1]
   end
 
   def validate(queen)
