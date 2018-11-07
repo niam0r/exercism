@@ -9,35 +9,35 @@ class QueenAttackTest < Minitest::Test
   end
 
   def test_queen_must_have_positive_row
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Queens.new(white: [-2, 2])
     end
   end
 
   def test_queen_must_have_row_on_board
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Queens.new(white: [8, 4])
     end
   end
 
   def test_queen_must_have_positive_column
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Queens.new(white: [2, -2])
     end
   end
 
   def test_queen_must_have_column_on_board
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Queens.new(white: [4, 8])
     end
   end
 
   def test_can_not_attack
-    skip
+    # skip
     queens = Queens.new(white: [2, 4], black: [6, 6])
     refute queens.attack?
   end
