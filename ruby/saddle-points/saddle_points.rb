@@ -10,21 +10,11 @@ class Matrix
 
     @rows.each_with_index do |row, yi|
       row.each_with_index do |n, xi|
-        if biggest_of_row?(row, n) && smallest_of_column?(@columns[xi], n)
+        if (n == row.max) && (n == @columns[xi].min)
           saddle_points.push([yi, xi])
         end
       end
     end
     saddle_points
-  end
-
-  private
-
-  def biggest_of_row?(row, n)
-    n == row.max
-  end
-
-  def smallest_of_column?(col, n)
-    n == col.min
   end
 end
