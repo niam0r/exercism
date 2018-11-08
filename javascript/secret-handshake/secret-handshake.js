@@ -10,11 +10,18 @@ const code = {
 
 export function secretHandshake(n) {
   const output = [];
-  output.push(code[n]);
+  const bin = decToBin(n);
+
+  output.push(code[bin])
+  // bin.split('').forEach(e => output.push(code[e]));
 
   return output;
 };
 
+function decToBin(dec){
+  return (dec >>> 0).toString(2);
+}
 
+// console.log(decToBin(2))
 
 // console.log(code[1])
