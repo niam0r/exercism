@@ -8,13 +8,12 @@ class School {
   }
 
   add(name, grade) {
-    this.db[grade] ? this.db[grade].push(name) : this.db[grade] = [name];
-    this.db[grade].sort();
+    this.db[grade] = (this.db[grade] || []).concat(name).sort();
   }
 
   grade(grade) {
-    return this.db[grade] ? this.db[grade].sort() : [];
+    return this.db[grade] || [];
   }
 }
 
-export default School;
+if (module) module.exports = School;
