@@ -1,6 +1,7 @@
 class Robot {
   constructor() {
-    this.name = this.generateName();
+    this.usedNames = []
+    this.name = this.generateName()
   }
 
   generateName() {
@@ -8,12 +9,13 @@ class Robot {
     const numbers = '0123456789';
     let name = this.sampler(alphabet, 2);
     name += this.sampler(numbers, 3);
+    this.usedNames.includes(name) ? this.generateName() : this.usedNames.push(name);
     return name;
   }
 
   sampler(possible, n) {
     let output = '';
-    for (var i = 0; i < n; i++)
+    for (let i = 0; i < n; i++)
       output += possible.charAt(Math.floor(Math.random() * possible.length));
     return output;
   }
@@ -26,5 +28,6 @@ class Robot {
 if (module) module.exports = Robot;
 
 // myRobot = new Robot;
-// console.log(myRobot.name);
+// myRobot.reset();
+// console.log(myRobot.usedNames);
 
