@@ -1,15 +1,19 @@
 class Robot {
   constructor() {
-    this.usedNames = []
-    this.name = this.generateName()
+    this.usedNames = new Set()
+    this.robotName = this.generateName()
+  }
+
+  get name() {
+    return this.robotName;
   }
 
   generateName() {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numbers = '0123456789';
-    let name = this.sampler(alphabet, 2);
-    name += this.sampler(numbers, 3);
-    this.usedNames.includes(name) ? this.generateName() : this.usedNames.push(name);
+    let name = this.sampler(alphabet, 2) + this.sampler(numbers, 3);
+    if (this.usedNames.has(name)) return this.generateName();
+    this.usedNames.add(name);
     return name;
   }
 
@@ -21,7 +25,7 @@ class Robot {
   }
 
   reset() {
-    this.name = this.generateName();
+    this.robotName = this.generateName();
   }
 }
 
