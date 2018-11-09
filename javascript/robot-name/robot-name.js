@@ -1,9 +1,9 @@
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const numbers = '0123456789';
+const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const NUMBERS = '0123456789';
 const usedNames = {};
 
 const generateName = () => {
-  let name = sampler(alphabet, 2) + sampler(numbers, 3);
+  let name = sampler(LETTERS, 2) + sampler(NUMBERS, 3);
   if (usedNames[name]) name = generateName();
   else usedNames[name] = true;
   return name;
