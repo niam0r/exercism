@@ -4,7 +4,7 @@ class School {
   }
 
   roster() {
-    return this.db;
+    return JSON.parse(JSON.stringify(this.db));
   }
 
   add(name, grade) {
