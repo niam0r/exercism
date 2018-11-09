@@ -17,6 +17,10 @@ class Robot {
       output += possible.charAt(Math.floor(Math.random() * possible.length));
     return output;
   }
+
+  reset() {
+    this.name = this.generateName();
+  }
 }
 
 if (module) module.exports = Robot;

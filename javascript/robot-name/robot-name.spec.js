@@ -26,16 +26,16 @@ describe('Robot', () => {
     expect(robot.name).toMatch(/^[A-Z]{2}\d{3}$/);
   });
 
-  xtest('name is the same each time', () => {
+  test('name is the same each time', () => {
     expect(robot.name).toEqual(robot.name);
   });
 
-  xtest('different robots have different names', () => {
+  test('different robots have different names', () => {
     const differentRobot = new Robot();
     expect(differentRobot.name).not.toEqual(robot.name);
   });
 
-  xtest('is able to reset the name', () => {
+  test('is able to reset the name', () => {
     const originalName = robot.name;
 
     robot.reset();
@@ -45,7 +45,7 @@ describe('Robot', () => {
     expect(originalName).not.toEqual(newName);
   });
 
-  xtest('should set a unique name after reset', () => {
+  test('should set a unique name after reset', () => {
     const NUMBER_OF_ROBOTS = 10000;
     const usedNames = new Set();
 
