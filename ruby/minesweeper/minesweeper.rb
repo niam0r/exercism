@@ -5,14 +5,14 @@ class Board
 
     # iterate through each square
     @@rows.each_with_index do |row, yi|
-      row.each_with_index do |n, xi|
+      row.each_with_index do |square, xi|
         # if any adjacent square has a mine
         count = count_adjacent_mines(xi, yi)
-        if ((count > 0) && (n == ' '))
-          n = count
+        if ((count > 0) && (square == ' '))
+          square = count
         end
         # replace the value of n in input
-        @@rows[yi][xi] = n
+        @@rows[yi][xi] = square
       end
     end
 
