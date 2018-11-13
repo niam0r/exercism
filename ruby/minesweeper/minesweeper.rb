@@ -2,8 +2,9 @@ class Board
   def self.transform(arr_of_str)
     raise ArgumentError unless validate_length(arr_of_str)
     @@rows = arr_of_str.map { |str| str.chars }
-    # validate_borders(@@rows)
+    validate_borders(@@rows)
     @@cols = @@rows.transpose
+    validate_borders(@@cols)
 
     # iterate through each square
     @@rows.each_with_index do |row, yi|
@@ -47,5 +48,9 @@ class Board
 
   def self.validate_length(arr_of_str)
     arr_of_str.all? { |arr| arr.length == arr[0].length }
+  end
+
+  def validate_border(rows_or_cols)
+    rows_or_cols.first.match?(/\+-+\+/) && rows_or_cols.last.match?(/\+-+\+/)
   end
 end
