@@ -1,5 +1,6 @@
 class Board
   def self.transform(arr_of_str)
+    raise ArgumentError unless validates(arr_of_str)
     @@rows = arr_of_str.map { |str| str.chars }
     @@cols = @@rows.transpose
 
@@ -20,7 +21,7 @@ class Board
 
   def self.count_adjacent_mines(x, y)
     count = 0
-    adjacents = []
+    adjacents = [] # array containing coords of adjacent squares
     adjacents.push([x-1, y-1])
     adjacents.push([x, y-1])
     adjacents.push([x+1, y-1])
@@ -30,14 +31,21 @@ class Board
     adjacents.push([x, y+1])
     adjacents.push([x+1, y+1])
 
-    adjacents.each do |adj|
-      x = adj[0]
-      y = adj[1]
-      if @@rows[y][x] == '*'
-        count += 1
-      end
-    end
+    # adjacents.each do |adj|
+    #   x = adj[0]
+    #   y = adj[1]
+    #   if !@@rows[y][x].nil? && @@rows[y][x] == '*'
+    #     count += 1
+    #   end
+    # end
 
     count
+  end
+
+  def self.validates(arr_of_str)
+    same_length = arr_of_str.all? do |arr|
+      arr.length == arr[0].length
+    end
+    same_length
   end
 end

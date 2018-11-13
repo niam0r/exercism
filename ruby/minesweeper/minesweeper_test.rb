@@ -3,6 +3,7 @@ require_relative 'minesweeper'
 
 class MinesweeperTest < Minitest::Test
   def test_transform1
+    skip
     inp = ['+------+', '| *  * |', '|  *   |', '|    * |', '|   * *|',
            '| *  * |', '|      |', '+------+']
     out = ['+------+', '|1*22*1|', '|12*322|', '| 123*2|', '|112*4*|',
@@ -71,7 +72,7 @@ class MinesweeperTest < Minitest::Test
   end
 
   def test_different_len
-    skip
+    # skip
     inp = ['+-+', '| |', '|*  |', '|  |', '+-+']
     assert_raises(ArgumentError) do
       Board.transform(inp)
