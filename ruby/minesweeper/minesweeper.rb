@@ -9,10 +9,9 @@ class Board
         # if any adjacent square has a mine
         count = count_adjacent_mines(xi, yi)
         if ((count > 0) && (square == ' '))
-          square = count
+          # replace the value in the square if there's mines around and the square is empty
+          @@rows[yi][xi] = square
         end
-        # replace the value of n in input
-        @@rows[yi][xi] = square
       end
     end
 
