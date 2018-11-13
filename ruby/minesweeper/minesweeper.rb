@@ -1,7 +1,8 @@
 class Board
   def self.transform(arr_of_str)
-    raise ArgumentError unless validates(arr_of_str)
+    raise ArgumentError unless validate_length(arr_of_str)
     @@rows = arr_of_str.map { |str| str.chars }
+    # validate_borders(@@rows)
     @@cols = @@rows.transpose
 
     # iterate through each square
@@ -42,10 +43,9 @@ class Board
     count
   end
 
-  def self.validates(arr_of_str)
-    same_length = arr_of_str.all? do |arr|
-      arr.length == arr[0].length
-    end
-    same_length
+  private
+
+  def self.validate_length(arr_of_str)
+    arr_of_str.all? { |arr| arr.length == arr[0].length }
   end
 end
