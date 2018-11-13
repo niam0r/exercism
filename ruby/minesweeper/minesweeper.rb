@@ -1,6 +1,6 @@
 class Board
   def self.transform(arr_of_str)
-    raise ArgumentError unless validate_length(arr_of_str)
+    raise ArgumentError unless validate_length_and_chars(arr_of_str)
     @@rows = arr_of_str.map { |str| str.chars }
     validate_borders(@@rows)
     @@cols = @@rows.transpose
@@ -46,8 +46,8 @@ class Board
 
   private
 
-  def self.validate_length(arr_of_str)
-    arr_of_str.all? { |arr| arr.length == arr[0].length }
+  def self.validate_length_and_chars(arr_of_str)
+    arr_of_str.all? { |str| str.length == str[0].length } && arr_of_str.all? { |str| str.match?(/[\+\-|*\s]/) }
   end
 
   def validate_border(rows_or_cols)
