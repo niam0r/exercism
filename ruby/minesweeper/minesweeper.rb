@@ -1,56 +1,27 @@
 class Board
-  def self.transform(arr_of_str)
-    raise ArgumentError unless validate_length_and_chars(arr_of_str)
-    @@rows = arr_of_str.map { |str| str.chars }
-    validate_borders(@@rows)
+  def self.transform(board)
+    raise ArgumentError unless validate_top_and_bottom(board) && validate_rows(board)
+    @@rows = board.map { |str| str.chars }
     @@cols = @@rows.transpose
-    validate_borders(@@cols)
 
-    # iterate through each square
-    @@rows.each_with_index do |row, yi|
-      row.each_with_index do |square, xi|
-        # if any adjacent square has a mine
-        count = count_adjacent_mines(xi, yi)
-        if ((count > 0) && (square == ' '))
-          # replace the value in the square if there's mines around and the square is empty
-          @@rows[yi][xi] = count
-        end
-      end
+    board.each_with_index.map do |row, ri|
+      row.each_char.with_index.map do |square, ci|
+        square == ' ' ? count_mines(board, ri, ci): square
+      end.join('')
     end
-
-    @@rows
   end
 
-  def self.count_adjacent_mines(x, y)
-    count = 0
-    adjacents = [] # array containing coords of adjacent squares
-    adjacents.push([x-1, y-1])
-    adjacents.push([x, y-1])
-    adjacents.push([x+1, y-1])
-    adjacents.push([x-1, y])
-    adjacents.push([x+1, y])
-    adjacents.push([x-1, y-1])
-    adjacents.push([x, y+1])
-    adjacents.push([x+1, y+1])
-
-    # adjacents.each do |adj|
-    #   x = adj[0]
-    #   y = adj[1]
-    #   if !@@rows[y][x].nil? && @@rows[y][x] == '*'
-    #     count += 1
-    #   end
-    # end
-
-    count
+  def self.count_mines(board, ri, ci)
+    mines = board[(ri-1)..(ri+1)].map{ |row| row[(ci-1)..(ci+1)] }.join('').count('*')
+    mines == 0 ? ' ' : mines.to_s
   end
 
-  private
-
-  def self.validate_length_and_chars(arr_of_str)
-    arr_of_str.all? { |str| str.length == str[0].length } && arr_of_str.all? { |str| str.match?(/[\+\-|*\s]/) }
+  def self.validate_top_and_bottom(board)
+    [board[0],board[-1]].all? { |caps| caps =~ /^\+-{#{board[0].length - 2}}\+$/ }
   end
 
-  def validate_border(rows_or_cols)
-    rows_or_cols.first.match?(/\+-+\+/) && rows_or_cols.last.match?(/\+-+\+/)
+  def self.validate_rows(board)
+    board[1..-2].all? { |row| row =~ /^\|[ *]{#{board[0].length - 2}}\|$/ }
   end
 end
+

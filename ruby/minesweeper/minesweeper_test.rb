@@ -3,7 +3,7 @@ require_relative 'minesweeper'
 
 class MinesweeperTest < Minitest::Test
   def test_transform1
-    skip
+    # skip
     inp = ['+------+', '| *  * |', '|  *   |', '|    * |', '|   * *|',
            '| *  * |', '|      |', '+------+']
     out = ['+------+', '|1*22*1|', '|12*322|', '| 123*2|', '|112*4*|',
@@ -12,7 +12,7 @@ class MinesweeperTest < Minitest::Test
   end
 
   def test_transform2
-    skip
+    # skip
     inp = ['+-----+', '| * * |', '|     |', '|   * |', '|  * *|',
            '| * * |', '+-----+']
     out = ['+-----+', '|1*2*1|', '|11322|', '| 12*2|', '|12*4*|',
@@ -21,49 +21,49 @@ class MinesweeperTest < Minitest::Test
   end
 
   def test_transform3
-    skip
+    # skip
     inp = ['+-----+', '| * * |', '+-----+']
     out = ['+-----+', '|1*2*1|', '+-----+']
     assert_equal out, Board.transform(inp)
   end
 
   def test_transform4
-    skip
+    # skip
     inp = ['+-+', '|*|', '| |', '|*|', '| |', '| |', '+-+']
     out = ['+-+', '|*|', '|2|', '|*|', '|1|', '| |', '+-+']
     assert_equal out, Board.transform(inp)
   end
 
   def test_transform5
-    skip
+    # skip
     inp = ['+-+', '|*|', '+-+']
     out = ['+-+', '|*|', '+-+']
     assert_equal out, Board.transform(inp)
   end
 
   def test_transform6
-    skip
+    # skip
     inp = ['+--+', '|**|', '|**|', '+--+']
     out = ['+--+', '|**|', '|**|', '+--+']
     assert_equal out, Board.transform(inp)
   end
 
   def test_transform7
-    skip
+    # skip
     inp = ['+--+', '|**|', '|**|', '+--+']
     out = ['+--+', '|**|', '|**|', '+--+']
     assert_equal out, Board.transform(inp)
   end
 
   def test_transform8
-    skip
+    # skip
     inp = ['+---+', '|***|', '|* *|', '|***|', '+---+']
     out = ['+---+', '|***|', '|*8*|', '|***|', '+---+']
     assert_equal out, Board.transform(inp)
   end
 
   def test_transform9
-    skip
+    # skip
     inp = ['+-----+', '|     |', '|   * |', '|     |', '|     |',
            '| *   |', '+-----+']
     out = ['+-----+', '|  111|', '|  1*1|', '|  111|', '|111  |',
