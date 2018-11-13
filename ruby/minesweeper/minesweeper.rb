@@ -10,7 +10,7 @@ class Board
         count = count_adjacent_mines(xi, yi)
         if ((count > 0) && (square == ' '))
           # replace the value in the square if there's mines around and the square is empty
-          @@rows[yi][xi] = square
+          @@rows[yi][xi] = count
         end
       end
     end
