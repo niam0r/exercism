@@ -1,27 +1,32 @@
 class BeerSong
   def self.recite(count, n_verses)
+    c = count.clone
     verses = []
-    while count > 1 do
-      line = <<-TEXT.gsub(/^ */, '')
-      #{count} bottles of beer on the wall, #{count} bottles of beer.
-      Take one down and pass it around, #{count-1} bottle#{count == 1 ? nil : 's'} of beer on the wall.
-      TEXT
-      verses.push(line)
-      count -= 1
-    end
 
-    last_lines = <<-TEXT.gsub(/^ */, '')
+    penultimate_line = <<-TEXT.gsub(/^ */, '')
     1 bottle of beer on the wall, 1 bottle of beer.
     Take it down and pass it around, no more bottles of beer on the wall.
-
-    No more bottles of beer on the wall, no more bottles of beer.
-    Go to the store and buy some more, #{count -1} bottle#{count == 1 ? nil : 's'} of beer on the wall.
     TEXT
 
-    verses.push(last_lines)
+    last_line = <<-TEXT.gsub(/^ */, '')
+    No more bottles of beer on the wall, no more bottles of beer.
+    Go to the store and buy some more, #{count} bottle#{c == 1 ? nil : 's'} of beer on the wall.
+    TEXT
+
+    while c > 1 do
+      line = <<-TEXT.gsub(/^ */, '')
+      #{c} bottles of beer on the wall, #{c} bottles of beer.
+      Take one down and pass it around, #{c-1} bottle#{c == 1 || c == 2 ? nil : 's'} of beer on the wall.
+      TEXT
+      verses.push(line)
+      c -= 1
+    end
+
+    verses.push(penultimate_line)
+    verses.push(last_line)
 
     verses.first(n_verses).join("\n")
   end
 end
 
-puts BeerSong.recite(99, 100)
+puts BeerSong.recite(2, 3)

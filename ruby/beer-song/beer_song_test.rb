@@ -22,7 +22,7 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_verse_with_2_bottles
-    skip
+    # skip
     expected = <<-TEXT.gsub(/^ */, '')
     2 bottles of beer on the wall, 2 bottles of beer.
     Take one down and pass it around, 1 bottle of beer on the wall.
@@ -31,7 +31,7 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_verse_with_1_bottle
-    skip
+    # skip
     expected = <<-TEXT.gsub(/^ */, '')
     1 bottle of beer on the wall, 1 bottle of beer.
     Take it down and pass it around, no more bottles of beer on the wall.
@@ -49,7 +49,7 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_first_two_verses
-    skip
+    # skip
     expected = <<-TEXT.gsub(/^ */, '')
     99 bottles of beer on the wall, 99 bottles of beer.
     Take one down and pass it around, 98 bottles of beer on the wall.
@@ -76,7 +76,7 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_all_verses
-    skip
+    # skip
     expected = <<-TEXT.gsub(/^ */, '')
     99 bottles of beer on the wall, 99 bottles of beer.
     Take one down and pass it around, 98 bottles of beer on the wall.
