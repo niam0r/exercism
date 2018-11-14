@@ -1,6 +1,5 @@
 class BeerSong
-  def self.recite(count, n_verses)
-    c = count.clone
+  def self.recite(c, n_verses)
     verses = []
 
     penultimate_line = <<-TEXT.gsub(/^ */, '')
