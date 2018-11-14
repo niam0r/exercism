@@ -13,7 +13,7 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_last_generic_verse
-    skip
+    # skip
     expected = <<-TEXT.gsub(/^ */, '')
     3 bottles of beer on the wall, 3 bottles of beer.
     Take one down and pass it around, 2 bottles of beer on the wall.
