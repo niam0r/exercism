@@ -10,23 +10,23 @@ class BeerSong
 
     last_line = <<-TEXT.gsub(/^ */, '')
     No more bottles of beer on the wall, no more bottles of beer.
-    Go to the store and buy some more, #{count} bottle#{c == 1 ? nil : 's'} of beer on the wall.
+    Go to the store and buy some more, 99 bottles of beer on the wall.
     TEXT
 
-    while c > 1 do
-      line = <<-TEXT.gsub(/^ */, '')
-      #{c} bottles of beer on the wall, #{c} bottles of beer.
-      Take one down and pass it around, #{c-1} bottle#{c == 1 || c == 2 ? nil : 's'} of beer on the wall.
-      TEXT
-      verses.push(line)
-      c -= 1
+    if c == 0
+      last_line
+    else
+      while c > 1 do
+        line = <<-TEXT.gsub(/^ */, '')
+        #{c} bottles of beer on the wall, #{c} bottles of beer.
+        Take one down and pass it around, #{c-1} bottle#{c == 1 || c == 2 ? nil : 's'} of beer on the wall.
+        TEXT
+        verses.push(line)
+        c -= 1
+      end
+      verses.push(penultimate_line, last_line)
+      verses.first(n_verses).join("\n")
     end
 
-    verses.push(penultimate_line)
-    verses.push(last_line)
-
-    verses.first(n_verses).join("\n")
   end
 end
-
-puts BeerSong.recite(2, 3)
