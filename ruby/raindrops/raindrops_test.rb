@@ -9,22 +9,22 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_the_sound_for_3_is_pling
-    skip
+    # skip
     assert_equal "Pling", Raindrops.convert(3)
   end
 
   def test_the_sound_for_5_is_plang
-    skip
+    # skip
     assert_equal "Plang", Raindrops.convert(5)
   end
 
   def test_the_sound_for_7_is_plong
-    skip
+    # skip
     assert_equal "Plong", Raindrops.convert(7)
   end
 
   def test_the_sound_for_6_is_pling_as_it_has_a_factor_3
-    skip
+    # skip
     assert_equal "Pling", Raindrops.convert(6)
   end
 
