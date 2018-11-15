@@ -1,11 +1,10 @@
 class Words {
   count(words) {
     const counts = {};
-    let normalizedWords = words.toLowerCase().replace( /\s+/g, " " ).split(' ')
+    let normalizedWords = words.trim().toLowerCase().split(/\s+/)
     normalizedWords.forEach(word => {
-      counts[word] == undefined ? counts[word] = 1 : counts[word] += 1;
+      counts[word] = Object.prototype.hasOwnProperty.call(counts, word) ? counts[word] + 1 : 1;
     })
-
     return counts;
   }
 }
