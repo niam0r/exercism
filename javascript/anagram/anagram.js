@@ -1,12 +1,14 @@
 class Anagram {
   constructor(subject) {
-    this.subject = this.clean(subject)
+    this.subject = subject
   }
 
   matches(words) {
     const results = [];
     words.forEach(word => {
-      if (this.clean(word) == this.subject) { results.push(word) };
+      let notSameWord = word.toUpperCase() !== this.subject.toUpperCase();
+      let anagram = this.clean(word) == this.clean(this.subject);
+      if (anagram && notSameWord) results.push(word);
     })
 
     return results;

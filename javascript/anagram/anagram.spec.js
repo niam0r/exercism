@@ -64,21 +64,21 @@ describe('Anagram', () => {
     expect(matches).toEqual(['Carthorse']);
   });
 
-  xtest('does not detect a anagram if the original word is repeated', () => {
+  test('does not detect a anagram if the original word is repeated', () => {
     const subject = new Anagram('go');
     const matches = subject.matches(['go Go GO']);
 
     expect(matches).toEqual([]);
   });
 
-  xtest('anagrams must use all letters exactly once', () => {
+  test('anagrams must use all letters exactly once', () => {
     const subject = new Anagram('tapper');
     const matches = subject.matches(['patter']);
 
     expect(matches).toEqual([]);
   });
 
-  xtest('capital word is not own anagram', () => {
+  test('capital word is not own anagram', () => {
     const subject = new Anagram('BANANA');
     const matches = subject.matches(['Banana']);
 
