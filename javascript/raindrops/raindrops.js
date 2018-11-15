@@ -10,6 +10,6 @@ export default class Raindrops {
     Object.keys(raindrops).forEach(key => {
       if (n % key == 0) output += raindrops[key];
     })
-    return output == '' ? n.toString() : output;
+    return output || n.toString();
   }
 }
