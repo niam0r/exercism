@@ -13,7 +13,7 @@ class Anagram {
   }
 
   clean(word) {
-    return word.split('').sort().join();
+    return word.toLowerCase().split('').sort().join();
   }
 }
 

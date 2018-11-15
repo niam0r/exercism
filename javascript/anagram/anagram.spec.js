@@ -43,21 +43,21 @@ describe('Anagram', () => {
     expect(matches).toEqual([]);
   });
 
-  xtest('detects anagrams case-insensitively', () => {
+  test('detects anagrams case-insensitively', () => {
     const subject = new Anagram('Orchestra');
     const matches = subject.matches(['cashregister', 'Carthorse', 'radishes']);
 
     expect(matches).toEqual(['Carthorse']);
   });
 
-  xtest('detects anagrams using case-insensitive subject', () => {
+  test('detects anagrams using case-insensitive subject', () => {
     const subject = new Anagram('Orchestra');
     const matches = subject.matches(['cashregister', 'carthorse', 'radishes']);
 
     expect(matches).toEqual(['carthorse']);
   });
 
-  xtest('detects anagrams using case-insensitive possible matches', () => {
+  test('detects anagrams using case-insensitive possible matches', () => {
     const subject = new Anagram('orchestra');
     const matches = subject.matches(['cashregister', 'Carthorse', 'radishes']);
 
