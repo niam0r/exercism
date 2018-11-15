@@ -9,7 +9,7 @@ describe('Acronyms are produced from', () => {
     expect(parse('Ruby on Rails')).toEqual('ROR');
   });
 
-  xtest('inconsistently cased phrases', () => {
+  test('inconsistently cased phrases', () => {
     expect(parse('HyperText Markup Language')).toEqual('HTML');
   });
 
@@ -21,7 +21,7 @@ describe('Acronyms are produced from', () => {
     expect(parse('PHP: Hypertext Preprocessor')).toEqual('PHP');
   });
 
-  xtest('phrases with punctuation and sentence casing', () => {
+  test('phrases with punctuation and sentence casing', () => {
     expect(parse('Complementary metal-oxide semiconductor')).toEqual('CMOS');
   });
 });
