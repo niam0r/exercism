@@ -35,17 +35,17 @@ describe('Series', () => {
       .toEqual([[0, 1, 2], [1, 2, 3], [2, 3, 4]]);
   });
 
-  xtest('can slice by 3 with duplicate digits', () => {
+  test('can slice by 3 with duplicate digits', () => {
     expect(new Series('31001').slices(3))
       .toEqual([[3, 1, 0], [1, 0, 0], [0, 0, 1]]);
   });
 
-  xtest('can slice by 4', () => {
+  test('can slice by 4', () => {
     expect(new Series('91274').slices(4))
       .toEqual([[9, 1, 2, 7], [1, 2, 7, 4]]);
   });
 
-  xtest('can slice by 5', () => {
+  test('can slice by 5', () => {
     expect(new Series('81228').slices(5))
       .toEqual([[8, 1, 2, 2, 8]]);
   });
