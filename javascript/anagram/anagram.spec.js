@@ -8,35 +8,35 @@ describe('Anagram', () => {
     expect(matches).toEqual([]);
   });
 
-  xtest('detects two anagrams', () => {
+  test('detects two anagrams', () => {
     const subject = new Anagram('master');
     const matches = subject.matches(['stream', 'pigeon', 'maters']);
 
     expect(matches).toEqual(['stream', 'maters']);
   });
 
-  xtest('does not detect anagram subsets', () => {
+  test('does not detect anagram subsets', () => {
     const subject = new Anagram('good');
     const matches = subject.matches(['dog', 'goody']);
 
     expect(matches).toEqual([]);
   });
 
-  xtest('detects anagram', () => {
+  test('detects anagram', () => {
     const subject = new Anagram('listen');
     const matches = subject.matches(['enlists', 'google', 'inlets', 'banana']);
 
     expect(matches).toEqual(['inlets']);
   });
 
-  xtest('detects three anagrams', () => {
+  test('detects three anagrams', () => {
     const subject = new Anagram('allergy');
     const matches = subject.matches(['gallery', 'ballerina', 'regally', 'clergy', 'largely', 'leading']);
 
     expect(matches).toEqual(['gallery', 'regally', 'largely']);
   });
 
-  xtest('does not detect non-anagrams with identical checksum', () => {
+  test('does not detect non-anagrams with identical checksum', () => {
     const subject = new Anagram('mass');
     const matches = subject.matches(['last']);
 

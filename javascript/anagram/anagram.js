@@ -1,13 +1,19 @@
 class Anagram {
-  constructor(word) {
-    this.word = word
+  constructor(subject) {
+    this.subject = this.clean(subject)
   }
 
-  matches() {
+  matches(words) {
     const results = [];
-
+    words.forEach(word => {
+      if (this.clean(word) == this.subject) { results.push(word) };
+    })
 
     return results;
+  }
+
+  clean(word) {
+    return word.split('').sort().join();
   }
 }
 
