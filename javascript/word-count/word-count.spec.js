@@ -37,24 +37,24 @@ describe('words()', () => {
     expect(words.count('go Go GO')).toEqual(expectedCounts);
   });
 
-  xtest('counts properly international characters', () => {
+  test('counts properly international characters', () => {
     const expectedCounts = {
       '¡hola!': 1, '¿qué': 1, 'tal?': 1, 'привет!': 1,
     };
     expect(words.count('¡Hola! ¿Qué tal? Привет!')).toEqual(expectedCounts);
   });
 
-  xtest('counts multiline', () => {
+  test('counts multiline', () => {
     const expectedCounts = { hello: 1, world: 1 };
     expect(words.count('hello\nworld')).toEqual(expectedCounts);
   });
 
-  xtest('counts tabs', () => {
+  test('counts tabs', () => {
     const expectedCounts = { hello: 1, world: 1 };
     expect(words.count('hello\tworld')).toEqual(expectedCounts);
   });
 
-  xtest('counts multiple spaces as one', () => {
+  test('counts multiple spaces as one', () => {
     const expectedCounts = { hello: 1, world: 1 };
     expect(words.count('hello  world')).toEqual(expectedCounts);
   });

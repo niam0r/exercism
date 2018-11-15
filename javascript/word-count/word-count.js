@@ -1,7 +1,8 @@
 class Words {
   count(words) {
     const counts = {};
-    words.toLowerCase().split(' ').forEach(word => {
+    let normalizedWords = words.toLowerCase().replace( /\s+/g, " " ).split(' ')
+    normalizedWords.forEach(word => {
       counts[word] == undefined ? counts[word] = 1 : counts[word] += 1;
     })
 
