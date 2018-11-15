@@ -8,31 +8,31 @@ describe('words()', () => {
     expect(words.count('word')).toEqual(expectedCounts);
   });
 
-  xtest('counts one of each', () => {
+  test('counts one of each', () => {
     const expectedCounts = { one: 1, of: 1, each: 1 };
     expect(words.count('one of each')).toEqual(expectedCounts);
   });
 
-  xtest('counts multiple occurrences', () => {
+  test('counts multiple occurrences', () => {
     const expectedCounts = {
       one: 1, fish: 4, two: 1, red: 1, blue: 1,
     };
     expect(words.count('one fish two fish red fish blue fish')).toEqual(expectedCounts);
   });
 
-  xtest('includes punctuation', () => {
+  test('includes punctuation', () => {
     const expectedCounts = {
       car: 1, ':': 2, carpet: 1, as: 1, java: 1, 'javascript!!&@$%^&': 1,
     };
     expect(words.count('car : carpet as java : javascript!!&@$%^&')).toEqual(expectedCounts);
   });
 
-  xtest('includes numbers', () => {
+  test('includes numbers', () => {
     const expectedCounts = { testing: 2, 1: 1, 2: 1 };
     expect(words.count('testing 1 2 testing')).toEqual(expectedCounts);
   });
 
-  xtest('normalizes to lower case', () => {
+  test('normalizes to lower case', () => {
     const expectedCounts = { go: 3 };
     expect(words.count('go Go GO')).toEqual(expectedCounts);
   });
