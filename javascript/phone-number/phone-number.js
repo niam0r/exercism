@@ -4,9 +4,9 @@ class PhoneNumber {
   }
 
   number() {
+    let cleaned = this.input.replace(/[\+\s()-.]/g, '');
 
-
-    return this.input
+    return cleaned;
   }
 }
 
