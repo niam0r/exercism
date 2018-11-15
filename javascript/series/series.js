@@ -4,6 +4,14 @@ export default class Series {
   }
 
   slices(size) {
-    if (size > this.digits.length) throw new Error('Slice size is too big.');
+    const len = this.digits.length;
+    if (size > len) throw new Error('Slice size is too big.');
+    const slices = [];
+
+    for (let start = 0; start <= len - size; start ++) {
+      slices.push(this.digits.slice(start, start + size));
+    }
+
+    return slices;
   }
 }
