@@ -51,21 +51,21 @@ describe('PhoneNumber()', () => {
     expect(phone.number()).toEqual(null);
   });
 
-  xtest('invalid if area code starts with 0 or 1', () => {
+  test('invalid if area code starts with 0 or 1', () => {
     const phone1 = new PhoneNumber('(023) 456-7890');
     const phone2 = new PhoneNumber('(123) 456-7890');
     expect(phone1.number()).toEqual(null);
     expect(phone2.number()).toEqual(null);
   });
 
-  xtest('invalid if exchange code starts with 0 or 1', () => {
+  test('invalid if exchange code starts with 0 or 1', () => {
     const phone1 = new PhoneNumber('(223) 056-7890');
     const phone2 = new PhoneNumber('(223) 156-7890');
     expect(phone1.number()).toEqual(null);
     expect(phone2.number()).toEqual(null);
   });
 
-  xtest('invalid when 11 digits starting with 1, '
+  test('invalid when 11 digits starting with 1, '
   + 'but invalid area/exchange code first digits', () => {
     const phone1 = new PhoneNumber('1 (023) 456-7890');
     const phone2 = new PhoneNumber('1 (123) 456-7890');
