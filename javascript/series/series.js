@@ -4,6 +4,6 @@ export default class Series {
   }
 
   slices(size) {
-
+    if (size > this.digits.length) throw new Error('Slice size is too big.');
   }
 }

@@ -50,7 +50,7 @@ describe('Series', () => {
       .toEqual([[8, 1, 2, 2, 8]]);
   });
 
-  xtest('throws an error if not enough digits to slice', () => {
+  test('throws an error if not enough digits to slice', () => {
     expect(() => {
       new Series('01032987583').slices(12);
     }).toThrow(new Error('Slice size is too big.'));
