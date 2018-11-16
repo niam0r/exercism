@@ -6,12 +6,12 @@ describe('High Scores Test Suite', () => {
     expect(new HighScores(input).scores).toEqual([30, 50, 20, 70]);
   });
 
-  xtest('Latest score', () => {
+  test('Latest score', () => {
     const input = [100, 0, 90, 30];
     expect(new HighScores(input).latest).toEqual(30);
   });
 
-  xtest('Highest score', () => {
+  test('Highest score', () => {
     const input = [40, 100, 70];
     expect(new HighScores(input).highest).toEqual(100);
   });
