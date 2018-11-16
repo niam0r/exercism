@@ -46,17 +46,17 @@ describe('High Scores Test Suite', () => {
     expect(new HighScores(input).top).toEqual([100, 90, 70]);
   });
 
-  xtest('Message for new personal best', () => {
+  test('Message for new personal best', () => {
     const input = [20, 40, 0, 30, 70];
     expect(new HighScores(input).report).toEqual("Your latest score was 70. That's your personal best!");
   });
 
-  xtest('Message when latest score is not the highest score', () => {
+  test('Message when latest score is not the highest score', () => {
     const input = [20, 100, 0, 30, 70];
     expect(new HighScores(input).report).toEqual("Your latest score was 70. That's 30 short of your personal best!");
   });
 
-  xtest('Message for repeated personal best', () => {
+  test('Message for repeated personal best', () => {
     const input = [20, 70, 50, 70, 30];
     expect(new HighScores(input).report).toEqual("Your latest score was 30. That's 40 short of your personal best!");
   });
