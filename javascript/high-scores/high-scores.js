@@ -1,7 +1,7 @@
 export class HighScores {
   constructor(scores) {
     this.scores = scores
-    this.latest = scores[scores.length-1]
+    this.latest = scores[scores.length - 1]
     this.highest = Math.max(...scores)
     this.top = [...scores].sort((a, b) => b - a).slice(0, 3)
     this.report = this.makeReport(this.latest, this.highest)
