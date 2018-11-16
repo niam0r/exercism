@@ -1,20 +1,15 @@
-const match = {
-  '(' : ')',
-  '[' : ']',
-  '{' : '}'
-}
+const match = { '(' : ')', '[' : ']', '{' : '}' };
 
 export function bracketPush(input) {
   const results = [];
   const norm = input.replace(/({})*(\[\])*(\(\))*/g, '');
   const len = norm.length;
-  if (norm === '') {
+  if (norm === '')
     return true;
-  } else {
+  else
     for (let i = 0; i < len / 2; i++) {
       results.push(match[norm[i]] === norm[len - i - 1]);
     }
     return results.every(result => result === true);
-  }
 }
 
