@@ -5,11 +5,11 @@ describe('bracket push', () => {
     expect(bracketPush('{}')).toEqual(true);
   });
 
-  xtest('returns false for unclosed brackets', () => {
+  test('returns false for unclosed brackets', () => {
     expect(bracketPush('{{')).toEqual(false);
   });
 
-  xtest('returns false if brackets are out of order', () => {
+  test('returns false if brackets are out of order', () => {
     expect(bracketPush('}{')).toEqual(false);
   });
 
