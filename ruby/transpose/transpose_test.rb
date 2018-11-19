@@ -61,7 +61,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_single_line
-    # skip
+    skip
     input = <<-INPUT.gsub(/^ {6}/, '').strip
       Single line.
     INPUT
