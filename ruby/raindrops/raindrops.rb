@@ -24,6 +24,8 @@ class Raindrops
     output.empty? ? input.to_s : output
   end
 
+
+  # previous solution
   # def self.convert(input)
   #   output = ''
   #   RAINDROPS.each_key do |key|
