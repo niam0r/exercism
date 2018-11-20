@@ -1,19 +1,32 @@
 class Transpose
   def self.transpose(input)
-    lines = input.split("\n")
-    longest = lines.map(&:length).max || 0
+    chars = input.split("\n").map(&:chars)
 
-    # return input.chars.join("\n") if lines.length == 1
+    width = chars.map(&:size).max
 
-    padding_array = [nil] * longest
-    equal_length_arrays = lines.map { |line| (line.chars + padding_array).take(longest) }
-    # Transpose.
-    transposed = equal_length_arrays.transpose
-    # strip trailing nils (remove right padding)
-    no_trailing_nils = transposed.map { |row| row.reverse.drop_while(&:nil?).reverse }
-    # replace remaining nils with spaces (add left padding)
-    correctly_padded = no_trailing_nils.map { |row| row.map { |c| c.nil? ? ' ' : c } }
-    # turn it back into a string
-    correctly_padded.map(&:join).join("\n")
+    chars
+      .map { |row| row.join.ljust(width).chars }
+      .transpose
+      .map(&:join)
+      .join("\n").strip
   end
+
+
+  # def self.transpose(input)
+  #   lines = input.split("\n")
+  #   longest = lines.map(&:length).max || 0
+
+  #   # return input.chars.join("\n") if lines.length == 1
+
+  #   padding_array = [nil] * longest
+  #   equal_length_arrays = lines.map { |line| (line.chars + padding_array).take(longest) }
+  #   # Transpose.
+  #   transposed = equal_length_arrays.transpose
+  #   # strip trailing nils (remove right padding)
+  #   no_trailing_nils = transposed.map { |row| row.reverse.drop_while(&:nil?).reverse }
+  #   # replace remaining nils with spaces (add left padding)
+  #   correctly_padded = no_trailing_nils.map { |row| row.map { |c| c.nil? ? ' ' : c } }
+  #   # turn it back into a string
+  #   correctly_padded.map(&:join).join("\n")
+  # end
 end
