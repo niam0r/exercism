@@ -28,16 +28,13 @@ class Transpose
   # end
 end
 
-input = <<-INPUT.gsub(/^ {6}/, '').strip
-      The longest line.
-      A long line.
-      A longer line.
-      A line.
-    INPUT
+# input = <<-INPUT.gsub(/^ {6}/, '').strip
+#       The longest line.
+#       A long line.
+#       A longer line.
+#       A line.
+#     INPUT
 
-
-# puts Transpose.transpose('Single line.')
-# puts Transpose.transpose('The first line.\nThe second line.')
-puts Transpose.transpose(input)
+# puts Transpose.transpose(input)
 
 
