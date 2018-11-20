@@ -7,6 +7,8 @@ class Alphametics
     l_h = Hash[all_letters.map { |l| [l, 0] }]
     # go through possible digit 1 to 9 for addends
 
+    #gsub letters by their value in hash and then increment until ?
+
     puts l_h
   end
 end
