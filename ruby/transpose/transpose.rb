@@ -8,15 +8,12 @@ class Transpose
       .map { |row| row.join.ljust(width).chars }
       .transpose
       .map(&:join)
-      .join("\n").strip
+      .join("\n")
   end
-
 
   # def self.transpose(input)
   #   lines = input.split("\n")
   #   longest = lines.map(&:length).max || 0
-
-  #   # return input.chars.join("\n") if lines.length == 1
 
   #   padding_array = [nil] * longest
   #   equal_length_arrays = lines.map { |line| (line.chars + padding_array).take(longest) }
@@ -30,3 +27,17 @@ class Transpose
   #   correctly_padded.map(&:join).join("\n")
   # end
 end
+
+input = <<-INPUT.gsub(/^ {6}/, '').strip
+      The longest line.
+      A long line.
+      A longer line.
+      A line.
+    INPUT
+
+
+# puts Transpose.transpose('Single line.')
+# puts Transpose.transpose('The first line.\nThe second line.')
+puts Transpose.transpose(input)
+
+

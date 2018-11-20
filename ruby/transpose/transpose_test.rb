@@ -6,11 +6,9 @@ class TransposeTest < Minitest::Test
   def test_empty_string
     # skip
     input = <<-INPUT.gsub(/^ {6}/, '').strip
-
     INPUT
 
     expected = <<-EXPECTED.gsub(/^ {6}/, '').strip
-
     EXPECTED
 
     assert_equal expected, Transpose.transpose(input)
@@ -61,7 +59,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_single_line
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ {6}/, '').strip
       Single line.
     INPUT
@@ -85,7 +83,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_first_line_longer_than_second_line
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ {6}/, '').strip
       The fourth line.
       The fifth line.
@@ -114,7 +112,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_second_line_longer_than_first_line
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ {6}/, '').strip
       The first line.
       The second line.
@@ -143,7 +141,7 @@ class TransposeTest < Minitest::Test
   end
 
   def test_mixed_line_length
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ {6}/, '').strip
       The longest line.
       A long line.
