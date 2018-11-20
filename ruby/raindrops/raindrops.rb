@@ -6,17 +6,19 @@ class Raindrops
   }
 
   def self.convert(input)
-    output = RAINDROPS.values.sum do |key, value|
-      if (input % key).zero?
+    output = ''
+    RAINDROPS.each_key do |key|
+      output << RAINDROPS[key] if (input % key).zero?
     end
     output.empty? ? input.to_s : output
   end
 
-  # previous solution
+  # solution suggested by mentor ajoshguy:
+  # not working
+
   # def self.convert(input)
-  #   output = ''
-  #   RAINDROPS.each_key do |key|
-  #     output << RAINDROPS[key] if (input % key).zero?
+  #   output = RAINDROPS.sum("") do |key, value|
+  #     (input % key).zero? ? "" : value
   #   end
   #   output.empty? ? input.to_s : output
   # end
