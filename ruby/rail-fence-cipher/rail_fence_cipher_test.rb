@@ -25,12 +25,12 @@ class RailFenceCipherTest < Minitest::Test
   end
 
   def test_encode_with_ending_in_the_middle
-    skip
+    # skip
     assert_equal 'ESXIEECSR', RailFenceCipher.encode('EXERCISES', 4)
   end
 
   def test_encode_with_less_letters_than_rails
-    skip
+    # skip
     assert_equal 'More rails than letters',
                  RailFenceCipher.encode('More rails than letters', 24)
   end

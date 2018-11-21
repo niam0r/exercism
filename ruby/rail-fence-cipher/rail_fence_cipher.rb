@@ -1,7 +1,7 @@
 class RailFenceCipher
   def self.encode(str, n)
     len = str.length
-    return str if len == 0 || n == 1
+    return str if len == 0 || n == 1 || n > len
 
     rows = Array.new(n) {Array.new(len)}
     indexes = ((0..n - 1).to_a + (0 + 1..n - 2).to_a.reverse) * len
