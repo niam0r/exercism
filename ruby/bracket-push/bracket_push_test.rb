@@ -39,7 +39,7 @@ class BracketPushTest < Minitest::Test
   end
 
   def test_simple_nested_brackets
-    skip
+    # skip
     assert Brackets.paired?('{[]}')
   end
 
