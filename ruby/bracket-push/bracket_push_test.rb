@@ -9,17 +9,17 @@ class BracketPushTest < Minitest::Test
   end
 
   def test_empty_string
-    skip
+    # skip
     assert Brackets.paired?('')
   end
 
   def test_unpaired_brackets
-    skip
+    # skip
     refute Brackets.paired?('[[')
   end
 
   def test_wrong_ordered_brackets
-    skip
+    # skip
     refute Brackets.paired?('}{')
   end
 
