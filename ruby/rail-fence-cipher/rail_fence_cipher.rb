@@ -1,19 +1,14 @@
 class RailFenceCipher
   def self.encode(str, n)
     len = str.length
-    str if len == 0 || n == 1
+    return str if len == 0 || n == 1
 
     rows = Array.new(n) {Array.new(len)}
-    indexes = ((0..n - 1).to_a + (0..n - 2).to_a.reverse) * len
+    indexes = ((0..n - 1).to_a + (0 + 1..n - 2).to_a.reverse) * len
 
+    str.gsub(' ','').chars.each_with_index { |c , i| rows[indexes[i]] << c }
 
-    p indexes
-
-    # str.gsub(' ','').chars.each_with_index do |c , i|
-    #  rows[i] << c if i < n
-
-    # end
-
+    rows.map(&:compact).join
   end
 
   # def self.decode(str, n)
@@ -21,7 +16,7 @@ class RailFenceCipher
   # end
 end
 
-RailFenceCipher.encode('WE ARE DISCOVERED FLEE AT ONCE', 3)
+# RailFenceCipher.encode('WE ARE DISCOVERED FLEE AT ONCE', 3)
 
 #i 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24
 #0 W  .  .  .  E  .  .  .  C  .  .  .  R  .  .  .  L  .  .  .  T  .  .  .  E

@@ -19,7 +19,7 @@ class RailFenceCipherTest < Minitest::Test
   end
 
   def test_encode_with_three_rails
-    skip
+    # skip
     assert_equal 'WECRLTEERDSOEEFEAOCAIVDEN',
                  RailFenceCipher.encode('WEAREDISCOVEREDFLEEATONCE', 3)
   end
