@@ -36,12 +36,12 @@ class RailFenceCipherTest < Minitest::Test
   end
 
   def test_decode_with_empty_string
-    skip
+    # skip
     assert_equal '', RailFenceCipher.decode('', 4)
   end
 
   def test_decode_with_one_rail
-    skip
+    # skip
     assert_equal 'ABCDEFGHIJKLMNOP',
                  RailFenceCipher.decode('ABCDEFGHIJKLMNOP', 1)
   end

@@ -11,9 +11,12 @@ class RailFenceCipher
     rows.map(&:compact).join
   end
 
-  # def self.decode(str, n)
+  def self.decode(str, n)
+    len = str.length
+    return str if len == 0 || n == 1
 
-  # end
+
+  end
 end
 
 # RailFenceCipher.encode('WE ARE DISCOVERED FLEE AT ONCE', 3)
