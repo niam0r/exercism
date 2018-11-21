@@ -5,21 +5,22 @@ class Raindrops
     7 => 'Plong'
   }
 
-  def self.convert(input)
-    output = ''
-    RAINDROPS.each_key do |key|
-      output << RAINDROPS[key] if (input % key).zero?
-    end
-    output.empty? ? input.to_s : output
-  end
-
-  # solution suggested by mentor ajoshguy:
-  # not working
+  # my solution:
 
   # def self.convert(input)
-  #   output = RAINDROPS.sum("") do |key, value|
-  #     (input % key).zero? ? "" : value
+  #   output = ''
+  #   RAINDROPS.each_key do |key|
+  #     output << RAINDROPS[key] if (input % key).zero?
   #   end
   #   output.empty? ? input.to_s : output
   # end
+
+  # solution suggested by mentor ajoshguy:
+
+  def self.convert(input)
+    output = RAINDROPS.sum("") do |key, value|
+      (input % key).zero? ? value : ""
+    end
+    output.empty? ? input.to_s : output
+  end
 end
