@@ -12,4 +12,8 @@ class Triangle
     @x == @y || @y == @z || @x == @z
   end
 
+  def scalene?
+   @x != @y && @y != @z && @x != @z
+  end
+
 end

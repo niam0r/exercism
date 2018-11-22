@@ -88,19 +88,19 @@ class TriangleTest < Minitest::Test
   end
 
   def test_triangle_is_scalene_if_no_sides_are_equal
-    skip
+    # skip
     triangle = Triangle.new([5, 4, 6])
     assert triangle.scalene?, "Expected 'true', triangle [5, 4, 6] is scalene."
   end
 
   def test_triangle_is_not_scalene_if_all_sides_are_equal
-    skip
+    # skip
     triangle = Triangle.new([4, 4, 4])
     refute triangle.scalene?, "Expected 'false', triangle [4, 4, 4] is not scalene."
   end
 
   def test_triangle_is_not_scalene_if_two_sides_are_equal
-    skip
+    # skip
     triangle = Triangle.new([4, 4, 3])
     refute triangle.scalene?, "Expected 'false', triangle [4, 4, 3] is not scalene."
   end
