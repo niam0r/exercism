@@ -4,7 +4,11 @@ class Triangle
   end
 
   def equilateral?
-    @x == @y && @y == @z
+    @x == @y && @y == @z && @x > 0
+  end
+
+  def isosceles?
+    @x == @y || @y == @z || @x == @z
   end
 
 end
