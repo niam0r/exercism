@@ -4,16 +4,18 @@ class Triangle
   end
 
   def equilateral?
-    @x == @y && @y == @z && @x > 0
+    valid? && @x == @y && @y == @z && @x > 0
   end
 
   def isosceles?
-    return false if @x + @y < @z
-    @x == @y || @y == @z || @x == @z
+    valid? && @x == @y || @y == @z || @x == @z
   end
 
   def scalene?
-    return false if @x + @y < @z
-    @x != @y && @y != @z && @x != @z
+    @x != @y && @y != @z && @x != @z && valid?
+  end
+
+  def valid?
+    @x + @y > @z
   end
 end
