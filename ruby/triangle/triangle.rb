@@ -8,6 +8,7 @@ class Triangle
   end
 
   def isosceles?
+    return false if @x + @y < @z
     @x == @y || @y == @z || @x == @z
   end
 
