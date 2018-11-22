@@ -7,7 +7,9 @@ class BinarySearch
   end
 
   def search_for(n)
-
+    result = @list.find_index(n)
+    raise RuntimeError if result.nil?
+    result
   end
 
   def middle
