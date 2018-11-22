@@ -1,10 +1,9 @@
 class BinarySearch
-  def initialize([arr])
+  attr_reader :list
 
-  end
-
-  def list
-
+  def initialize(arr)
+    raise ArgumentError if arr.sort != arr
+    @list = arr
   end
 
   def search_for(n)
