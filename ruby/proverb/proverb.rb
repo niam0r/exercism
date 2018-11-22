@@ -10,8 +10,7 @@ class Proverb
       proverb << "For want of a #{str} the #{@strings[i + 1]} was lost."
     end
     proverb.pop
-    proverb << "And all for the want of a #{@first}."
-    proverb.join("\n")
+    proverb.push("And all for the want of a #{@first}.").join("\n")
   end
 end
 
