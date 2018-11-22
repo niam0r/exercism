@@ -3,20 +3,14 @@ class Brackets
     match = { '(' => ')', '[' => ']', '{' => '}' }
     cleaned = str.gsub(' ', '').gsub(/({})*(\[\])*(\(\))*/, '').gsub(/({})*(\[\])*(\(\))*/, '')
     cleaned.empty?
-    len = cleaned.length
-    len.odd?
     # p cleaned
+    len = cleaned.length
+    return false if len.odd?
     results = []
-    cleaned.each_char.with_index do |c, i|
-      for i in 0..(len / 2)
-        results << (c == match[len - i - 1])
-      end
+    cleaned[0..(len / 2 - 1)].each_char.with_index do |c, i|
+      results << (match[c] == cleaned.reverse[i])
     end
-    # p results
     results.all?
   end
 end
 
-# Brackets.paired?('{[])')
-# Brackets.paired?('{ }')
-Brackets.paired?('{[]}')
