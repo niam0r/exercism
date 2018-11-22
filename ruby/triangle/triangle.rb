@@ -4,15 +4,15 @@ class Triangle
   end
 
   def equilateral?
-    valid? && @x == @y && @y == @z && @x > 0
+    valid? && @x == @y && @y == @z
   end
 
   def isosceles?
-    valid? && @x == @y || @y == @z || @x == @z
+    valid? && @x == @y || @y == @z
   end
 
   def scalene?
-    @x != @y && @y != @z && @x != @z && valid?
+    valid? && @x != @y && @y != @z && @x != @z
   end
 
   def valid?
