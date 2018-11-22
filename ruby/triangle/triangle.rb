@@ -13,7 +13,7 @@ class Triangle
   end
 
   def scalene?
-   @x != @y && @y != @z && @x != @z
+    return false if @x + @y < @z
+    @x != @y && @y != @z && @x != @z
   end
-
 end
