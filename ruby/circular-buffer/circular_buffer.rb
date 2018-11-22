@@ -6,4 +6,12 @@ class CircularBuffer
   def read
 
   end
+
+  def write(str)
+
+  end
+
+  def clear
+
+  end
 end
