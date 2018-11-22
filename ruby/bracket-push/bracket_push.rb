@@ -1,9 +1,9 @@
 class Brackets
   def self.paired?(str)
     match = { '(' => ')', '[' => ']', '{' => '}' }
-    cleaned = str.gsub(' ', '').gsub(/({})*(\[\])*(\(\))*/, '').gsub(/({})*(\[\])*(\(\))*/, '')
+    brackets_only = str.gsub(/[^\(\)\{\}\[\]}]/, '')
+    cleaned = brackets_only.gsub(/({})*(\[\])*(\(\))*/, '').gsub(/({})*(\[\])*(\(\))*/, '')
     cleaned.empty?
-    # p cleaned
     len = cleaned.length
     return false if len.odd?
     results = []

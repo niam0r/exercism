@@ -74,12 +74,12 @@ class BracketPushTest < Minitest::Test
   end
 
   def test_math_expression
-    skip
+    # skip
     assert Brackets.paired?('(((185 + 223.85) * 15) - 543)/2')
   end
 
   def test_complex_latex_expression
-    skip
+    # skip
     string = '\left(\begin{array}{cc} \frac{1}{3} & x\\ ' +
              '\mathrm{e}^{x} &... x^2 \end{array}\right)'
     assert Brackets.paired?(string)
