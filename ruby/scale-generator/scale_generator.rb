@@ -11,12 +11,22 @@ class Scale
     @scale_name = scale_name
     @pattern = pattern
     @name = "#{@tonic} #{scale_name}"
+    @chromatic_scale = FLAT_KEYS.include?(tonic) ? FLAT_CHROMATIC_SCALE : CHROMATIC_SCALE
   end
 
   def pitches
-    return CHROMATIC_SCALE if @tonic == 'C'
-    FLAT_CHROMATIC_SCALE.rotate(FLAT_CHROMATIC_SCALE.find_index(@tonic))
-
+    return reorder_chromatic_scale unless @pattern
+    last_index = 0
+    scale = @pattern.each_char.with_object([]) do |c, collector|
+      collector << reorder_chromatic_scale[last_index]
+      last_index += ASCENDING_INTERVALS.index(c) + 1
+    end
   end
 
+  private
+
+  def reorder_chromatic_scale
+    return @chromatic_scale if @tonic == 'C'
+    @chromatic_scale.rotate(@chromatic_scale.index(@tonic))
+  end
 end
