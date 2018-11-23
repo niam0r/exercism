@@ -9,17 +9,17 @@ class ChangeTest < Minitest::Test
   end
 
   def test_multiple_coin_change
-    skip
+    # skip
     assert_equal [5, 10], Change.generate([1, 5, 10, 25, 100], 15)
   end
 
   def test_change_with_lilliputian_coins
-    skip
+    # skip
     assert_equal [4, 4, 15], Change.generate([1, 4, 15, 20, 50], 23)
   end
 
   def test_change_with_lower_elbonia_coins
-    skip
+    # skip
     assert_equal [21, 21, 21], Change.generate([1, 5, 10, 21, 25], 63)
   end
 
