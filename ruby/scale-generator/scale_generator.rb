@@ -1,10 +1,10 @@
 class Scale
   attr_accessor :name
 
-  ASCENDING_INTERVALS = %w(m M A)
-  CHROMATIC_SCALE = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+  ASCENDING_INTERVALS =  %w(m M A)
+  CHROMATIC_SCALE =      %w(C C# D D# E F F# G G# A A# B)
   FLAT_CHROMATIC_SCALE = %w(C Db D Eb E F Gb G Ab A Bb B)
-  FLAT_KEYS = %w(F Bb Eb Ab Db Gb d g c f bb eb)
+  FLAT_KEYS =            %w(F Bb Eb Ab Db Gb d g c f bb eb)
 
   def initialize(tonic, scale_name, pattern = nil)
     @tonic = tonic.capitalize
@@ -14,8 +14,9 @@ class Scale
   end
 
   def pitches
+    return CHROMATIC_SCALE if @tonic == 'C'
+    FLAT_CHROMATIC_SCALE.rotate(FLAT_CHROMATIC_SCALE.find_index(@tonic))
 
-    # return array of notes as letters
   end
 
 end
