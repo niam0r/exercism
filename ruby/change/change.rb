@@ -1,9 +1,19 @@
 class Change
-  def self.generate(arr, n)
-    arr.reject {|coin| coin > n}
-    return [n] if arr.include?(n)
-    copy = Marshal.load(Marshal.dump(arr))
-    return arr if copy.sum == n
+
+  class NegativeTargetError < ArgumentError; end
+  class ImpossibleCombinationError < StandardError; end
+
+  def self.generate(coins, target)
+    raise NegativeTargetError if target < 0
+    return [] if target.zero?
+
+    coins.reject {|coin| coin > target}
+    return [target] if coins.include?(target)
+
 
   end
 end
+
+
+
+# copy = Marshal.load(Marshal.dump(coins))
