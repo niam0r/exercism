@@ -6,7 +6,7 @@ class Board
 
     board.each_with_index.map do |row, ri|
       row.each_char.with_index.map do |square, ci|
-        square == ' ' ? count_mines(board, ri, ci): square
+        square == ' ' ? count_mines(board, ri, ci) : square
       end.join('')
     end
   end
