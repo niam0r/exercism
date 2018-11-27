@@ -5,6 +5,7 @@ class Board
 
   def winner
     winner = ''
+    winner if !@board.include?('O')
 
 
     winner
