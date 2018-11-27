@@ -15,7 +15,7 @@ end
 # exercism henrik's solution:
 class Array
   def keep
-    each_with_object([]) { |x, out| out << x if yield(x) }
+    each_with_object([]) { |x, arr| arr << x if yield(x) }
   end
 
   def discard
