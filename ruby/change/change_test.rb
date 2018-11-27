@@ -44,14 +44,14 @@ class ChangeTest < Minitest::Test
   end
 
   def test_error_testing_for_change_smaller_than_the_smallest_of_coins
-    skip
+    # skip
     assert_raises(Change::ImpossibleCombinationError) do
       Change.generate([5, 10], 3)
     end
   end
 
   def test_error_if_no_combination_can_add_up_to_target
-    skip
+    # skip
     assert_raises(Change::ImpossibleCombinationError) do
       Change.generate([5, 10], 94)
     end
