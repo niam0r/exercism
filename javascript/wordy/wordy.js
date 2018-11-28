@@ -13,20 +13,23 @@ const find_operator = (str) => {
 
 export class WordProblem {
   constructor(question) {
-    this.question = question.replace('What is ', '').replace('?', '');
-    const operation = question.match(/(\d+)(\D+)(\d+)/)
-    this.opd1 = operation[1]
-    this.operator = operation[2].replace(/\s/g, '');
-    this.opd2 = operation[3]
+    const cleaned = question.replace(/What is|by|\?/g, '')
+    this.operation = cleaned.split(' ').map(el => {
+     return find_operator(el) ? find_operator(el) : el;
+    }).join(' ')
+    // console.log(this.operation)
   }
 
+
   answer() {
-    // console.log(`${this.opd1} ${find_operator(this.operator)} ${this.opd2}`);
-    return eval(`${this.opd1} ${find_operator(this.operator)} ${this.opd2}`);
+    // console.log(eval(this.operation));
+    return eval(this.operation);
   }
 }
 
-// 'What is 1 plus 1?'.replace('What is ', '').replace('?', '')
+// 'What is 1 plus 1?'.replace('What is ', '').replace('?', '').replace(/\s/g, '')
 // '1 plus 1'.match(/(\d)(\D+)(\d)/)[2].replace(/\s/g, '')
 
 // new WordProblem('What is 1 plus 1?').answer();
+// new WordProblem('What is -3 multiplied by 25?').answer();
+// new WordProblem('What is -12 divided by 2 divided by -3?').answer();
