@@ -1,14 +1,14 @@
-// const Cipher = class {
-export const Cipher = class {
+const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+class Cipher {
   constructor(key = this.generateKey(100)) {
     this.key = this.validate(key);
   }
 
   generateKey(length) {
     let key = ''
-    const charSet = "abcdefghijklmnopqrstuvwxyz"
     for (var i = 0; i < length; i++)
-      key += charSet.charAt(Math.floor(Math.random() * charSet.length));
+      key += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
     return key;
   }
 
@@ -17,7 +17,6 @@ export const Cipher = class {
     return key;
   }
 
-  const alpha = 'abcdefghijklmnopqrstuvwxyz';
 
   encode(string) {
 
@@ -28,5 +27,7 @@ export const Cipher = class {
   }
 };
 
-// const myCipher = new Cipher();
-// console.log(myCipher.key);
+if (module) module.exports = Cipher;
+
+const myCipher = new Cipher();
+console.log(myCipher.key);
