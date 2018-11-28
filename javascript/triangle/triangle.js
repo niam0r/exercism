@@ -6,9 +6,9 @@ class Triangle {
   kind() {
     if (this.isIllegal()) throw new TypeError('illegal');
 
-    if (this.isEquilateral()) return 'equilateral';
+    if (this.uniqueSidesLength() === 1) return 'equilateral';
 
-    if (this.isIsosceles()) return 'isosceles';
+    if (this.uniqueSidesLength() === 2) return 'isosceles';
 
     return 'scalene';
   }
@@ -25,14 +25,6 @@ class Triangle {
   hasImpossibleSides() {
     const [a, b, c] = this.sides;
     return a <= 0 || b <= 0 || c <= 0;
-  }
-
-  isEquilateral() {
-    return this.uniqueSidesLength() === 1;
-  }
-
-  isIsosceles() {
-    return this.uniqueSidesLength() === 2;
   }
 
   uniqueSidesLength() {
