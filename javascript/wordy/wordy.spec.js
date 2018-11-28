@@ -6,12 +6,12 @@ describe('Word Problem', () => {
     expect(new WordProblem(question).answer()).toEqual(2);
   });
 
-  xtest('add 2', () => {
+  test('add 2', () => {
     const question = 'What is 53 plus 2?';
     expect(new WordProblem(question).answer()).toEqual(55);
   });
 
-  xtest('add negative numbers', () => {
+  test('add negative numbers', () => {
     const question = 'What is -1 plus -10?';
     expect(new WordProblem(question).answer()).toEqual(-11);
   });
