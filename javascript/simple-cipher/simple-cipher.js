@@ -1,17 +1,15 @@
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+const len = alphabet.length;
 
-class Cipher {
+const generateKey = () => {
+  return Array.from({ length: 100 }, () => alphabet.charAt(Math.floor(Math.random() * len))).join('');
+};
+
+export class Cipher {
   constructor(key) {
-    if (typeof key === 'undefined') { key = this.generateKey(); }
+    if (typeof key === 'undefined') { key = generateKey(); }
     else if (!key || !/^[a-z]+$/.test(key)) { throw new Error('Bad key'); }
     this.key = key;
-  }
-
-  generateKey(length) {
-    let key = ''
-    for (var i = 0; i < length; i++)
-      key += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-    return key;
   }
 
   encode(string) {
@@ -23,7 +21,7 @@ class Cipher {
   }
 };
 
-if (module) module.exports = Cipher;
+// if (module) module.exports = Cipher;
 
-const myCipher = new Cipher();
-console.log(myCipher.key);
+// const myCipher = new Cipher();
+// console.log(myCipher.key);
