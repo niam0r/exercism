@@ -8,6 +8,7 @@ export default class Triangle {
   kind() {
     if (this.x === this.y && this.x === this.z) { return 'equilateral'; }
     if (this.x === this.y || this.x === this.z || this.y === this.z ) { return 'isosceles'; }
+    if (this.x !== this.y && this.x !== this.z && this.y !== this.z) { return 'scalene'; }
 
   }
 }
