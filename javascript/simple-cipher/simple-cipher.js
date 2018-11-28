@@ -21,7 +21,6 @@ export class Cipher {
   }
 };
 
-// if (module) module.exports = Cipher;
 
 // const myCipher = new Cipher();
 // console.log(myCipher.key);
