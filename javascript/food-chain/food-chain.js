@@ -1,11 +1,16 @@
-// const animals = ['fly', 'spider', 'bird', 'cat', 'dog', 'goat', 'cow', 'horse'];
-const animals = ['fly', 'spider', 'bird'];
+const animals = {
+  'fly' : '',
+  'spider' : `It wriggled and jiggled and tickled inside her.\n`,
+  'bird' : `How absurd to swallow a bird!\n`,
+  'cat' : `Imagine that, to swallow a cat!\n`,
+  'dog' : `What a hog, to swallow a dog!\n`,
+  'goat' : `Just opened her throat and swallowed a goat!\n`,
+  'cow' : `I don't know how she swallowed a cow!\n`,
+  'horse' : `She's dead, of course!\n`
+ };
 
-const secondLines = {
-  'spider' : `It wriggled and jiggled and tickled inside her.\n`
-};
-
-const previousAnimal = animal => animals[animals.indexOf(animal) - 1];
+const animalsArray = Object.keys(animals);
+const previousAnimal = animal => animalsArray[animalsArray.indexOf(animal) - 1];
 
 const firstLine = animal => `I know an old lady who swallowed a ${animal}.\n`;
 const reasonWhy = animal => `She swallowed the ${animal} to catch the ${previousAnimal(animal)}.\n`
@@ -14,7 +19,7 @@ const lastLine = `I don't know why she swallowed the fly. Perhaps she'll die.\n`
 const buildStanza = (animal) => {
   let stanza = [];
   stanza.push(firstLine(animal));
-  if (secondLines[animal]) { stanza.push(secondLines[animal]) }
+  if (animals[animal]) { stanza.push(animals[animal]) }
   if (animal !== 'fly') { stanza.push(reasonWhy(animal)) }
   stanza.push(lastLine);
   return stanza.join('');
@@ -36,7 +41,7 @@ class Song {
 
   buildSong() {
     const song = [];
-    for (let animal of animals) {
+    for (let animal in animals) {
       song.push(buildStanza(animal));
     }
     return song;
