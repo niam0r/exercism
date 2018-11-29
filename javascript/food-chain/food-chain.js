@@ -8,7 +8,7 @@ const buildStanza = (animal) => {
   let stanza = [];
   stanza.push(firstLine(animal))
   stanza.push(lastLine);
-  return stanza;
+  return stanza.join('');
 };
 
 
@@ -18,7 +18,7 @@ class Song {
   }
 
   verse(n) {
-
+    return this.song[n - 1];
   }
 
   verses(start, end) {
@@ -30,11 +30,12 @@ class Song {
     for (let animal of animals) {
       song.push(buildStanza(animal));
     }
-    return song.join('\n');
+    return song;
   }
 }
 
 
-// export default Song;
-const song = new Song();
-console.log(song.song);
+export default Song;
+// const song = new Song();
+// console.log(song.song);
+// console.log(song.verse(1));
