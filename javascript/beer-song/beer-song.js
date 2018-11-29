@@ -9,21 +9,16 @@ function bottles(number) {
   }
 }
 
-function action(currentVerse) {
-  if (currentVerse === 0) {
+function action(verseN) {
+  if (verseN === 0) {
     return 'Go to the store and buy some more, ';
   }
 
-  const sbj = currentVerse === 1 ? 'it' : 'one';
-  return `Take ${sbj} down and pass it around, `;
+  return `Take ${verseN === 1 ? 'it' : 'one'} down and pass it around, `;
 }
 
-function nextVerse(currentVerse) {
-  return currentVerse === 0 ? 99 : currentVerse - 1;
-}
-
-function nextBottle(currentVerse) {
-  return `${bottles(nextVerse(currentVerse)).toLowerCase()} of beer on the wall.\n`;
+function nextBottle(verseN) {
+  return `${bottles(verseN === 0 ? 99 : verseN - 1).toLowerCase()} of beer on the wall.\n`;
 }
 
 class BeerSong {
