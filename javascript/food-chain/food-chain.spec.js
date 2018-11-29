@@ -36,7 +36,7 @@ I don't know why she swallowed the fly. Perhaps she'll die.
     expect(song.verse(3)).toEqual(expected);
   });
 
-  xtest('cat', () => {
+  test('cat', () => {
     const expected = `I know an old lady who swallowed a cat.
 Imagine that, to swallow a cat!
 She swallowed the cat to catch the bird.

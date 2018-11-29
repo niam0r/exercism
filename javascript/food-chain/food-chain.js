@@ -34,13 +34,11 @@ const buildStanza = (animal) => {
       stanza.push(lastTwoLines);
       break;
     default:
-      // statements_def
+      stanza.push(animals[animal]);
+      stanza.push(reasonWhy(animal));
+      stanza.push(lastTwoLines);
       break;
   }
-  // if (animals[animal]) { stanza.push(animals[animal]) }
-  // if (animal === 'bird') { stanza.push(longReasonWhy) }
-  // if (animal !== 'fly') { stanza.push(reasonWhy(animal)) }
-  // stanza.push(firstReason);
 
   stanza.push(lastLine);
   return stanza.join('');
