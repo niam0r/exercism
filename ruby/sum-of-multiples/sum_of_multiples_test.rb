@@ -16,7 +16,7 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_more_than_one_multiple_within_limit
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(3)
     assert_equal 9, sum_of_multiples.to(7)
   end
@@ -40,7 +40,7 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_three_factors
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(7, 13, 17)
     assert_equal 51, sum_of_multiples.to(20)
   end
@@ -52,7 +52,7 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_some_pairs_of_factors_relatively_prime_and_some_not
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(5, 6, 8)
     assert_equal 4_419, sum_of_multiples.to(150)
   end
@@ -70,7 +70,7 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_all_numbers_are_multiples_of_1
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(1)
     assert_equal 4_950, sum_of_multiples.to(100)
   end

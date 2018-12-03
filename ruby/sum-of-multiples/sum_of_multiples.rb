@@ -1,12 +1,13 @@
 class SumOfMultiples
-  def initialize(a, b)
-    @a, @b = a, b
+  def initialize(a , b=a, c=a)
+    @a, @b ,@c= a, b, c
   end
 
   def to(limit)
-    return 0 if limit == 0
+    return 0 if limit == 0# || limit.nil?
+
     results = (@a..limit - 1).select do |n|
-      n % @a == 0 || n % @b == 0
+      n % @a == 0 || n % @b == 0 || n % @c == 0
     end.sum
   end
 
