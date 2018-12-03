@@ -22,19 +22,19 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_more_than_one_factor_with_multiples_within_limit
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(3, 5)
     assert_equal 23, sum_of_multiples.to(10)
   end
 
   def test_each_multiple_is_only_counted_once
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(3, 5)
     assert_equal 2_318, sum_of_multiples.to(100)
   end
 
   def test_a_much_larger_limit
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(3, 5)
     assert_equal 233_168, sum_of_multiples.to(1_000)
   end
@@ -46,7 +46,7 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_factors_not_relatively_prime
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(4, 6)
     assert_equal 30, sum_of_multiples.to(15)
   end
@@ -58,13 +58,13 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_one_factor_is_a_multiple_of_another
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(5, 25)
     assert_equal 275, sum_of_multiples.to(51)
   end
 
   def test_much_larger_factors
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(43, 47)
     assert_equal 2_203_160, sum_of_multiples.to(10_000)
   end
