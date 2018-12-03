@@ -6,23 +6,23 @@ class Prime
         n = 2
         loop do
             y << n
-            n = n.next_prime
+            n = next_prime(n)
         end
       end
       e.take(n).last
     end
 
-    def is_prime?
-      false if self <= 1
-      2.upto(Math.sqrt(self).to_i) do |x|
-        return false if self % x == 0
+    def is_prime?(n)
+      false if n <= 1
+      2.upto(Math.sqrt(n).to_i) do |x|
+        return false if n % x == 0
       end
       true
     end
 
-    def next_prime
-      n = self + 1
-      n = n + 1 until n.is_prime?
+    def next_prime(n)
+      n += 1
+      n = n + 1 until is_prime?(n)
       n
     end
   end
