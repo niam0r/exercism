@@ -73,14 +73,14 @@ class LargestSeriesProductTest < Minitest::Test
   end
 
   def test_rejects_invalid_character_in_digits
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Series.new('1234a5').largest_product(2)
     end
   end
 
   def test_rejects_negative_span
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Series.new('12345').largest_product(-1)
     end
