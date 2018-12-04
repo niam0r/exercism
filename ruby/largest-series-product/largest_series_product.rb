@@ -1,6 +1,6 @@
 class Series
   def initialize(str)
-    raise ArgumentError if str == '' || str.scan(/\D/) != []
+    raise ArgumentError if str == '' || str.scan(/\D/).any?
     @serie = str.chars.map(&:to_i)
   end
 
