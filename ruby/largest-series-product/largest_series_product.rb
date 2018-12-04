@@ -4,10 +4,9 @@ class Series
   end
 
   def largest_product(n)
-    products = []
-    @serie.each_cons(n) do |cons|
-      cons.
-    end
+    @serie.each_cons(n).map do |cons|
+      cons.reduce(1, :*)
+    end.max
   end
 end
 
