@@ -49,7 +49,7 @@ class LargestSeriesProductTest < Minitest::Test
   end
 
   def test_rejects_span_longer_than_string_length
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Series.new('123').largest_product(4)
     end
@@ -66,7 +66,7 @@ class LargestSeriesProductTest < Minitest::Test
   end
 
   def test_rejects_empty_string_and_nonzero_span
-    skip
+    # skip
     assert_raises(ArgumentError) do
       Series.new('').largest_product(1)
     end
