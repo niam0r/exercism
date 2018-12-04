@@ -1,16 +1,19 @@
+# class Transpose
+#   def self.transpose(input)
+#     chars = input.split("\n").map(&:chars)
+
+#     width = chars.map(&:size).max
+
+#     chars
+#       .map { |row| row.join.ljust(width).chars }
+#       .transpose
+#       .map(&:join)
+#       .join("\n")
+#   end
+# end
+
+# exercism solution:
 class Transpose
-  # def self.transpose(input)
-  #   chars = input.split("\n").map(&:chars)
-
-  #   width = chars.map(&:size).max
-
-  #   chars
-  #     .map { |row| row.join.ljust(width).chars }
-  #     .transpose
-  #     .map(&:join)
-  #     .join("\n")
-  # end
-
   def self.transpose(input)
     lines = input.split("\n")
     longest = lines.map(&:length).max || 0
@@ -27,6 +30,7 @@ class Transpose
     correctly_padded.map(&:join).join("\n")
   end
 end
+
 
 # input = <<-INPUT.gsub(/^ {6}/, '').strip
 #       The longest line.
