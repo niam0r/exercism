@@ -1,18 +1,12 @@
 class IsbnVerifier
   def self.valid?(str)
-    factors = [10, 9 , 8, 7, 6, 5, 4, 3, 2, 1]
-    sum = 0
-
-    return false if str.empty?
-    normalized = str.gsub('-', '').chars
-    if normalized[-1] == 'X'
-      sum += 10
-      normalized[-1] = ''
-    end
-
+    normalized = str.gsub(/[^0-9X]/, '').chars
     return false if normalized.size != 10
-    return false if normalized.any? { |e| (e).match(/\D/) }
 
+    sum = 0
+    sum += 10 if normalized[-1] == 'X'
+
+    factors = [10, 9 , 8, 7, 6, 5, 4, 3, 2, 1]
     normalized.each_with_index do |n, i|
       sum += n.to_i * factors[i]
     end
