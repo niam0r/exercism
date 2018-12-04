@@ -1,24 +1,15 @@
 class SumOfMultiples
-  def initialize(a , b=a, c=a)
+  def initialize(a=nil , b=a, c=a)
     @a, @b ,@c= a, b, c
   end
 
   def to(limit)
-    return 0 if limit == 0# || limit.nil?
+    return 0 if limit.zero? || @a.nil? || @a.zero?
 
-    results = (@a..limit - 1).select do |n|
+    (@a..limit - 1).select do |n|
       n % @a == 0 || n % @b == 0 || n % @c == 0
     end.sum
   end
-
-  # def to(limit)
-  #   results = []
-  #   (1..limit - 1).each do |n|
-  #     p n
-  #     results.push(n) if n % @a == 0 || n % @b == 0
-  #   end
-  #   p results
-  # end
 end
 
 

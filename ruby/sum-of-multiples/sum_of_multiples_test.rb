@@ -76,13 +76,13 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_no_factors_means_an_empty_sum
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new()
     assert_equal 0, sum_of_multiples.to(10_000)
   end
 
   def test_the_only_multiple_of_0_is_0
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(0)
     assert_equal 0, sum_of_multiples.to(1)
   end
