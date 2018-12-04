@@ -6,8 +6,6 @@ class Series
 
   def largest_product(n)
     raise ArgumentError if n > @serie.length || n < 0
-    @serie.each_cons(n).map do |cons|
-      cons.reduce(1, :*)
-    end.max
+    @serie.each_cons(n).map { |cons| cons.reduce(1, :*) }.max
   end
 end
