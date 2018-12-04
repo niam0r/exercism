@@ -3,11 +3,9 @@ class IsbnVerifier
     normalized = str.gsub(/[^0-9X]/, '').chars
     return false if normalized.size != 10
 
-    sum = 0
-    sum += 10 if normalized[-1] == 'X'
-
-    normalized.each_with_index do |n, i|
-      sum += n.to_i * (10 - i)
+    sum = normalized.each_with_index.reduce(0) do |acc, (n, i)|
+      acc += 10 if n == 'X'
+      acc += n.to_i * (10 - i)
     end
     sum % 11 == 0
   end
