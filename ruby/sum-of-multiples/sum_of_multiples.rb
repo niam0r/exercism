@@ -5,7 +5,7 @@ class SumOfMultiples
 
   def to(limit)
     return 0 if limit == 0 || limit == 1 || @factors.empty?
-    (0...limit).select { |x| multiple? x }.sum
+    (@factors.min...limit).select { |x| multiple? x }.sum
   end
 
   private
