@@ -1,17 +1,16 @@
 class SumOfMultiples
-  def initialize(a=nil , b=a, c=a)
-    @a, @b ,@c= a, b, c
+  def initialize(*factors)
+    @factors = factors
   end
 
-  def to(limit)
-    return 0 if limit.zero? || @a.nil? || @a.zero?
+  def to(n)
+    return 0 if n == 0 || n == 1 || @factors.empty?
+    (0...n).select { |x| multiple? x }.sum
+  end
 
-    (@a..limit - 1).select do |n|
-      n % @a == 0 || n % @b == 0 || n % @c == 0
-    end.sum
+  private
+
+  def multiple?(x)
+    @factors.any? { |f| x % f == 0 }
   end
 end
-
-
-# sum_of_multiples = SumOfMultiples.new(3, 5)
-# sum_of_multiples.to(10)

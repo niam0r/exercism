@@ -88,7 +88,7 @@ class SumOfMultiplesTest < Minitest::Test
   end
 
   def test_solutions_using_include_exclude_must_extend_to_cardinality_greater_than_3
-    skip
+    # skip
     sum_of_multiples = SumOfMultiples.new(2, 3, 5, 7, 11)
     assert_equal 39_614_537, sum_of_multiples.to(10_000)
   end
