@@ -5,11 +5,13 @@ class IsbnVerifier
 
     return false if str.empty?
     normalized = str.gsub('-', '').chars
-    if normalized.last == 'X'
+    if normalized[-1] == 'X'
       sum += 10
-      normalized.pop
+      normalized[-1] = ''
     end
-    # return false if normalized.scan(/\D/).any?
+
+    return false if normalized.size != 10
+
     normalized.each_with_index do |n, i|
       sum += n.to_i * factors[i]
     end
