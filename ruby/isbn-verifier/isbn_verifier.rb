@@ -11,6 +11,7 @@ class IsbnVerifier
     end
 
     return false if normalized.size != 10
+    return false if normalized.any? { |e| (e).match(/\D/) }
 
     normalized.each_with_index do |n, i|
       sum += n.to_i * factors[i]

@@ -22,19 +22,19 @@ class IsbnVerifierTest < Minitest::Test
   end
 
   def test_check_digit_is_a_character_other_than_x
-    skip
+    # skip
     string = "3-598-21507-A"
     refute IsbnVerifier.valid?(string), "Expected false, '#{string}' is not a valid isbn"
   end
 
   def test_invalid_character_in_isbn
-    skip
+    # skip
     string = "3-598-P1581-X"
     refute IsbnVerifier.valid?(string), "Expected false, '#{string}' is not a valid isbn"
   end
 
   def test_x_is_only_valid_as_a_check_digit
-    skip
+    # skip
     string = "3-598-2X507-9"
     refute IsbnVerifier.valid?(string), "Expected false, '#{string}' is not a valid isbn"
   end
@@ -94,7 +94,7 @@ class IsbnVerifierTest < Minitest::Test
   end
 
   def test_invalid_characters_are_not_ignored
-    skip
+    # skip
     string = "3132P34035"
     refute IsbnVerifier.valid?(string), "Expected false, '#{string}' is not a valid isbn"
   end
