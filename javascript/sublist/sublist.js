@@ -1,7 +1,7 @@
-const lengthDiff = (a, b) => { String(Math.sign(a.list.length - b.list.length)); };
+const lengthDiff = (a, b) => String(Math.sign(a.list.length - b.list.length));
 
 // is a sublist of b ? (returns the match or null)
-const isSublist = (a, b) => { b.list.join().match(a.list.join()); };
+const isSublist = (a, b) => b.list.join().match(a.list.join());
 
 class List {
   constructor(list = []) {
