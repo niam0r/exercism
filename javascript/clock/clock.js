@@ -22,7 +22,6 @@ const at = (hr, min = 0) => {
     hr += Math.floor(min / 60);
     min = min % 60;
   }
-
   let m = min < 10 ? `0${min}` : String(min)
 
   return `${processHour(hr)}:${m}`;
@@ -30,6 +29,3 @@ const at = (hr, min = 0) => {
 
 export default at;
 
-// console.log(processHour(24))
-
-// at(25, 0)
