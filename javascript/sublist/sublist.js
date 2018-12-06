@@ -5,6 +5,8 @@ class List {
 
   compare(other) {
     if (this.list.length === 0 && other.list.length === 0) { return 'EQUAL'; }
+    if (this.list.length === 0 && other.list.length > 0 ) { return 'SUBLIST'; }
+    if (this.list.length > 0 && other.list.length === 0 ) { return 'SUPERLIST'; }
   }
 }
 

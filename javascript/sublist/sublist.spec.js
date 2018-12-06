@@ -9,14 +9,14 @@ describe('sublist', () => {
     expect(listOne.compare(listTwo)).toEqual('EQUAL');
   });
 
-  xtest('an empty list is a sublist of a non-empty list', () => {
+  test('an empty list is a sublist of a non-empty list', () => {
     const listOne = new List();
     const listTwo = new List([1, 2, 3]);
 
     expect(listOne.compare(listTwo)).toEqual('SUBLIST');
   });
 
-  xtest('non empty list contains empty list', () => {
+  test('non empty list contains empty list', () => {
     const listOne = new List([1, 2, 3]);
     const listTwo = new List();
 
