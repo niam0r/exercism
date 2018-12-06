@@ -1,6 +1,10 @@
 const processHour = hr => {
   let h;
-  if (hr < 10) { h = `0${hr}`; }
+  if (hr < 0) {
+    while (hr <= 0) { hr += 24; }
+    h = processHour(hr);
+  }
+  else if (hr < 10) { h = `0${hr}`; }
   else if (hr === 24) { h = '00'; }
   else if (hr > 24) { h = processHour(hr % 24); }
   else { h = String(hr); }
