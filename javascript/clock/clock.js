@@ -7,12 +7,28 @@ const processHour = hr => {
   return h;
 };
 
+const processMinutes = min => {
+   let m;
+   if (min < 10) { m = `0${min}`; }
+   else if (min < 60) { m = String(min); }
+   else if (min == 60) {
+    m = '00';
+    hour += 1;
+   }
+   else if (min > 60) {
+     m = min % 60;
+     hour += min / 60;
+   }
+   return m;
+}
+
+let hour;
+
 const at = (hr, min = 0) => {
-  let h = processHour(hr);
-  let m = min < 10 ? `0${min}` : String(min)
+  hour = processHour(hr);
+  let m = processMinutes(min);
 
-
-  return `${h}:${m}`;
+  return `${hour}:${m}`;
 };
 
 export default at;
