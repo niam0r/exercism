@@ -9,7 +9,7 @@ const processHour = hr => {
 
 const at = (hr, min = 0) => {
   if (min >= 60) {
-    hr += min / 60;
+    hr += Math.floor(min / 60);
     min = min % 60;
   }
 

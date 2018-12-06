@@ -26,23 +26,23 @@ describe('Clock', () => {
       expect(at(1, 60).toString()).toEqual('02:00');
     });
 
-    xtest('minutes roll over', () => {
+    test('minutes roll over', () => {
       expect(at(0, 160).toString()).toEqual('02:40');
     });
 
-    xtest('minutes roll over continuously', () => {
+    test('minutes roll over continuously', () => {
       expect(at(0, 1723).toString()).toEqual('04:43');
     });
 
-    xtest('hour and minutes roll over', () => {
+    test('hour and minutes roll over', () => {
       expect(at(25, 160).toString()).toEqual('03:40');
     });
 
-    xtest('hour and minutes roll over continuously', () => {
+    test('hour and minutes roll over continuously', () => {
       expect(at(201, 3001).toString()).toEqual('11:01');
     });
 
-    xtest('hour and minutes roll over to exactly midnight', () => {
+    test('hour and minutes roll over to exactly midnight', () => {
       expect(at(72, 8640).toString()).toEqual('00:00');
     });
 
