@@ -12,6 +12,12 @@ const processHour = hr => {
 };
 
 const at = (hr, min = 0) => {
+  if (min < 0) {
+    while (min <= 0) {
+      min += 60;
+      hr -=1;
+    }
+  }
   if (min >= 60) {
     hr += Math.floor(min / 60);
     min = min % 60;
