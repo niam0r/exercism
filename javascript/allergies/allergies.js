@@ -26,10 +26,18 @@ class Allergies {
 
   list() {
     if (this.score === 0) { return this.aList; }
-    if (allergens.hasOwnProperty(this.score)) { return [allergens[this.score]]; }
-    this.extractAllergens();
+    if (allergens.hasOwnProperty(this.score)) {
+      this.aList.push(allergens[this.score]);
+    } else {
+      this.extractAllergens();
+    }
 
     return this.aList;
+  }
+
+  allergicTo(allergen) {
+    this.list();
+    return this.aList.includes(allergen);
   }
 }
 
