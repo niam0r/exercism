@@ -1,7 +1,7 @@
 import { score } from './scrabble-score';
 
 describe('Scrabble', () => {
-  xtest('lowercase letter', () => {
+  test('lowercase letter', () => {
     expect(score('a')).toEqual(1);
   });
 
