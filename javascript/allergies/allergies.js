@@ -16,10 +16,11 @@ class Allergies {
   }
 
   extractAllergens(aList) {
+    let score = parseInt([...this.score]);
     for (let key in allergens) {
-      if (key <= this.score) {
+      if (key <= score) {
         aList.push(allergens[key]);
-        this.score -= key;
+        score -= key ;
       }
     }
   }
