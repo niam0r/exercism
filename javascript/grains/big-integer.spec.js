@@ -1,4 +1,4 @@
-import BigInt from './big-integer';
+import bigInt from './big-integer';
 
 describe('The big-integer module\'s returned object', () => {
   let bigI;
