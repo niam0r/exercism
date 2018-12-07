@@ -16,12 +16,12 @@ describe('Allergies', () => {
     expect(allergies.list()).toEqual(['peanuts']);
   });
 
-  xtest('allergies to strawberries', () => {
+  test('allergies to strawberries', () => {
     const allergies = new Allergies(8);
     expect(allergies.list()).toEqual(['strawberries']);
   });
 
-  xtest('allergies to eggs and peanuts', () => {
+  test('allergies to eggs and peanuts', () => {
     const allergies = new Allergies(3);
     expect(allergies.list()).toEqual(['eggs', 'peanuts']);
   });

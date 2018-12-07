@@ -1,25 +1,35 @@
 const allergens = {
-  1: 'eggs',
-  2: 'peanuts',
-  4: 'shellfish',
-  8: 'strawberries',
-  16: 'tomatoes',
-  32: 'chocolate',
+  128: 'cats',
   64: 'pollen',
-  128: 'cats'
+  32: 'chocolate',
+  16: 'tomatoes',
+  8: 'strawberries',
+  4: 'shellfish',
+  2: 'peanuts',
+  1: 'eggs'
 };
 
 class Allergies {
   constructor(score) {
     this.score = score;
+    this.aList = [];
+  }
+
+  extractAllergens() {
+    for (let key in allergens) {
+      if (key <= this.score) {
+        this.aList.push(allergens[key]);
+        this.score -= key;
+      }
+    }
   }
 
   list() {
-    const allergies = [];
-    if (this.score === 0) { return allergies; }
-    if (allergens.hasOwnProperty(this.score)) { allergies.push(allergens[this.score]); }
+    if (this.score === 0) { return this.aList; }
+    if (allergens.hasOwnProperty(this.score)) { return [allergens[this.score]]; }
+    this.extractAllergens();
 
-    return allergies;
+    return this.aList;
   }
 }
 
