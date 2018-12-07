@@ -1,7 +1,7 @@
 import { score } from './scrabble-score';
 
 describe('Scrabble', () => {
-  test('lowercase letter', () => {
+  xtest('lowercase letter', () => {
     expect(score('a')).toEqual(1);
   });
 
@@ -37,7 +37,7 @@ describe('Scrabble', () => {
     expect(score('pinata')).toEqual(8);
   });
 
-  xtest('empty input', () => {
+  test('empty input', () => {
     expect(score('')).toEqual(0);
   });
 
