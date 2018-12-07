@@ -12,31 +12,34 @@ const allergens = {
 class Allergies {
   constructor(score) {
     this.score = score;
-    this.aList = [];
+    this.aList = this.buildList();
   }
 
-  extractAllergens() {
+  extractAllergens(aList) {
     for (let key in allergens) {
       if (key <= this.score) {
-        this.aList.push(allergens[key]);
+        aList.push(allergens[key]);
         this.score -= key;
       }
     }
   }
 
-  list() {
-    if (this.score === 0) { return this.aList; }
+  buildList() {
+    let aList = [];
+    if (this.score === 0) { return aList; }
     if (allergens.hasOwnProperty(this.score)) {
-      this.aList.push(allergens[this.score]);
+      aList.push(allergens[this.score]);
     } else {
-      this.extractAllergens();
+      this.extractAllergens(aList);
     }
+    return aList;
+  }
 
+  list() {
     return this.aList;
   }
 
   allergicTo(allergen) {
-    this.list();
     return this.aList.includes(allergen);
   }
 }
