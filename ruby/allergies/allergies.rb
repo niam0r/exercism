@@ -1,13 +1,13 @@
 ALLERGIES = {
- 128 => 'cats',
- 64 => 'pollen',
- 32 => 'chocolate',
- 16 => 'tomatoes',
- 8 => 'strawberries',
- 4 => 'shellfish',
- 2 => 'peanuts',
- 1 => 'eggs'
-}
+  128 => 'cats',
+  64 => 'pollen',
+  32 => 'chocolate',
+  16 => 'tomatoes',
+  8 => 'strawberries',
+  4 => 'shellfish',
+  2 => 'peanuts',
+  1 => 'eggs'
+}.freeze
 
 class Allergies
   attr_reader :allergies
@@ -20,11 +20,16 @@ class Allergies
     @allergies.include?(item)
   end
 
+  def list
+    @allergies.sort
+  end
+
   private
 
   def find_allergies
     allergies_list = []
     return allergies_list if @score.zero?
+
     score_copy = @score
     while score_copy > 0
       ALLERGIES.each do |k, v|
