@@ -12,13 +12,13 @@ class AllergiesTest < Minitest::Test
   end
 
   def test_is_allergic_to_eggs
-    skip
+    # skip
     allergies = Allergies.new(1)
     assert allergies.allergic_to?('eggs')
   end
 
   def test_allergic_to_eggs_in_addition_to_other_stuff
-    skip
+    # skip
     allergies = Allergies.new(5)
     assert allergies.allergic_to?('eggs')
     assert allergies.allergic_to?('shellfish')
@@ -26,7 +26,7 @@ class AllergiesTest < Minitest::Test
   end
 
   def test_allergic_to_strawberries_but_not_peanuts
-    skip
+    # skip
     allergies = Allergies.new(9)
     assert allergies.allergic_to?('eggs')
     refute allergies.allergic_to?('peanuts')
