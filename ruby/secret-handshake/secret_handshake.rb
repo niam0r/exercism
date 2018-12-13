@@ -1,8 +1,8 @@
 class SecretHandshake
   def initialize(decimal)
-    @bin = decimal.to_s(2).to_i
-  rescue ArgumentError
-    @bin = 0
+    @bin = decimal.is_a? Numeric ? decimal.to_s(2).to_i : 0
+  # rescue ArgumentError
+    # @bin = 0
   end
 
   def commands
@@ -24,7 +24,6 @@ class SecretHandshake
       bin -= 10
     elsif bin >= 1
       commands.push("wink")
-      bin -= 1
     end
 
     reverse ? commands.reverse : commands
