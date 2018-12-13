@@ -24,3 +24,48 @@ class Allergies
     @score & (2**index) > 0
   end
 end
+
+# koblenski's solution:
+class Allergies
+  ALLERGENS = {
+    1 => 'eggs',
+    2 => 'peanuts',
+    4 => 'shellfish',
+    8 => 'strawberries',
+    16 => 'tomatoes',
+    32 => 'chocolate',
+    64 => 'pollen',
+    128 => 'cats'
+  }
+
+  attr_reader :list
+
+  def initialize(n)
+    @list = ALLERGENS.select { |key, allergen| key & n == key }.values
+  end
+
+  def allergic_to?(allergen)
+    list.include? allergen
+  end
+end
+
+# gchan's solution
+class Allergies
+  ITEMS = %w(eggs peanuts shellfish strawberries tomatoes chocolate pollen cats)
+
+  attr_reader :score
+
+  def initialize(score)
+    @score = score
+  end
+
+  def allergic_to?(item)
+    list.include?(item)
+  end
+
+  def list
+    ITEMS.select.with_index do |item, index|
+      score & 2**index > 0
+    end
+  end
+end
