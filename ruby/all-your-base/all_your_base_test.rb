@@ -4,7 +4,7 @@ require_relative 'all_your_base'
 # Common test data version: 2.3.0 c21ffd7
 class AllYourBaseTest < Minitest::Test
   def test_single_bit_one_to_decimal
-    # skip
+    skip
     digits = [1]
     input_base = 2
     output_base = 10
@@ -234,7 +234,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_output_base_is_one
-    skip
+    # skip
     digits = [1, 0, 1, 0, 1, 0]
     input_base = 2
     output_base = 1
@@ -244,7 +244,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_output_base_is_zero
-    skip
+    # skip
     digits = [7]
     input_base = 10
     output_base = 0
@@ -254,7 +254,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_output_base_is_negative
-    skip
+    # skip
     digits = [1]
     input_base = 2
     output_base = -7
@@ -264,7 +264,7 @@ class AllYourBaseTest < Minitest::Test
   end
 
   def test_both_bases_are_negative
-    skip
+    # skip
     digits = [1]
     input_base = -2
     output_base = -7
