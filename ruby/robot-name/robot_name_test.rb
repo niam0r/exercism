@@ -14,7 +14,7 @@ class RobotTest < Minitest::Test
   end
 
   def test_has_name
-    skip
+    # skip
     assert_match NAME_REGEXP, Robot.new.name
   end
 
