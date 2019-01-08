@@ -9,7 +9,7 @@ class RobotTest < Minitest::Test
   end
 
   def test_can_create_a_robot
-    skip
+    # skip
     refute_nil Robot.new
   end
 
