@@ -19,14 +19,14 @@ class RobotTest < Minitest::Test
   end
 
   def test_name_sticks
-    skip
+    # skip
     robot = Robot.new
     original_name = robot.name
     assert_equal original_name, robot.name
   end
 
   def test_reset_changes_name
-    skip
+    # skip
     robot = Robot.new
     original_name = robot.name
     robot.reset
@@ -34,7 +34,7 @@ class RobotTest < Minitest::Test
   end
 
   def test_reset_before_name_called_does_not_cause_an_error
-    skip
+    # skip
     robot = Robot.new
     robot.reset
     assert_match NAME_REGEXP, Robot.new.name
