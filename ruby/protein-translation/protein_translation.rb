@@ -19,13 +19,11 @@ class Translation
     'UGA' => 'STOP'
   }
 
-  def self.of_codon(strand)
-    if strand.length == 3
-      CONVERTION[strand]
-    else
-      # result = []
-      strand.split('').each_slice(3).map { |slice| result << CONVERTION[slice] }
-      # result
-    end
+  def self.of_codon(codon)
+      CONVERTION[codon]
+  end
+
+  def self.of_rna(strand)
+    strand.scan(/.../).map { |codon| CONVERTION[codon] }
   end
 end
