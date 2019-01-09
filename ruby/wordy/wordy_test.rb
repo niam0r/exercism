@@ -89,7 +89,7 @@ class WordyTest < Minitest::Test
   end
 
   def test_unknown_operation
-    skip
+    # skip
     problem = WordProblem.new("What is 52 cubed?")
     assert_raises(ArgumentError) do
       problem.answer
@@ -97,7 +97,7 @@ class WordyTest < Minitest::Test
   end
 
   def test_non_math_question
-    skip
+    # skip
     problem = WordProblem.new("Who is the President of the United States?")
     assert_raises(ArgumentError) do
       problem.answer
