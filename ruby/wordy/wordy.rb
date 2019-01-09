@@ -1,18 +1,18 @@
 class WordProblem
   def initialize(question)
-    @operation = question.gsub('What is ', '').split[0..-2]
+    @operation = question.gsub('What is ', '')[0..-2]
   end
 
   def answer
     operators = {
-      'plus': '+',
-      'minus': '-',
-      'multiplied': '*',
-      'divided': '/'
+      'plus' => '+',
+      'minus' => '-',
+      'multiplied by' => '*',
+      'divided by' => '/'
     }
 
-    operators.each do |operator|
+    replaced = @operation.gsub(/\b(plus|minus|multiplied by|divided by)\b/, operators)
+    eval(replaced)
 
-    end
   end
 end

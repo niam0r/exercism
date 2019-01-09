@@ -10,37 +10,37 @@ class WordyTest < Minitest::Test
   end
 
   def test_more_addition
-    skip
+    # skip
     problem = WordProblem.new("What is 53 plus 2?")
     assert_equal(55, problem.answer)
   end
 
   def test_addition_with_negative_numbers
-    skip
+    # skip
     problem = WordProblem.new("What is -1 plus -10?")
     assert_equal(-11, problem.answer)
   end
 
   def test_large_addition
-    skip
+    # skip
     problem = WordProblem.new("What is 123 plus 45678?")
     assert_equal(45801, problem.answer)
   end
 
   def test_subtraction
-    skip
+    # skip
     problem = WordProblem.new("What is 4 minus -12?")
     assert_equal(16, problem.answer)
   end
 
   def test_multiplication
-    skip
+    # skip
     problem = WordProblem.new("What is -3 multiplied by 25?")
     assert_equal(-75, problem.answer)
   end
 
   def test_division
-    skip
+    # skip
     problem = WordProblem.new("What is 33 divided by -3?")
     assert_equal(-11, problem.answer)
   end
