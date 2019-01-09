@@ -1,3 +1,5 @@
+class InvalidCodonError < StandardError; end
+
 class Translation
   CONVERTION = {
     'AUG' => 'Methionine',
@@ -20,13 +22,16 @@ class Translation
   }
 
   def self.of_codon(codon)
+    raise InvalidCodonError if CONVERTION[codon].nil?
+
     CONVERTION[codon]
   end
 
   def self.of_rna(strand)
     strand.scan(/.../).each_with_object([]) do |codon, output|
       return output if CONVERTION[codon] == 'STOP'
-      output << CONVERTION[codon]
+
+      output << of_codon(codon)
     end
   end
 end
