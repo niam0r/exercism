@@ -20,10 +20,13 @@ class Translation
   }
 
   def self.of_codon(codon)
-      CONVERTION[codon]
+    CONVERTION[codon]
   end
 
   def self.of_rna(strand)
-    strand.scan(/.../).map { |codon| CONVERTION[codon] }
+    strand.scan(/.../).each_with_object([]) do |codon, output|
+      return output if CONVERTION[codon] == 'STOP'
+      output << CONVERTION[codon]
+    end
   end
 end
