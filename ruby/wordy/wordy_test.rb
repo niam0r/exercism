@@ -46,31 +46,31 @@ class WordyTest < Minitest::Test
   end
 
   def test_multiple_additions
-    skip
+    # skip
     problem = WordProblem.new("What is 1 plus 1 plus 1?")
     assert_equal(3, problem.answer)
   end
 
   def test_addition_and_subtraction
-    skip
+    # skip
     problem = WordProblem.new("What is 1 plus 5 minus -2?")
     assert_equal(8, problem.answer)
   end
 
   def test_multiple_subtraction
-    skip
+    # skip
     problem = WordProblem.new("What is 20 minus 4 minus 13?")
     assert_equal(3, problem.answer)
   end
 
   def test_subtraction_then_addition
-    skip
+    # skip
     problem = WordProblem.new("What is 17 minus 6 plus 3?")
     assert_equal(14, problem.answer)
   end
 
   def test_multiple_multiplication
-    skip
+    # skip
     problem = WordProblem.new("What is 2 multiplied by -2 multiplied by 3?")
     assert_equal(-12, problem.answer)
   end
@@ -83,7 +83,7 @@ class WordyTest < Minitest::Test
   end
 
   def test_multiple_division
-    skip
+    # skip
     problem = WordProblem.new("What is -12 divided by 2 divided by -3?")
     assert_equal(2, problem.answer)
   end
