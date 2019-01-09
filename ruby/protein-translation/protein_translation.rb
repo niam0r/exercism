@@ -19,7 +19,13 @@ class Translation
     'UGA' => 'STOP'
   }
 
-  def self.of_codon(str)
-    return CONVERTION[str]
+  def self.of_codon(strand)
+    if strand.length == 3
+      CONVERTION[strand]
+    else
+      # result = []
+      strand.split('').each_slice(3).map { |slice| result << CONVERTION[slice] }
+      # result
+    end
   end
 end
