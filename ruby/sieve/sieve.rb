@@ -9,7 +9,7 @@ class Sieve
 
   def find_composites
     results = []
-    @range.map do |n|
+    @range.each do |n|
       @range.each do |x|
         break if x * n > @limit
 
