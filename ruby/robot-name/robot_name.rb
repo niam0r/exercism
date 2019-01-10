@@ -4,6 +4,8 @@ class Robot
   end
 
   self.forget
+  # Line 6 is called immediately as Ruby is evaluating the class
+  # so it happens once when the class is defined.
 
   attr_reader :name
 
