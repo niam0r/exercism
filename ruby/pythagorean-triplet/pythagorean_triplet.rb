@@ -1,4 +1,8 @@
 class Triplet
+  def self.where(conditions)
+
+  end
+
   def initialize(a, b ,c)
     @a, @b, @c = a, b, c
   end
