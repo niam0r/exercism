@@ -1,15 +1,20 @@
 class Sieve
   attr_accessor :primes
   def initialize(limit)
-    @range = (2..limit).to_a
+    @limit = limit
+    @range = (2..limit)
     @composites = find_composites
-    @primes = @range - @composites
+    @primes = @range.to_a - @composites
   end
 
-  def composites
-    composites = []
+  def find_composites
+    results = []
     @range.each do |n|
-
+      @range.each do |x|
+        break if x * n > @limit
+        results.push(x * n)
+      end
     end
+    results
   end
 end
