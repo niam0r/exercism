@@ -1,33 +1,26 @@
 class Robot
   attr_reader :name
-  @@names = {}
+  @@names = []
 
   def initialize
-    generate_names
+    generate_names if @@names.empty?
     @name = pick_name
   end
 
   def reset
-    # mark name as used
     @name = pick_name
   end
-
 
   def self.forget; end
 
   private
 
   def pick_name
-
+    @@names.pop
   end
 
   def generate_names
-    letters = ('AA'..'ZZ').to_a
-    numbers = (000..999).to_a
-
-    #cycle through letters and numbers to get all possibilities
-    #set name as unused
-
+    @@names = ('AA000'..'ZZ999').to_a.shuffle
   end
 end
 
