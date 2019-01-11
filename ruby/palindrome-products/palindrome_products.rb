@@ -1,3 +1,5 @@
+Palindrome = Struct.new(:value, :factors)
+
 class Palindromes
   def initialize(conditions)
     @min = conditions.fetch(:min_factor) {1}
@@ -6,6 +8,7 @@ class Palindromes
   end
 
   def generate
+    @palindromes = {}
     @range.repeated_combination(2).map {|c| c.first * c.last}
   end
 
