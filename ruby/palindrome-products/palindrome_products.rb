@@ -1,5 +1,19 @@
 class Palindromes
   def initialize(conditions)
+    @min = conditions.fetch(:min_factor) {1}
+    @max = conditions.fetch(:max_factor)
+    @range = [*@min..@max]
+  end
+
+  def generate
+    # generate all products
+    products = [@min**2]
+    products << @range.combination(2).map {|c| c.first * c.last}
+    products << @max**2
+    products.flatten
+  end
+
+  def largest
 
   end
 
@@ -9,3 +23,7 @@ class Palindromes
     int.to_s == int.to_s.reverse
   end
 end
+
+
+palindromes = Palindromes.new(max_factor: 9)
+p palindromes.generate
