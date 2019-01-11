@@ -44,42 +44,42 @@ class LuhnTest < Minitest::Test
   end
 
   def test_valid_strings_with_a_non_digit_included_become_invalid
-    skip
+    # skip
     refute Luhn.valid?("055a 444 285")
   end
 
   def test_valid_strings_with_a_non_digit_added_at_the_end_become_invalid
-    skip
+    # skip
     refute Luhn.valid?("059a")
   end
 
   def test_valid_strings_with_punctuation_included_become_invalid
-    skip
+    # skip
     refute Luhn.valid?("055-444-285")
   end
 
   def test_valid_strings_with_symbols_included_become_invalid
-    skip
+    # skip
     refute Luhn.valid?("055£ 444$ 285")
   end
 
   def test_single_zero_with_space_is_invalid
-    skip
+    # skip
     refute Luhn.valid?(" 0")
   end
 
   def test_more_than_a_single_zero_is_valid
-    skip
+    # skip
     assert Luhn.valid?("0000 0")
   end
 
   def test_input_digit_9_is_correctly_converted_to_output_digit_9
-    skip
+    # skip
     assert Luhn.valid?("091")
   end
 
   def test_strings_with_non_digits_is_invalid
-    skip
+    # skip
     refute Luhn.valid?(":9")
   end
 end

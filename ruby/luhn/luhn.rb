@@ -1,9 +1,10 @@
 class Luhn
   def self.valid?(str)
-    return false if str.length == 1
+    clean_str = str.gsub(' ', '')
+    return false if clean_str.length == 1 || clean_str.match(/\D/)
 
     sum = 0
-    str.gsub(' ', '').reverse.chars.each_with_index do |c, i|
+    clean_str.reverse.chars.each_with_index do |c, i|
       sum += i.odd? ? double(c.to_i) : c.to_i
     end
     sum % 10 == 0
