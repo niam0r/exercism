@@ -9,7 +9,7 @@ class Luhn
   private
 
   def self.checksum(str)
-    str.reverse.chars.each_with_index.reduce(0) do |sum, (c, i)|
+    str.reverse.each_char.with_index.reduce(0) do |sum, (c, i)|
       sum + (i.odd? ? double(c.to_i) : c.to_i)
     end
   end
