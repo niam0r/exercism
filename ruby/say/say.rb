@@ -1,11 +1,12 @@
 class Say
-  def initialize(n)
-    raise ArgumentError unless (0..99).include?(n)
-    @n = n
+  def initialize(input)
+    range = (0..99)
+    raise ArgumentError unless range.include?(input)
+    @input = input
   end
 
   def in_english
-    'zero'
+     return 'zero' if @input.zero?
   end
 
   def small_numbers
