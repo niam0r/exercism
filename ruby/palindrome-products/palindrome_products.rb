@@ -6,12 +6,10 @@ class Palindromes
   end
 
   def generate
-    # generate all products
-    products = [@min**2]
-    products << @range.combination(2).map {|c| c.first * c.last}
-    products << @max**2
-    products.flatten
+    @range.repeated_combination(2).map {|c| c.first * c.last}
   end
+
+
 
   def largest
 
