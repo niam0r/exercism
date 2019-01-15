@@ -8,7 +8,7 @@ class Luhn
   end
 
   def valid?
-    correct_length_and_only_digits && (checksum(@string) % 10).zero?
+    correct_length_and_only_digits && (checksum % 10).zero?
   end
 
   private
@@ -17,8 +17,8 @@ class Luhn
     @string.match(/^\d{2,}$/)
   end
 
-  def checksum(str)
-    str.reverse.chars.each_with_index.reduce(0) do |sum, (c, i)|
+  def checksum
+    @string.reverse.chars.each_with_index.reduce(0) do |sum, (c, i)|
       sum + (i.odd? ? double(c.to_i) : c.to_i)
     end
   end
