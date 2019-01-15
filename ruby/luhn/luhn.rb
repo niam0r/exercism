@@ -1,20 +1,29 @@
 class Luhn
   def self.valid?(str)
-    clean_str = str.gsub(' ', '')
-    return false if clean_str.length == 1 || clean_str.match(/\D/)
+    Luhn.new(str).valid?
+  end
 
-    (checksum(clean_str) % 10).zero?
+  def initialize(str)
+    @string = str.tr(' ', '')
+  end
+
+  def valid?
+    correct_length_and_only_digits && (checksum(@string) % 10).zero?
   end
 
   private
 
-  def self.checksum(str)
-    str.reverse.each_char.with_index.reduce(0) do |sum, (c, i)|
+  def correct_length_and_only_digits
+    @string.match(/^\d{2,}$/)
+  end
+
+  def checksum(str)
+    str.reverse.chars.each_with_index.reduce(0) do |sum, (c, i)|
       sum + (i.odd? ? double(c.to_i) : c.to_i)
     end
   end
 
-  def self.double(n)
+  def double(n)
     doubled = n * 2
     doubled > 9 ? doubled - 9 : doubled
   end
