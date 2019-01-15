@@ -7,12 +7,18 @@ class TwoBucket
   end
 
   def moves
+    # the total number of "moves" it should take to reach the desired number of liters,
+    # including the first fill
 
   end
-  # the total number of "moves" it should take to reach the desired number of liters,
-  # including the first fill
-  # which bucket should end up with the desired number of liters
-  # (let's say this is bucket A) - either bucket one or bucket two
-  # how many liters are left in the other bucket (bucket B)
 
+  def goal_bucket
+    # which bucket should end up with the desired number of liters
+
+  end
+
+  def other_bucket
+    # return how many liters are left in the other bucket
+
+  end
 end
