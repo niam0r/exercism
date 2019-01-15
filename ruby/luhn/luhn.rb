@@ -8,12 +8,12 @@ class Luhn
   end
 
   def valid?
-    correct_length_and_only_digits && (checksum % 10).zero?
+    valid_format? && (checksum % 10).zero?
   end
 
   private
 
-  def correct_length_and_only_digits
+  def valid_format?
     @string.match(/^\d{2,}$/)
   end
 
