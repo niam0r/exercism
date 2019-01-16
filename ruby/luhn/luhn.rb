@@ -18,8 +18,8 @@ class Luhn
   end
 
   def checksum
-    @string.reverse.chars.each_slice(2).sum(0) do |cons|
-      cons.first.to_i + double(cons.last.to_i)
+    @string.reverse.chars.each_slice(2).sum(0) do |slice|
+      slice.first.to_i + double(slice.last.to_i)
     end
   end
 
