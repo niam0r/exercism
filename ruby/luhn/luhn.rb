@@ -4,7 +4,7 @@ class Luhn
   end
 
   def initialize(str)
-    @string = str.tr(' ', '')
+    @string = str.delete(' ')
   end
 
   def valid?
@@ -18,8 +18,8 @@ class Luhn
   end
 
   def checksum
-    @string.reverse.chars.each_slice(2).sum(0) do |slice|
-      slice.first.to_i + double(slice.last.to_i)
+    @string.reverse.chars.each_slice(2).sum do |even, odd|
+      even.to_i + double(odd.to_i)
     end
   end
 
