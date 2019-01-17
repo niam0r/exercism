@@ -18,17 +18,33 @@ export default class Triplet {
   }
 
   static where(conditions) {
-    return new Triplets(conditions);
+    return new Triplets(conditions).toArray();
   }
 }
 
 class Triplets {
   constructor(conditions) {
-    this.minFactor = conditions.minFactor;
-    this.maxFactor = conditions.maxFactor;
+    this.min = conditions.minFactor || 1;
+    this.max = conditions.maxFactor;
+    this.sum = conditions.sum;
   }
 
+  toArray() {
+    const triplets = [];
+    for (let a = this.min; a < this.max - 1; a++) {
+      for (let b = a + 1; b < this.max; b++) {
+        for (let c = b + 1; c <= this.max; c++) {
+          let triplet = new Triplet(a, b, c);
+          if (this.isAcceptable(triplet)) {
+            triplets.push(triplet);
+          }
+        }
+      }
+    }
+    return triplets;
+  }
 
-
-
+  isAcceptable(triplet) {
+    return triplet.isPythagorean() && (!this.sum || triplet.sum() === this.sum);
+  }
 }
