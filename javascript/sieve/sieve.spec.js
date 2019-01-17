@@ -5,7 +5,7 @@ describe('Sieve', () => {
     expect(new Sieve(10).primes).toEqual([2, 3, 5, 7]);
   });
 
-  xtest('finds primes up to 13, and considers the limit passed in', () => {
+  test('finds primes up to 13, and considers the limit passed in', () => {
     expect(new Sieve(13).primes).toEqual([2, 3, 5, 7, 11, 13]);
   });
 

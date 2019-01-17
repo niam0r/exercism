@@ -6,20 +6,28 @@ function range(start, end) {
 };
 
 class Sieve {
-  constructor(max) {
-    this.max = max;
-    this.range = range(2, max);
-    console.log(this.range)
+  constructor(limit) {
+    this.limit = limit;
+    this.range = range(2, limit);
     this.composites = this.generateComposites();
     this.primes = this.range - this.composites
   }
 
-
   generateComposites() {
+    const composites = [];
+    this.range.forEach(x => {
+      this.range.forEach(y => {
+        let product = x * y;
+        break if product > this.limit;
+        composites.pust(product);
+      })
+    });
 
+    return composites;
   }
 }
 
-// export default Sieve;
+export default Sieve;
 
-new Sieve(10)
+// const test = new Sieve(10)
+// console.log('')
