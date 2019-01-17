@@ -9,25 +9,35 @@ class Sieve {
   constructor(limit) {
     this.limit = limit;
     this.range = range(2, limit);
+    console.log('this.range:', this.range);
     this.composites = this.generateComposites();
-    this.primes = this.range - this.composites
+    this.primes = this.findPrimes();
   }
 
   generateComposites() {
     const composites = [];
-    this.range.forEach(x => {
-      this.range.forEach(y => {
+    for (let x = 2; x < this.limit; x++) {
+      for (let y = 2; y < this.limit; y++) {
         let product = x * y;
-        break if product > this.limit;
-        composites.pust(product);
-      })
-    });
-
+        if (product > this.limit) break;
+        composites.push(product);
+      }
+    }
+    console.log('composites:', composites);
     return composites;
+  }
+
+  findPrimes() {
+    let primes = this.range.filter(n => {
+      !this.composites.includes(n);
+    })
+    console.log('primes:', primes);
+    return primes;
   }
 }
 
-export default Sieve;
+// export default Sieve;
 
+new Sieve(10)
 // const test = new Sieve(10)
 // console.log('')
