@@ -1,6 +1,5 @@
 const line = (first, second) => {
-  if (typeof second === 'undefined') { return ''; }
-  return `For want of a ${first} the ${second} was lost.\n`;
+  return typeof second === 'undefined' ? '' : `For want of a ${first} the ${second} was lost.\n`;
 };
 
 const proverb = (...input) => {
@@ -15,8 +14,7 @@ const proverb = (...input) => {
 
   if (last.qualifier) {
     qualifier = `${last.qualifier} `;
-    proverb.pop();
-    proverb.pop();
+    proverb.length -= 2;
   }
 
   proverb.push(`And all for the want of a ${qualifier}${input[0]}.`);
