@@ -6,15 +6,18 @@ export default class Triplet {
   }
 
   sum() {
-    return this.a + this.b + this.c;
+    const { a, b, c } = this;
+    return a + b + c;
   }
 
   product() {
-    return this.a * this.b * this.c;
+    const { a, b, c } = this;
+    return a * b * c;
   }
 
   isPythagorean() {
-    return this.a ** 2 + this.b ** 2 === this.c ** 2;
+    const { a, b, c } = this;
+    return a * a + b * b === c * c;
   }
 
   static where(conditions) {
@@ -31,9 +34,10 @@ class Triplets {
 
   toArray() {
     const triplets = [];
-    for (let a = this.min; a < this.max - 1; a++) {
-      for (let b = a + 1; b < this.max; b++) {
-        for (let c = b + 1; c <= this.max; c++) {
+    const { min, max } = this;
+    for (let a = min; a < max - 1; a++) {
+      for (let b = a + 1; b < max; b++) {
+        for (let c = b + 1; c <= max; c++) {
           let triplet = new Triplet(a, b, c);
           if (this.isAcceptable(triplet)) {
             triplets.push(triplet);
