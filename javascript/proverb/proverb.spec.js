@@ -10,7 +10,7 @@ And all for the want of a nail.`,
     );
   });
 
-  xtest('a short chain of consequences', () => {
+  test('a short chain of consequences', () => {
     const result = proverb('nail', 'shoe', 'horse');
 
     expect(result).toEqual(
@@ -20,7 +20,7 @@ And all for the want of a nail.`,
     );
   });
 
-  xtest('a longer chain of consequences', () => {
+  test('a longer chain of consequences', () => {
     const result = proverb('nail', 'shoe', 'horse', 'rider');
     expect(result).toEqual(
       `For want of a nail the shoe was lost.
@@ -30,7 +30,7 @@ And all for the want of a nail.`,
     );
   });
 
-  xtest('proverb function does not hard code the rhyme dictionary', () => {
+  test('proverb function does not hard code the rhyme dictionary', () => {
     const result = proverb('key', 'value');
 
     expect(result).toEqual(
@@ -39,7 +39,7 @@ And all for the want of a key.`,
     );
   });
 
-  xtest('the whole proveb', () => {
+  test('the whole proveb', () => {
     const result = proverb('nail', 'shoe', 'horse', 'rider',
       'message', 'battle', 'kingdom');
 
@@ -54,7 +54,7 @@ And all for the want of a nail.`,
     );
   });
 
-  xtest('proverb is the same each time', () => {
+  test('proverb is the same each time', () => {
     expect(proverb('nail', 'shoe')).toEqual(proverb('nail', 'shoe'));
   });
 
