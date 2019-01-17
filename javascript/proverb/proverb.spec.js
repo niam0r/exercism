@@ -58,7 +58,7 @@ And all for the want of a nail.`,
     expect(proverb('nail', 'shoe')).toEqual(proverb('nail', 'shoe'));
   });
 
-  xtest('the use of an optional qualifier in the final consequence', () => {
+  test('the use of an optional qualifier in the final consequence', () => {
     const result = proverb('nail', 'shoe', 'horse', 'rider',
       'message', 'battle', 'kingdom',
       { qualifier: 'horseshoe' });
