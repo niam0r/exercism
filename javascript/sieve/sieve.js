@@ -1,7 +1,7 @@
 function range(start, end) {
-    if(start === end) return [start];
-    return [start, ...range(start + 1, end)];
-};
+  if (start === end) return [start];
+  return [start, ...range(start + 1, end)];
+}
 
 class Sieve {
   constructor(limit) {
@@ -13,9 +13,9 @@ class Sieve {
 
   generateComposites() {
     const composites = [];
-    for (let x = 2; x < this.limit; x++) {
-      for (let y = 2; y < this.limit; y++) {
-        let product = x * y;
+    for (let x of this.range) {
+      for (let y of this.range) {
+        const product = x * y;
         if (product > this.limit) break;
         composites.push(product);
       }
@@ -24,10 +24,10 @@ class Sieve {
   }
 
   findPrimes() {
-    let primes = [];
-    this.range.forEach(n => {
+    const primes = [];
+    for (let n of this.range) {
       if (!this.composites.includes(n)) primes.push(n);
-    })
+    }
     return primes;
   }
 
