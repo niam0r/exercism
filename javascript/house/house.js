@@ -85,7 +85,15 @@ class House {
     return allVerses[n];
   };
 
-
+  static verses(startVerse, endVerse) {
+    const result = [];
+    for (let i = startVerse; i <= endVerse; i++) {
+      result.push(...allVerses[i]);
+      result.push('');
+    }
+    result.pop();
+    return [...result];
+  }
 }
 
 if (module) { module.exports = House };

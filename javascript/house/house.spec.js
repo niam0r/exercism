@@ -151,7 +151,7 @@ describe('House', () => {
     expect(House.verse(12)).toEqual(lyrics);
   });
 
-  xtest('multiple verses', () => {
+  test('multiple verses', () => {
     const startVerse = 4;
     const endVerse = 8;
     const lyrics = [
