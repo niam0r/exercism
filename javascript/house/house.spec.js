@@ -8,7 +8,7 @@ describe('House', () => {
     expect(House.verse(1)).toEqual(lyrics);
   });
 
-  xtest('verse two - the malt that lay', () => {
+  test('verse two - the malt that lay', () => {
     const lyrics = [
       'This is the malt',
       'that lay in the house that Jack built.',
@@ -16,7 +16,7 @@ describe('House', () => {
     expect(House.verse(2)).toEqual(lyrics);
   });
 
-  xtest('verse three - the rat that ate', () => {
+  test('verse three - the rat that ate', () => {
     const lyrics = [
       'This is the rat',
       'that ate the malt',
