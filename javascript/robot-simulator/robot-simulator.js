@@ -6,6 +6,24 @@ class Robot {
     this.bearing = 'north';
   }
 
+  static instructions(str) {
+    const commands = [];
+    str.split('').forEach(letter => {
+      switch (letter) {
+        case 'A':
+          commands.push('advance');
+          break;
+        case 'R':
+          commands.push('turnRight');
+          break;
+        case 'L':
+          commands.push('turnLeft');
+          break;
+      }
+    })
+    return commands;
+  }
+
   at(x, y) {
     this.coordinates = [x, y];
   }
