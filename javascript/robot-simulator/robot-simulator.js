@@ -13,22 +13,18 @@ export default class Robot {
   }
 
   static instructions(str) {
-    const commands = [];
-    str.split('').forEach(letter => {
+    return [...str].map(letter => {
       switch (letter) {
         case 'A':
-          commands.push('advance');
-          break;
+          return 'advance';
         case 'R':
-          commands.push('turnRight');
-          break;
+          return 'turnRight';
         case 'L':
-          commands.push('turnLeft');
-          break;
+          return 'turnLeft';
+        default:
+          throw new InvalidInputError(`${character} is not a valid instruction character.`);
       }
     })
-    // console.log(commands)
-    return commands;
   }
 
   at(x, y) {
