@@ -1,8 +1,8 @@
 const plants = {
-  'C': 'clover',
-  'G': 'grass',
-  'R': 'radishes',
-  'V': 'violets'
+  C: 'clover',
+  G: 'grass',
+  R: 'radishes',
+  V: 'violets'
 };
 
 const defaultStudents = [
@@ -17,12 +17,10 @@ const defaultStudents = [
   'Ileana',
   'Joseph',
   'Kincaid',
-  'Larry',
+  'Larry'
 ];
 
-const parse = diagram => {
-  return diagram.split('\n').map(row => [...row].map(letter => plants[letter]));
-};
+const parse = diagram => diagram.split('\n').map(row => [...row].map(letter => plants[letter]));
 
 const getPlants = (parsedDiagram, index) => {
   const studentPlants = [];
@@ -48,7 +46,3 @@ class Garden {
 }
 
 if (module) { module.exports = Garden; }
-
-// const diagram = 'VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV';
-
-// console.log(parse(diagram));
