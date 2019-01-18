@@ -1,9 +1,15 @@
+export class InvalidInputError extends Error {
+  constructor(message) {
+    super();
+    this.message = message || 'Invalid Input';
+  }
+}
+
 const directions = ['north', 'east', 'south', 'west'];
 
-class Robot {
+export default class Robot {
   constructor() {
-    this.coordinates = [0, 0];
-    this.bearing = 'north';
+
   }
 
   static instructions(str) {
@@ -21,12 +27,37 @@ class Robot {
           break;
       }
     })
+    // console.log(commands)
     return commands;
   }
 
   at(x, y) {
     this.coordinates = [x, y];
   }
+
+  orient(direction) {
+    if (!directions.includes(direction)) {
+      throw new InvalidInputError('Invalid Robot Bearing');
+    }
+    this.bearing = direction;
+  }
+
+  place(placement) {
+    this.at(placement.x, placement.y);
+    this.orient(placement.direction);
+    console.log(this.bearing)
+  }
+
+  evaluate(input) {
+    Robot.instructions(input).forEach(command => this[command]);
+  }
+
+  // test('instruct robot', () => {
+  //   robot.place({ x: -2, y: 1, direction: 'east' });
+  //   robot.evaluate('RLAALAL');
+  //   expect(robot.coordinates).toEqual([0, 2]);
+  //   expect(robot.bearing).toEqual('west');
+  // });
 
   advance() {
     switch (this.bearing) {
@@ -45,10 +76,6 @@ class Robot {
     }
   }
 
-  orient(direction) {
-    // if (!direction.includes(direction)) { throw new error } !!! INCOMPLETE
-    this.bearing = direction;
-  }
 
   turnRight() {
     let index = directions.findIndex(direction => direction === this.bearing) + 1;
@@ -62,5 +89,3 @@ class Robot {
     this.orient(directions[index]);
   }
 }
-
-if (module) { module.exports = Robot };

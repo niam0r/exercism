@@ -12,7 +12,7 @@ describe('Robot', () => {
     });
   });
 
-  xtest('invalid robot bearing', () => {
+  test('invalid robot bearing', () => {
     expect(InvalidInputError.prototype).toBeInstanceOf(Error);
     expect(() => robot.orient('crood')).toThrow(InvalidInputError);
   });
@@ -120,7 +120,7 @@ describe('Robot', () => {
       .toEqual(['turnRight', 'advance', 'advance', 'turnLeft']);
   });
 
-  xtest('instruct robot', () => {
+  test('instruct robot', () => {
     robot.place({ x: -2, y: 1, direction: 'east' });
     robot.evaluate('RLAALAL');
     expect(robot.coordinates).toEqual([0, 2]);
