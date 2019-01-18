@@ -25,11 +25,19 @@ const parse = diagram => {
 };
 
 const getPlants = (parsedDiagram, index) => {
+  const studentPlants = [];
+  const position = index * 2;
 
+  studentPlants.push(parsedDiagram[0][position]);
+  studentPlants.push(parsedDiagram[0][position + 1]);
+  studentPlants.push(parsedDiagram[1][position]);
+  studentPlants.push(parsedDiagram[1][position + 1]);
+
+  return studentPlants;
 };
 
 class Garden {
-  constructor(input, students) {
+  constructor(diagram, students) {
     this.students = students || defaultStudents;
     this.students.sort();
 
@@ -41,6 +49,6 @@ class Garden {
 
 if (module) { module.exports = Garden; }
 
-const diagram = 'VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV';
+// const diagram = 'VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV';
 
-console.log(parse(diagram));
+// console.log(parse(diagram));
