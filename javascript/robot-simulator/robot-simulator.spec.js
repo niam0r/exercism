@@ -17,49 +17,49 @@ describe('Robot', () => {
     expect(() => robot.orient('crood')).toThrow(InvalidInputError);
   });
 
-  xtest('turn right from north', () => {
+  test('turn right from north', () => {
     robot.orient('north');
     robot.turnRight();
     expect(robot.bearing).toEqual('east');
   });
 
-  xtest('turn right from east', () => {
+  test('turn right from east', () => {
     robot.orient('east');
     robot.turnRight();
     expect(robot.bearing).toEqual('south');
   });
 
-  xtest('turn right from south', () => {
+  test('turn right from south', () => {
     robot.orient('south');
     robot.turnRight();
     expect(robot.bearing).toEqual('west');
   });
 
-  xtest('turn right from west', () => {
+  test('turn right from west', () => {
     robot.orient('west');
     robot.turnRight();
     expect(robot.bearing).toEqual('north');
   });
 
-  xtest('turn left from north', () => {
+  test('turn left from north', () => {
     robot.orient('north');
     robot.turnLeft();
     expect(robot.bearing).toEqual('west');
   });
 
-  xtest('turn left from east', () => {
+  test('turn left from east', () => {
     robot.orient('east');
     robot.turnLeft();
     expect(robot.bearing).toEqual('north');
   });
 
-  xtest('turn left from south', () => {
+  test('turn left from south', () => {
     robot.orient('south');
     robot.turnLeft();
     expect(robot.bearing).toEqual('east');
   });
 
-  xtest('turn left from west', () => {
+  test('turn left from west', () => {
     robot.orient('west');
     robot.turnLeft();
     expect(robot.bearing).toEqual('south');
