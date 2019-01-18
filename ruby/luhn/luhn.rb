@@ -8,7 +8,8 @@ class Luhn
   end
 
   def valid?
-    return false unless string.match(/^\d{2,}$/)
+    return false unless string.=~(/^\d{2,}$/)
+
     (calculated_sum % 10).zero?
   end
 
