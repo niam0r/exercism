@@ -1,6 +1,6 @@
 class Luhn
   def self.valid?(str)
-    Luhn.new(str).valid?
+    new(str).valid?
   end
 
   def initialize(str)
@@ -13,18 +13,15 @@ class Luhn
 
   private
 
+  attr_reader :string
+
   def valid_format?
-    @string.match(/^\d{2,}$/)
+    string.match(/^\d{2,}$/)
   end
 
   def checksum
-    @string.reverse.chars.each_slice(2).sum do |even, odd|
-      even.to_i + double(odd.to_i)
+    string.reverse.chars.each_slice(2).sum do |even, odd|
+      even.to_i + (odd.to_i * 2).digits.sum
     end
-  end
-
-  def double(n)
-    doubled = n * 2
-    doubled > 9 ? doubled - 9 : doubled
   end
 end
