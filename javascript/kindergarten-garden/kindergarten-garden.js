@@ -20,9 +20,11 @@ const defaultStudents = [
   'Larry',
 ];
 
-
-
 const parse = diagram => {
+  return diagram.split('\n').map(row => [...row].map(letter => plants[letter]));
+};
+
+const getPlants = (parsedDiagram, index) => {
 
 };
 
@@ -38,3 +40,7 @@ class Garden {
 }
 
 if (module) { module.exports = Garden; }
+
+const diagram = 'VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV';
+
+console.log(parse(diagram));
