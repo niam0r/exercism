@@ -75,28 +75,28 @@ describe('Robot', () => {
     expect(robot.coordinates).toEqual([-2, 5]);
   });
 
-  xtest('advance when facing north', () => {
+  test('advance when facing north', () => {
     robot.at(0, 0);
     robot.orient('north');
     robot.advance();
     expect(robot.coordinates).toEqual([0, 1]);
   });
 
-  xtest('advance when facing east', () => {
+  test('advance when facing east', () => {
     robot.at(0, 0);
     robot.orient('east');
     robot.advance();
     expect(robot.coordinates).toEqual([1, 0]);
   });
 
-  xtest('advance when facing south', () => {
+  test('advance when facing south', () => {
     robot.at(0, 0);
     robot.orient('south');
     robot.advance();
     expect(robot.coordinates).toEqual([0, -1]);
   });
 
-  xtest('advance when facing west', () => {
+  test('advance when facing west', () => {
     robot.at(0, 0);
     robot.orient('west');
     robot.advance();

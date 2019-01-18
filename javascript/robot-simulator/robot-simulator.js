@@ -10,6 +10,23 @@ class Robot {
     this.coordinates = [x, y];
   }
 
+  advance() {
+    switch (this.bearing) {
+      case 'north':
+        this.coordinates[1] += 1;
+        break;
+      case 'east':
+        this.coordinates[0] += 1;
+        break;
+      case 'south':
+        this.coordinates[1] -= 1;
+        break;
+      case 'west':
+        this.coordinates[0] -= 1;
+        break;
+    }
+  }
+
   orient(direction) {
     // if (!direction.includes(direction)) { throw new error } !!! INCOMPLETE
     this.bearing = direction;
