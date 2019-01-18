@@ -23,9 +23,9 @@ export default class Robot {
         case 'L':
           return 'turnLeft';
         default:
-          throw new InvalidInputError(`${character} is not a valid instruction character.`);
+          throw new InvalidInputError(`${letter} is not a valid instruction letter.`);
       }
-    })
+    });
   }
 
   at(x, y) {
@@ -59,13 +59,13 @@ export default class Robot {
 
   turnRight() {
     let index = directions.findIndex(direction => direction === this.bearing) + 1;
-    if (index === 4 ) { index = 0 ;}
+    if (index === 4) { index = 0; }
     this.orient(directions[index]);
   }
 
   turnLeft() {
     let index = directions.findIndex(direction => direction === this.bearing) - 1;
-    if (index === -1 ) { index = 3 ;}
+    if (index === -1) { index = 3; }
     this.orient(directions[index]);
   }
 
