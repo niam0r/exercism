@@ -3,10 +3,10 @@ const line = (first, second) => {
 };
 
 const proverb = (...input) => {
-  const proverb = [];
+  const proverbArray = [];
 
   input.forEach((value, index) => {
-    proverb.push(line(value, input[index + 1]));
+    proverbArray.push(line(value, input[index + 1]));
   });
 
   const last = input[input.length - 1];
@@ -14,12 +14,12 @@ const proverb = (...input) => {
 
   if (last.qualifier) {
     qualifier = `${last.qualifier} `;
-    proverb.length -= 2;
+    proverbArray.length -= 2;
   }
 
-  proverb.push(`And all for the want of a ${qualifier}${input[0]}.`);
+  proverbArray.push(`And all for the want of a ${qualifier}${input[0]}.`);
 
-  return proverb.join('');
+  return proverbArray.join('');
 };
 
 if (module) { module.exports = proverb; }
