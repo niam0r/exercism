@@ -65,12 +65,12 @@ describe('Robot', () => {
     expect(robot.bearing).toEqual('south');
   });
 
-  xtest('robot coordinates', () => {
+  test('robot coordinates', () => {
     robot.at(3, 0);
     expect(robot.coordinates).toEqual([3, 0]);
   });
 
-  xtest('other robot coordinates', () => {
+  test('other robot coordinates', () => {
     robot.at(-2, 5);
     expect(robot.coordinates).toEqual([-2, 5]);
   });

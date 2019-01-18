@@ -2,9 +2,12 @@ const directions = ['north', 'east', 'south', 'west'];
 
 class Robot {
   constructor() {
-    this.x = 0;
-    this.y = 0;
-    this.bearing = 'north'
+    this.coordinates = [0, 0];
+    this.bearing = 'north';
+  }
+
+  at(x, y) {
+    this.coordinates = [x, y];
   }
 
   orient(direction) {
