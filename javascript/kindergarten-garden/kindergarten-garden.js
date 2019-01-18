@@ -1,29 +1,39 @@
-const PLANTS = {
+const plants = {
   'C': 'clover',
   'G': 'grass',
   'R': 'radishes',
   'V': 'violets'
 };
 
-const STUDENTS = {
-  alice,
-  bob,
-  charlie,
-  david,
-  eve,
-  fred,
-  ginny,
-  harriet,
-  ileana,
-  joseph,
-  kincaid,
-  larry
-}
+const defaultStudents = [
+  'Alice',
+  'Bob',
+  'Charlie',
+  'David',
+  'Eve',
+  'Fred',
+  'Ginny',
+  'Harriet',
+  'Ileana',
+  'Joseph',
+  'Kincaid',
+  'Larry',
+];
+
+
+
+const parse = diagram => {
+
+};
 
 class Garden {
-  constructor(input) {
-    this.rowsArray = input.replace(/\n/, '').split('')
-    this.alice =
+  constructor(input, students) {
+    this.students = students || defaultStudents;
+    this.students.sort();
+
+    this.students.forEach((student, index) => {
+      this[student.toLowerCase()] = getPlants(parse(diagram), index);
+    });
   }
 }
 
