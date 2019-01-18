@@ -8,18 +8,15 @@ class Luhn
   end
 
   def valid?
-    valid_format? && (checksum % 10).zero?
+    return false unless string.match(/^\d{2,}$/)
+    (calculated_sum % 10).zero?
   end
 
   private
 
   attr_reader :string
 
-  def valid_format?
-    string.match(/^\d{2,}$/)
-  end
-
-  def checksum
+  def calculated_sum
     string.reverse.chars.each_slice(2).sum do |even, odd|
       even.to_i + (odd.to_i * 2).digits.sum
     end
