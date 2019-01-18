@@ -9,7 +9,8 @@ const directions = ['north', 'east', 'south', 'west'];
 
 export default class Robot {
   constructor() {
-
+    this.coordinates = [0, 0];
+    this.bearing = 'north';
   }
 
   static instructions(str) {
@@ -37,23 +38,6 @@ export default class Robot {
     }
     this.bearing = direction;
   }
-
-  place(placement) {
-    this.at(placement.x, placement.y);
-    this.orient(placement.direction);
-    console.log(this.bearing)
-  }
-
-  evaluate(input) {
-    Robot.instructions(input).forEach(command => this[command]);
-  }
-
-  // test('instruct robot', () => {
-  //   robot.place({ x: -2, y: 1, direction: 'east' });
-  //   robot.evaluate('RLAALAL');
-  //   expect(robot.coordinates).toEqual([0, 2]);
-  //   expect(robot.bearing).toEqual('west');
-  // });
 
   advance() {
     switch (this.bearing) {
@@ -83,5 +67,14 @@ export default class Robot {
     let index = directions.findIndex(direction => direction === this.bearing) - 1;
     if (index === -1 ) { index = 3 ;}
     this.orient(directions[index]);
+  }
+
+  place(args) {
+    this.coordinates = [args.x, args.y];
+    this.bearing = args.direction;
+  }
+
+  evaluate(input) {
+    Robot.instructions(input).forEach(command => this[command]());
   }
 }
