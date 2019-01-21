@@ -19,6 +19,13 @@ class Clock
     self
   end
 
+  def ==(other)
+    to_s == other.to_s
+    self
+  end
+
+  private
+
   def hour
     result = @total_minutes / 60
     result -= 24 until result < 24
