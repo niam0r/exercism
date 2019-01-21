@@ -1,13 +1,13 @@
 class Atbash
   def self.encode(input)
     normalized = input.downcase.gsub(/\W/, '')
-    normalized.chars.map{ |l| self.encrypt(l) }.each_slice(5).map(&:join).join(' ')
+    normalized.chars.map { |letter| encrypt(letter) }.each_slice(5).map(&:join).join(' ')
   end
 
-  def self.encrypt(l)
+  def self.encrypt(letter)
     alphabet = [*'a'..'z']
     reversed = [*'a'..'z'].reverse
-    found_index = alphabet.find_index(l)
-    return found_index ? [reversed[found_index]] : l
+    found_index = alphabet.find_index(letter)
+    found_index ? [reversed[found_index]] : letter
   end
 end
