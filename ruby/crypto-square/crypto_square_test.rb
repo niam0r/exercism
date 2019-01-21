@@ -28,7 +28,7 @@ class CryptoSquareTest < Minitest::Test
   end
 
   def test_9_character_plaintext_results_in_3_chunks_of_3_characters
-    skip
+    # skip
     plaintext = 'This is fun!'
     assert_equal "tsf hiu isn", Crypto.new(plaintext).ciphertext
   end
