@@ -11,3 +11,16 @@ class Atbash
     found_index ? [reversed[found_index]] : letter
   end
 end
+
+#kkelleey's solution
+
+# class Atbash
+#   def self.encode(str)
+#     str
+#       .downcase
+#       .tr('a-z', ('a'..'z').to_a.reverse.join)
+#       .gsub(/[^[:alnum:]]/, '')
+#       .scan(/.{1,5}/)
+#       .join(' ')
+#   end
+# end
