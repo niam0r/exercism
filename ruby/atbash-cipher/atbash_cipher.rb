@@ -1,6 +1,6 @@
 class Atbash
   def self.encode(input)
-    input.delete(' ').chars.map(&:Atbash.encode_letter).each_slice(5).map(&:join)
+    input.downcase.delete(' ').chars.map{ |l| self.encode_letter(l) }.each_slice(5).map(&:join).join(' ')
   end
 
   def self.encode_letter(l)
