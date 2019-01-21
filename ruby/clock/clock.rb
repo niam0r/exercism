@@ -21,7 +21,6 @@ class Clock
 
   def ==(other)
     to_s == other.to_s
-    self
   end
 
   private
