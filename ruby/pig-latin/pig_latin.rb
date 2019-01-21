@@ -6,10 +6,14 @@ class PigLatin
   def self.process_word(word)
     if word.=~(/\A([aeiouy]|xr|yt)/)
       "#{word}ay"
+    elsif word.=~(/\A[^aeiouy]/)
+      "#{word[1..-1]}#{word[0]}ay"
     end
 
   end
 end
+
+# p PigLatin.translate("koala")
 
 
 # Rule 1: If a word begins with a vowel sound, add an "ay" sound to the end of the word. Please note that "xr" and "yt" at the beginning of a word make vowel sounds (e.g. "xray" -> "xrayay", "yttria" -> "yttriaay").

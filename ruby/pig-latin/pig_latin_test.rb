@@ -34,22 +34,22 @@ class PigLatinTest < Minitest::Test
   end
 
   def test_word_beginning_with_p
-    skip
+    # skip
     assert_equal "igpay", PigLatin.translate("pig")
   end
 
   def test_word_beginning_with_k
-    skip
+    # skip
     assert_equal "oalakay", PigLatin.translate("koala")
   end
 
   def test_word_beginning_with_x
-    skip
+    # skip
     assert_equal "enonxay", PigLatin.translate("xenon")
   end
 
   def test_word_beginning_with_q_without_a_following_u
-    skip
+    # skip
     assert_equal "atqay", PigLatin.translate("qat")
   end
 
