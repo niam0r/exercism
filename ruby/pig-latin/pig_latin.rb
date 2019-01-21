@@ -4,7 +4,7 @@ class PigLatin
   end
 
   def self.process_word(word)
-    if word.=~(/[aeiouy]/)
+    if word.=~(/\A([aeiouy]|xr|yt)/)
       "#{word}ay"
     end
 

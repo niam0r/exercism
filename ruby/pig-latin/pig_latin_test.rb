@@ -84,12 +84,12 @@ class PigLatinTest < Minitest::Test
   end
 
   def test_word_beginning_with_yt
-    skip
+    # skip
     assert_equal "yttriaay", PigLatin.translate("yttria")
   end
 
   def test_word_beginning_with_xr
-    skip
+    # skip
     assert_equal "xrayay", PigLatin.translate("xray")
   end
 
