@@ -1,5 +1,4 @@
 class Crypto
-  attr_accessor :normalized
   def initialize(plaintext)
     @normalized = plaintext.downcase.gsub(/\W\s*/, '')
   end
@@ -7,22 +6,27 @@ class Crypto
   def ciphertext
     length = @normalized.length
     return @normalized if length <= 1
-    n_of_cols = Math.sqrt(length).floor
-    n_of_rows = Math.sqrt(length).ceil
-    adjusted = @normalized.ljust(n_of_rows * n_of_cols)
+
+    n_of_cols = Math.sqrt(length).ceil
+    n_of_rows = Math.sqrt(length).floor
+
+    if n_of_cols * n_of_rows > length
+      total_grid_length = n_of_cols * n_of_rows
+    else
+      total_grid_length = n_of_cols ** 2
+    end
+
+    adjusted = @normalized.ljust(total_grid_length)
 
     grid = []
     adjusted.chars.each_slice(n_of_cols) do |row|
       grid << row
     end
 
-    grid.transpose.map(&:join).join(' ')
+    # p grid
 
-  end
+    encrypted = grid.transpose.map(&:join).join(' ')
 
-  def build_grid
-
+    # p encrypted
   end
 end
-
-Crypto.new("If man was meant to stay on the ground, god would have given us roots.").ciphertext
