@@ -7,26 +7,26 @@ class Crypto
     length = @normalized.length
     return @normalized if length <= 1
 
-    n_of_cols = Math.sqrt(length).ceil
-    n_of_rows = Math.sqrt(length).floor
-
-    if n_of_cols * n_of_rows > length
-      total_grid_length = n_of_cols * n_of_rows
-    else
-      total_grid_length = n_of_cols ** 2
-    end
-
-    adjusted = @normalized.ljust(total_grid_length)
+    adjusted = adjusted_input(length)
 
     grid = []
-    adjusted.chars.each_slice(n_of_cols) do |row|
+    adjusted.chars.each_slice(@n_of_cols) do |row|
       grid << row
     end
 
-    # p grid
+    grid.transpose.map(&:join).join(' ')
+  end
 
-    encrypted = grid.transpose.map(&:join).join(' ')
+  def adjusted_input(length)
+    @n_of_cols = Math.sqrt(length).ceil
 
-    # p encrypted
+    total_grid_length =
+      if @n_of_cols * (@n_of_cols - 1) > length
+        @n_of_cols * (@n_of_cols - 1)
+      else
+        @n_of_cols**2
+      end
+
+    @normalized.ljust(total_grid_length)
   end
 end
