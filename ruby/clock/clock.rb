@@ -17,7 +17,8 @@ class Clock
 
   def hour
     result = @total_minutes / 60
-    result -= 24 while result >= 24
+    result -= 24 until result < 24
+    result += 24 until result >= 0
     result < 10 ? "0#{result}" : result
   end
 
