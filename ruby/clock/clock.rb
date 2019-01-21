@@ -1,4 +1,6 @@
 class Clock
+  attr_reader :total_minutes
+
   def initialize(hour: 0, minute: 0)
     @total_minutes = hour * 60 + minute
   end
@@ -8,11 +10,13 @@ class Clock
   end
 
   def +(other)
-
+    @total_minutes += other.total_minutes
+    self
   end
 
   def -(other)
-
+    @total_minutes -= other.total_minutes
+    self
   end
 
   def hour
