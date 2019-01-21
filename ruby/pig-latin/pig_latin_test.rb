@@ -54,12 +54,12 @@ class PigLatinTest < Minitest::Test
   end
 
   def test_word_beginning_with_ch
-    skip
+    # skip
     assert_equal "airchay", PigLatin.translate("chair")
   end
 
   def test_word_beginning_with_qu
-    skip
+    # skip
     assert_equal "eenquay", PigLatin.translate("queen")
   end
 
