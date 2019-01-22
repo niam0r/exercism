@@ -4,7 +4,7 @@ class PigLatin
   end
 
   def self.process_word(word)
-    if word.=~(/\A([aeiouy]|xr|yt)/)
+    if word.=~(/\A([aeiou]|xr|yt)/)
       "#{word}ay"
     elsif word.=~(/\A[^aeiouy]qu/)
       "#{word[3..-1]}#{word[0]}quay"
@@ -12,7 +12,7 @@ class PigLatin
       "#{word[3..-1]}#{word[0..2]}ay"
     elsif word.=~(/\A[^aeiouy]/) && word[1].=~(/\A[^aeiouy]/) || word.=~(/\Aqu/)
       "#{word[2..-1]}#{word[0..1]}ay"
-    elsif word.=~(/\A[^aeiouy]/)
+    elsif word.=~(/\A[^aeiou]/)
       "#{word[1..-1]}#{word[0]}ay"
     end
 

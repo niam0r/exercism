@@ -94,7 +94,7 @@ class PigLatinTest < Minitest::Test
   end
 
   def test_y_is_treated_like_a_consonant_at_the_beginning_of_a_word
-    skip
+    # skip
     assert_equal "ellowyay", PigLatin.translate("yellow")
   end
 
