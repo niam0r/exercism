@@ -18,8 +18,4 @@ class PigLatin
       "#{word[1..-1]}#{word[0]}ay"
     end
   end
-
-  def vowel?(letter)
-    ['a','e','i','o','u'].include?(letter)
-  end
 end
