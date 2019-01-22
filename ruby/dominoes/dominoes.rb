@@ -11,4 +11,8 @@ class Dominoes
 
     # end
   end
+
+  def first_match_last(dominoes)
+    dominoes.first.first == dominoes.last.last
+  end
 end

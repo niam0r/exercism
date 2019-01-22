@@ -34,21 +34,21 @@ end
 
 class IncorrectKeyCipherTest < Minitest::Test
   def test_cipher_with_caps_key
-    skip
+    # skip
     assert_raises ArgumentError do
       Cipher.new('ABCDEF')
     end
   end
 
   def test_cipher_with_numeric_key
-    skip
+    # skip
     assert_raises ArgumentError do
       Cipher.new('12345')
     end
   end
 
   def test_cipher_with_empty_key
-    skip
+    # skip
     assert_raises ArgumentError do
       Cipher.new('')
     end
