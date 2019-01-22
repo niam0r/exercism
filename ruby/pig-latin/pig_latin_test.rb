@@ -99,17 +99,17 @@ class PigLatinTest < Minitest::Test
   end
 
   def test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster
-    skip
+    # skip
     assert_equal "ythmrhay", PigLatin.translate("rhythm")
   end
 
   def test_y_as_second_letter_in_two_letter_word
-    skip
+    # skip
     assert_equal "ymay", PigLatin.translate("my")
   end
 
   def test_a_whole_phrase
-    skip
+    # skip
     assert_equal "ickquay astfay unray", PigLatin.translate("quick fast run")
   end
 end
