@@ -69,17 +69,17 @@ class PigLatinTest < Minitest::Test
   end
 
   def test_word_beginning_with_th
-    skip
+    # skip
     assert_equal "erapythay", PigLatin.translate("therapy")
   end
 
   def test_word_beginning_with_thr
-    skip
+    # skip
     assert_equal "ushthray", PigLatin.translate("thrush")
   end
 
   def test_word_beginning_with_sch
-    skip
+    # skip
     assert_equal "oolschay", PigLatin.translate("school")
   end
 
