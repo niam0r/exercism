@@ -1,4 +1,4 @@
-ALLERGIES = {
+ALLERGENS = {
   128 => 'cats',
   64 => 'pollen',
   32 => 'chocolate',
@@ -10,38 +10,13 @@ ALLERGIES = {
 }.freeze
 
 class Allergies
-  attr_reader :allergies
+  attr_reader :list
   def initialize(score)
-    @score = score
-    @allergies = find_allergies
+    @list = ALLERGENS.select { |key, allergen| key & score == key }.values
   end
 
   def allergic_to?(item)
-    @allergies.include?(item)
-  end
-
-  def list
-    @allergies.sort
-  end
-
-  private
-
-  def find_allergies
-    allergies_list = []
-    return allergies_list if @score.zero?
-
-    score_copy = @score
-    while score_copy > 0
-      ALLERGIES.each do |k, v|
-        if score_copy >= k
-          allergies_list << v
-          score_copy -= k
-        end
-      end
-    end
-    allergies_list
+    @list.include?(item)
   end
 end
 
-# allergies = Allergies.new(3)
-# p allergies.allergies
