@@ -12,11 +12,10 @@ ALLERGENS = {
 class Allergies
   attr_reader :list
   def initialize(score)
-    @list = ALLERGENS.select { |key, allergen| key & score == key }.values
+    @list = ALLERGENS.select { |key| key & score == key }.values
   end
 
   def allergic_to?(item)
     @list.include?(item)
   end
 end
-
