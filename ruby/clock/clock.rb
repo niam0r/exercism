@@ -1,12 +1,10 @@
 class Clock
-  attr_reader :total_minutes
-
   def initialize(hour: 0, minute: 0)
-    @total_minutes = hour * 60 + minute
+    @total_minutes = (hour * 60 + minute) % 1440
   end
 
   def to_s
-    format(@total_minutes / 60 % 24) + ':' + format(@total_minutes % 60)
+    format(total_minutes / 60 % 24) + ':' + format(total_minutes % 60)
   end
 
   def +(other)
@@ -20,8 +18,11 @@ class Clock
   end
 
   def ==(other)
-    to_s == other.to_s
+    total_minutes == other.total_minutes
   end
+
+  protected
+  attr_reader :total_minutes
 
   private
 
