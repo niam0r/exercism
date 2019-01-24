@@ -7,14 +7,16 @@ export class Luhn {
   checkValidity() {
     if (this.inputString.length === 1) { return false; }
 
-    // const array = this.inputString.reverse().split();
+    let sum = 0;
+    [...this.inputString].reverse().forEach((element, index) => {
+      if (index % 2 === 0) {
+        sum += (element % 9);
+      } else {
+        sum += element;
+      }
+    });
 
+    return sum % 10 === 0;
   }
 }
 
-// if (module) { module.exports = Luhn; }
-
-// const luhn = new Luhn('1');
-// console.log(luhn.valid)
-// const luhn0 = new Luhn('0');
-// console.log(luhn0.valid)
