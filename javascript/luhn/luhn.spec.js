@@ -6,7 +6,7 @@ describe('Luhn', () => {
     expect(luhn.valid).toEqual(false);
   });
 
-  xtest('A single zero is invalid', () => {
+  test('A single zero is invalid', () => {
     const luhn = new Luhn('0');
     expect(luhn.valid).toEqual(false);
   });
