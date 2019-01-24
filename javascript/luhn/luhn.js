@@ -9,14 +9,14 @@ export class Luhn {
 
     let sum = 0;
     [...this.inputString].reverse().forEach((element, index) => {
-      if (index % 2 === 0) {
-        sum += (element % 9);
+      if (index % 2 !== 0) {
+        let doubled = (parseInt(element) * 2);
+        sum += doubled > 9 ? doubled - 9 : doubled;
       } else {
-        sum += element;
+        sum += parseInt(element);
       }
     });
 
     return sum % 10 === 0;
   }
 }
-
