@@ -10,7 +10,7 @@ export class Luhn {
     let sum = 0;
     [...this.inputString].reverse().forEach((element, index) => {
       if (index % 2 !== 0) {
-        let doubled = (parseInt(element) * 2);
+        const doubled = (parseInt(element) * 2);
         sum += doubled > 9 ? doubled - 9 : doubled;
       } else {
         sum += parseInt(element);
