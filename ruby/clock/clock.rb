@@ -22,6 +22,7 @@ class Clock
   end
 
   protected
+
   attr_reader :total_minutes
 
   private
