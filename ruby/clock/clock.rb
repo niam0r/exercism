@@ -6,7 +6,7 @@ class Clock
   end
 
   def to_s
-    "#{hour}:#{minute}"
+    "#{format(hour)}:#{format(minute)}"
   end
 
   def +(other)
@@ -25,15 +25,18 @@ class Clock
 
   private
 
+  def format(input)
+    input < 10 ? "0#{input}" : input
+  end
+
   def hour
     result = @total_minutes / 60
     result -= 24 until result < 24
     result += 24 until result >= 0
-    result < 10 ? "0#{result}" : result
+    result
   end
 
   def minute
-    result = @total_minutes % 60
-    result < 10 ? "0#{result}" : result
+    @total_minutes % 60
   end
 end
