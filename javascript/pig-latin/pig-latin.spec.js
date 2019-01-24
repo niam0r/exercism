@@ -6,23 +6,23 @@ describe('Pig Latin', () => {
       expect(translator.translate('apple')).toEqual('appleay');
     });
 
-    xtest('word beginning with e', () => {
+    test('word beginning with e', () => {
       expect(translator.translate('ear')).toEqual('earay');
     });
 
-    xtest('word beginning with i', () => {
+    test('word beginning with i', () => {
       expect(translator.translate('igloo')).toEqual('iglooay');
     });
 
-    xtest('word beginning with o', () => {
+    test('word beginning with o', () => {
       expect(translator.translate('object')).toEqual('objectay');
     });
 
-    xtest('word beginning with u', () => {
+    test('word beginning with u', () => {
       expect(translator.translate('under')).toEqual('underay');
     });
 
-    xtest('word beginning with a vowel and followed by a qu', () => {
+    test('word beginning with a vowel and followed by a qu', () => {
       expect(translator.translate('equal')).toEqual('equalay');
     });
   });
