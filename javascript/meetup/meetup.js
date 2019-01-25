@@ -29,25 +29,20 @@ const getPossibleDates = (year, month, dayOftheWeek) => {
   return possibleDays;
 };
 
-export const meetupDay = (year, month, dayOftheWeek, day) => {
+export const meetupDay = (year, month, dayOftheWeek, condition) => {
   const possibleDates = getPossibleDates(year, month, dayOftheWeek);
+  let res;
 
-  switch (day) {
-    case 'teenth':
-      return possibleDates.find(date => date.getDate() >= 13 && date.getDate() <= 19);
-    case '1st':
-      return possibleDates[0];
-    case '2nd':
-      return possibleDates[1];
-    case '3rd':
-      return possibleDates[2];
-    case '4th':
-      return possibleDates[3];
-    case '5th':
-      return possibleDates[4];
-    case 'last':
-      return possibleDates[possibleDates.length - 1];
-    default:
-      throw new Error('Day not found!');
+  if (condition == 'teenth') {
+    res = possibleDates.find(date => date.getDate() >= 13 && date.getDate() <= 19);
+  } else if (condition === 'last') {
+    res = possibleDates.pop();
+  } else {
+    const index = parseInt(condition, 10) - 1;
+    res = possibleDates[index];
   }
+
+  if (!res) { throw new Error('Day not found!'); }
+
+  return res;
 };
