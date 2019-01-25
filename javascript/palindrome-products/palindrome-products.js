@@ -1,7 +1,16 @@
 export const generate = (args) => {
 
 
-  largest
+  return {
+    largest: {
+      value: maxProduct,
+      factors: data[maxProduct],
+    },
+    smallest: {
+      value: minProduct,
+      factors: data[minProduct],
+    },
+  };
 };
 
 
