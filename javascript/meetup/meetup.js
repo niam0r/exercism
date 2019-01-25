@@ -8,7 +8,7 @@ const dayHash = {
   Saturday: 6
 };
 
-const getPossibleDates = (year, month, dayOftheWeek) => {
+const getPossibleDates = (year, month, dayOfTheWeek) => {
   const d = new Date(year, month);
   const m = d.getMonth();
   const possibleDays = [];
@@ -16,7 +16,7 @@ const getPossibleDates = (year, month, dayOftheWeek) => {
   d.setDate(1);
 
   // Get the first day in the month
-  while (d.getDay() !== dayHash[dayOftheWeek]) {
+  while (d.getDay() !== dayHash[dayOfTheWeek]) {
     d.setDate(d.getDate() + 1);
   }
 
@@ -29,11 +29,11 @@ const getPossibleDates = (year, month, dayOftheWeek) => {
   return possibleDays;
 };
 
-export const meetupDay = (year, month, dayOftheWeek, condition) => {
-  const possibleDates = getPossibleDates(year, month, dayOftheWeek);
+export const meetupDay = (year, month, dayOfTheWeek, condition) => {
+  const possibleDates = getPossibleDates(year, month, dayOfTheWeek);
   let res;
 
-  if (condition == 'teenth') {
+  if (condition === 'teenth') {
     res = possibleDates.find(date => date.getDate() >= 13 && date.getDate() <= 19);
   } else if (condition === 'last') {
     res = possibleDates.pop();
