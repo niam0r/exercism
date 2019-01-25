@@ -72,11 +72,11 @@ describe('Pig Latin', () => {
   });
 
   describe('some letter clusters are treated like a single vowel', () => {
-    xtest('word beginning with yt', () => {
+    test('word beginning with yt', () => {
       expect(translator.translate('yttria')).toEqual('yttriaay');
     });
 
-    xtest('word beginning with xr', () => {
+    test('word beginning with xr', () => {
       expect(translator.translate('xray')).toEqual('xrayay');
     });
   });

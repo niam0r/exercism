@@ -4,7 +4,7 @@ const translateWord = word => {
   if (VOWEL_SOUND_REGEXP.test(word)) { return `${word}ay`; }
 
   if (/^[^aeiou]/.test(word)) {
-    return `${word.substr(1, word.length)}${word[0]}ay`;
+    return `${word.substr(1)}${word[0]}ay`;
   }
 };
 
