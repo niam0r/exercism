@@ -34,9 +34,7 @@ export const meetupDay = (year, month, dayOftheWeek, day) => {
 
   switch (day) {
     case 'teenth':
-      return possibleDates.filter(date => {
-        if (date.getDate() >= 13 && date.getDate() <= 19) { return date; }
-      })[0];
+      return possibleDates.find(date => date.getDate() >= 13 && date.getDate() <= 19);
     case '1st':
       return possibleDates[0];
     case '2nd':
