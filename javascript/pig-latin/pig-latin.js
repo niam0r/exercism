@@ -1,6 +1,11 @@
-const translateWord = word => {
-  return `${word}ay`;
+const VOWEL_SOUND_REGEXP = /^([aeiou]|xr|yt)/;
 
+const translateWord = word => {
+  if (VOWEL_SOUND_REGEXP.test(word)) { return `${word}ay`; }
+
+  if (/^[^aeiou]/.test(word)) {
+    return `${word.substr(1, word.length)}${word[0]}ay`;
+  }
 };
 
 export const translator = {

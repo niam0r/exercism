@@ -28,19 +28,19 @@ describe('Pig Latin', () => {
   });
 
   describe('first letter and ay are moved to the end of words that start with consonants', () => {
-    xtest('word beginning with p', () => {
+    test('word beginning with p', () => {
       expect(translator.translate('pig')).toEqual('igpay');
     });
 
-    xtest('word beginning with k', () => {
+    test('word beginning with k', () => {
       expect(translator.translate('koala')).toEqual('oalakay');
     });
 
-    xtest('word beginning with x', () => {
+    test('word beginning with x', () => {
       expect(translator.translate('xenon')).toEqual('enonxay');
     });
 
-    xtest('word beginning with q without a following u', () => {
+    test('word beginning with q without a following u', () => {
       expect(translator.translate('qat')).toEqual('atqay');
     });
   });
