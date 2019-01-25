@@ -39,6 +39,8 @@ export const meetupDay = (year, month, dayOftheWeek, day) => {
         if (date.getDate() >= 13 && date.getDate() <= 19) { return date; }
       })[0]
       break;
+    case '1st':
+      return possibleDates[0];
     default:
       // statements_def
       break;

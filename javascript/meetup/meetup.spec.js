@@ -9,7 +9,7 @@ describe('meetupDay()', () => {
     expect(meetupDay(2013, 1, 'Saturday', 'teenth')).toEqual(new Date(2013, 1, 16));
   });
 
-  xtest('test first tuesday of may 2013', () => {
+  test('test first tuesday of may 2013', () => {
     expect(meetupDay(2013, 4, 'Tuesday', '1st')).toEqual(new Date(2013, 4, 7));
   });
 
