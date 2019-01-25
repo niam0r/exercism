@@ -9,24 +9,16 @@ const dayHash = {
 };
 
 const getPossibleDates = (year, month, dayOfTheWeek) => {
-  const d = new Date(year, month);
-  const m = d.getMonth();
-  const possibleDays = [];
+  const numDaysInMonth = new Date(year, month + 1, 0).getDate();
+  const possibleDates = [];
 
-  d.setDate(1);
-
-  // Get the first day in the month
-  while (d.getDay() !== dayHash[dayOfTheWeek]) {
-    d.setDate(d.getDate() + 1);
+  for (let i = 0; i < numDaysInMonth; i += 1) {
+    const d = new Date(year, month, i + 1);
+    if (d.getDay() === dayHash[dayOfTheWeek]) {
+      possibleDates.push(d);
+    }
   }
-
-  // Get all the other days in the month
-  while (d.getMonth() === m) {
-    possibleDays.push(new Date(d.getTime()));
-    d.setDate(d.getDate() + 7);
-  }
-
-  return possibleDays;
+  return possibleDates;
 };
 
 export const meetupDay = (year, month, dayOfTheWeek, condition) => {
