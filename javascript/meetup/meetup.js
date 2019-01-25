@@ -1,10 +1,3 @@
-// export
-
-const meetupDay = (year, month, dayOftheWeek, day) => {
-
-  return new Date(year, month, day);
-};
-
 const dayHash = {
   "Sunday": 0,
   "Monday": 1,
@@ -15,7 +8,7 @@ const dayHash = {
   "Saturday": 6
 }
 
-const getPossibleDays = (year, month, dayOftheWeek) => {
+const getPossibleDates = (year, month, dayOftheWeek) => {
   let d = new Date(year, month);
   let m = d.getMonth();
   let possibleDays = [];
@@ -36,4 +29,21 @@ const getPossibleDays = (year, month, dayOftheWeek) => {
   return possibleDays;
 }
 
-console.log(getPossibleDays(2019, 0, 'Sunday'))
+export const meetupDay = (year, month, dayOftheWeek, day) => {
+  const possibleDates = getPossibleDates(year, month, dayOftheWeek);
+
+
+  switch (day) {
+    case 'teenth':
+      return possibleDates.filter(date => {
+        if (date.getDate() >= 13 && date.getDate() <= 19) { return date; }
+      })[0]
+      break;
+    default:
+      // statements_def
+      break;
+  }
+};
+
+// meetupDay(2013, 4, 'Monday', 'teenth')
+console.log(meetupDay(2013, 4, 'Monday', 'teenth'))
