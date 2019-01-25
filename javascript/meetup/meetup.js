@@ -41,6 +41,12 @@ export const meetupDay = (year, month, dayOftheWeek, day) => {
       break;
     case '1st':
       return possibleDates[0];
+    case '2nd':
+      return possibleDates[1];
+    case '3rd':
+      return possibleDates[2];
+    case '4th':
+      return possibleDates[3];
     default:
       // statements_def
       break;
