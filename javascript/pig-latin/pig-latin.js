@@ -1,12 +1,11 @@
 const VOWEL_SOUND_REGEXP = /^([aeiou]|xr|yt)/;
-const CONSONANT_SOUND_REGEXP = /[^aeiou]/;
+const CONSONANT_SOUND_REGEXP = /^([^aeiou]+(?=y)|[^aeiou]?qu|[^aeiou]+)([a-z]+)/;
 
-const translateWord = word => {
+const translateWord = (word) => {
   if (VOWEL_SOUND_REGEXP.test(word)) { return `${word}ay`; }
 
-  if (CONSONANT_SOUND_REGEXP.test(word)) {
-    return `${word.substr(1)}${word[0]}ay`;
-  }
+  const transformed = word.replace(CONSONANT_SOUND_REGEXP, '$2$1');
+  return `${transformed}ay`;
 };
 
 export const translator = {
@@ -17,5 +16,3 @@ export const translator = {
       .join(' ');
   },
 };
-
-// if (module) {module.exports = translator; }

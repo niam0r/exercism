@@ -46,27 +46,27 @@ describe('Pig Latin', () => {
   });
 
   describe('some letter clusters are treated like a single consonant', () => {
-    xtest('word beginning with ch', () => {
+    test('word beginning with ch', () => {
       expect(translator.translate('chair')).toEqual('airchay');
     });
 
-    xtest('word beginning with qu', () => {
+    test('word beginning with qu', () => {
       expect(translator.translate('queen')).toEqual('eenquay');
     });
 
-    xtest('word beginning with qu and a preceding consonant', () => {
+    test('word beginning with qu and a preceding consonant', () => {
       expect(translator.translate('square')).toEqual('aresquay');
     });
 
-    xtest('word beginning with th', () => {
+    test('word beginning with th', () => {
       expect(translator.translate('therapy')).toEqual('erapythay');
     });
 
-    xtest('word beginning with thr', () => {
+    test('word beginning with thr', () => {
       expect(translator.translate('thrush')).toEqual('ushthray');
     });
 
-    xtest('word beginning with sch', () => {
+    test('word beginning with sch', () => {
       expect(translator.translate('school')).toEqual('oolschay');
     });
   });
@@ -82,21 +82,21 @@ describe('Pig Latin', () => {
   });
 
   describe('position of y in a word determines if it is a consonant or a vowel', () => {
-    xtest('y is treated like a consonant at the beginning of a word', () => {
+    test('y is treated like a consonant at the beginning of a word', () => {
       expect(translator.translate('yellow')).toEqual('ellowyay');
     });
 
-    xtest('y is treated like a vowel at the end of a consonant cluster', () => {
+    test('y is treated like a vowel at the end of a consonant cluster', () => {
       expect(translator.translate('rhythm')).toEqual('ythmrhay');
     });
 
-    xtest('y as second letter in two letter word', () => {
+    test('y as second letter in two letter word', () => {
       expect(translator.translate('my')).toEqual('ymay');
     });
   });
 
   describe('phrases are translated', () => {
-    xtest('a whole phrase', () => {
+    test('a whole phrase', () => {
       expect(translator.translate('quick fast run')).toEqual('ickquay astfay unray');
     });
   });
