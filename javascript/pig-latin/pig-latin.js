@@ -1,9 +1,10 @@
 const VOWEL_SOUND_REGEXP = /^([aeiou]|xr|yt)/;
+const CONSONANT_SOUND_REGEXP = /[^aeiou]/;
 
 const translateWord = word => {
   if (VOWEL_SOUND_REGEXP.test(word)) { return `${word}ay`; }
 
-  if (/^[^aeiou]/.test(word)) {
+  if (CONSONANT_SOUND_REGEXP.test(word)) {
     return `${word.substr(1)}${word[0]}ay`;
   }
 };
