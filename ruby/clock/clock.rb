@@ -29,7 +29,7 @@ class Clock
   # It's normal to define these methods when creating value objects.
 
   def hash
-    [self.class, self.time].hash
+    [self.class, self.total_minutes].hash
   end
 
   protected
