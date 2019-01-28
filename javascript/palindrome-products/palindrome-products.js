@@ -1,4 +1,8 @@
-export const generate = (args) => {
+const isPalindrome = n => {
+  return parseInt(n.toString().split('').reverse().join('')) === n;
+}
+
+const generate = (args) => {
 
 
   return {
@@ -13,5 +17,6 @@ export const generate = (args) => {
   };
 };
 
+if (module) { module.exports = generate };
 
-
+console.log(isPalindrome(102));
