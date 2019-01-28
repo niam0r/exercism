@@ -13,28 +13,23 @@ const generate = (params) => {
       let factors = [i, j].sort();
       let product = i * j;
       if (isPalindrome(product) && palindromes[product]) {
-        if (!palindromes[product].some(areSameArray)) {
           palindromes[product].push(factors);
-        }
       } else if (isPalindrome(product) && palindromes[product] === undefined) {
         palindromes[product] = [factors];
       }
     }
   }
 
-  console.log(palindromes)
-
-
-  // return {
-  //   largest: {
-  //     value: maxProduct,
-  //     factors: data[maxProduct],
-  //   },
-  //   smallest: {
-  //     value: minProduct,
-  //     factors: data[minProduct],
-  //   },
-  // };
+  return {
+    largest: {
+      value: Math.max(...Object.keys(palindromes)),
+      factors: palindromes[Math.max(...Object.keys(palindromes))][0],
+    },
+    smallest: {
+      value: Math.min(...Object.keys(palindromes)),
+      factors: palindromes[Math.min(...Object.keys(palindromes))][0],
+    },
+  };
 };
 
 if (module) { module.exports = generate };
@@ -42,5 +37,5 @@ if (module) { module.exports = generate };
 // console.log(isPalindrome(102));
 // console.log(range(1, 5));
 
-generate({ maxFactor: 9 });
+// generate({ maxFactor: 9 });
 
