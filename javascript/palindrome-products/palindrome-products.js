@@ -9,10 +9,10 @@ const generate = (params) => {
     for (let j = i; j <= maxFactor; j++) {
       const factors = [i, j].sort();
       const product = i * j;
-      if (isPalindrome(product) && palindromes[product]) {
-        palindromes[product].push(factors);
-      } else if (isPalindrome(product) && palindromes[product] === undefined) {
+      if (isPalindrome(product) && !palindromes[product]) {
         palindromes[product] = [factors];
+      } else if (isPalindrome(product)) {
+        palindromes[product].push(factors);
       }
     }
   }
@@ -29,4 +29,4 @@ const generate = (params) => {
   };
 };
 
-if (module) { module.exports = generate ; }
+if (module) { module.exports = generate; }
