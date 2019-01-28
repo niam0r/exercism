@@ -46,11 +46,11 @@ describe('Series', () => {
     }).toThrow(new Error('Invalid input.'));
   });
 
-  xtest('returns 1 for empty string and zero slice length', () => {
+  test('returns 1 for empty string and zero slice length', () => {
     expect(largestProduct('', 0)).toBe(1);
   });
 
-  xtest('returns 1 for non-empty string and zero slice length', () => {
+  test('returns 1 for non-empty string and zero slice length', () => {
     expect(largestProduct('123', 0)).toBe(1);
   });
 

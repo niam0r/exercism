@@ -1,5 +1,6 @@
 export const largestProduct = (string, length) => {
   if (length < 0 || string.match(/\D/)) { throw new Error('Invalid input.'); }
+  if (length === 0) { return 1; }
 
   const products = [];
   for (let i = 0; i <= string.length - length; i++) {
