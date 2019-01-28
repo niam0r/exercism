@@ -5,11 +5,11 @@ describe('Series', () => {
     expect(largestProduct('0123456789', 2)).toBe(72);
   });
 
-  xtest('works for a tiny number', () => {
+  test('works for a tiny number', () => {
     expect(largestProduct('19', 2)).toBe(9);
   });
 
-  xtest('can get the largest product of 3', () => {
+  test('can get the largest product of 3', () => {
     expect(largestProduct('1027839564', 3)).toBe(270);
   });
 
