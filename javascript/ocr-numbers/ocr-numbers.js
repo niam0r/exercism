@@ -1,4 +1,3 @@
-
 const convertion = {
   ' _ \n| |\n|_|\n   ': '0',
   '   \n  |\n  |\n   ': '1',
@@ -11,11 +10,10 @@ const convertion = {
   ' _ \n|_|\n|_|\n   ': '8',
   ' _ \n|_|\n _|\n   ': '9',
   '    _ \n  || |\n  ||_|\n      ': '10'
-}
-
+};
 
 export const convert = inputStr => {
-  return convertion[inputStr];
-}
+  return convertion[inputStr] || '?';
+};
 
 

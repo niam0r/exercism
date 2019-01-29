@@ -100,7 +100,7 @@ describe('ocr', () => {
     )).toBe('10');
   });
 
-  xtest('identifies garble', () => {
+  test('identifies garble', () => {
     expect(convert(
       '   \n'
       + '| |\n'
@@ -109,7 +109,7 @@ describe('ocr', () => {
     )).toBe('?');
   });
 
-  xtest('converts 110101100', () => {
+  test('converts 110101100', () => {
     expect(convert(
       '       _     _        _  _ \n'
       + '  |  || |  || |  |  || || |\n'
