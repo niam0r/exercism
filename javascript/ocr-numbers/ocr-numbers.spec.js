@@ -28,7 +28,7 @@ describe('ocr', () => {
     )).toBe('2');
   });
 
-  xtest('recognizes three', () => {
+  test('recognizes three', () => {
     expect(convert(
       ' _ \n'
       + ' _|\n'
@@ -37,7 +37,7 @@ describe('ocr', () => {
     )).toBe('3');
   });
 
-  xtest('recognizes four', () => {
+  test('recognizes four', () => {
     expect(convert(
       '   \n'
       + '|_|\n'
@@ -46,7 +46,7 @@ describe('ocr', () => {
     )).toBe('4');
   });
 
-  xtest('recognizes five', () => {
+  test('recognizes five', () => {
     expect(convert(
       ' _ \n'
       + '|_ \n'
@@ -55,7 +55,7 @@ describe('ocr', () => {
     )).toBe('5');
   });
 
-  xtest('recognizes six', () => {
+  test('recognizes six', () => {
     expect(convert(
       ' _ \n'
       + '|_ \n'
@@ -64,7 +64,7 @@ describe('ocr', () => {
     )).toBe('6');
   });
 
-  xtest('recognizes seven', () => {
+  test('recognizes seven', () => {
     expect(convert(
       ' _ \n'
       + '  |\n'
@@ -73,7 +73,7 @@ describe('ocr', () => {
     )).toBe('7');
   });
 
-  xtest('recognizes eight', () => {
+  test('recognizes eight', () => {
     expect(convert(
       ' _ \n'
       + '|_|\n'
@@ -82,7 +82,7 @@ describe('ocr', () => {
     )).toBe('8');
   });
 
-  xtest('recognizes nine', () => {
+  test('recognizes nine', () => {
     expect(convert(
       ' _ \n'
       + '|_|\n'
@@ -91,7 +91,7 @@ describe('ocr', () => {
     )).toBe('9');
   });
 
-  xtest('recognizes ten', () => {
+  test('recognizes ten', () => {
     expect(convert(
       '    _ \n'
       + '  || |\n'
