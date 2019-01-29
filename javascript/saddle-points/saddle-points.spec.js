@@ -21,12 +21,12 @@ describe('Matrix', () => {
     expect(matrix.columns[1]).toEqual([1903, 3, 4]);
   });
 
-  xtest('no saddle point', () => {
+  test('no saddle point', () => {
     const matrix = new Matrix('2 1\n1 2');
     expect(matrix.saddlePoints).toEqual([]);
   });
 
-  xtest('a saddle point', () => {
+  test('a saddle point', () => {
     const matrix = new Matrix('1 2\n3 4');
     expect(matrix.saddlePoints).toEqual([[0, 1]]);
   });
