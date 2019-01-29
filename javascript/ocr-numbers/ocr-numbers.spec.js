@@ -10,7 +10,7 @@ describe('ocr', () => {
     )).toBe('0');
   });
 
-  xtest('recognizes one', () => {
+  test('recognizes one', () => {
     expect(convert(
       '   \n'
       + '  |\n'
