@@ -13,17 +13,15 @@ const CONVERTION = {
 
 const transpose = array => array[0].map((col, i) => array.map(row => row[i]));
 
-export const convert = inputStr => {
+export const convert = (inputStr) => {
   const lines = inputStr.split('\n');
   const transposed = transpose(lines.map(line => line.split(''))).map(array => array.join(''));
 
   let result = '';
 
-  for (var i = 0; i < transposed.length; i += 3) {
+  for (let i = 0; i < transposed.length; i += 3) {
     let digit = '';
-    lines.forEach(line => {
-      digit += line.slice(i, i + 3)
-    });
+    lines.forEach(line => digit += line.slice(i, i + 3));
     result += CONVERTION[digit] || '?';
   }
 
