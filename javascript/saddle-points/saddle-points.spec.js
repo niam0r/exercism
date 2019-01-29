@@ -6,7 +6,7 @@ describe('Matrix', () => {
     expect(matrix.rows[0]).toEqual([1, 2]);
   });
 
-  xtest('extracts other row', () => {
+  test('extracts other row', () => {
     const matrix = new Matrix('9 8 7\n19 18 17');
     expect(matrix.rows[1]).toEqual([19, 18, 17]);
   });
