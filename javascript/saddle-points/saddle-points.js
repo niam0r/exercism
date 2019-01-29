@@ -1,17 +1,10 @@
  export class Matrix {
   constructor(strInput) {
-    this.rows = this.buildRows(strInput);
-    this.columns = this.transpose(this.rows);
+    this.rows = strInput.split(/\n/).map(str => str.split(' ').map(char => parseInt(char, 10)));
+    this.columns = this.rows[0].map((col, i) => this.rows.map(row => row[i]));
     this.saddlePoints = this.findSaddlePoints();
   }
 
-  buildRows(strInput) {
-    return strInput.split(/\n/).map(str => str.split(' ').map(char => parseInt(char, 10)));
-  }
-
-  transpose(rows) {
-    return rows[0].map((col, i) => this.rows.map(row => row[i]));
-  }
 
   findSaddlePoints() {
 
