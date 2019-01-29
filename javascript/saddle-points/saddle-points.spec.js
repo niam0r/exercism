@@ -31,12 +31,12 @@ describe('Matrix', () => {
     expect(matrix.saddlePoints).toEqual([[0, 1]]);
   });
 
-  xtest('another saddle point', () => {
+  test('another saddle point', () => {
     const matrix = new Matrix('18 3 39 19 91\n38 10 8 77 320\n3 4 8 6 7');
     expect(matrix.saddlePoints).toEqual([[2, 2]]);
   });
 
-  xtest('multiple saddle points', () => {
+  test('multiple saddle points', () => {
     const matrix = new Matrix('4 5 4\n3 5 5\n1 5 4');
     expect(matrix.saddlePoints).toEqual([[0, 1], [1, 1], [2, 1]]);
   });
