@@ -8,7 +8,7 @@ describe('Spiral Matrix', () => {
     expect(actual).toEqual(expected);
   });
 
-  xtest('trivial spiral', () => {
+  test('trivial spiral', () => {
     const expected = [[1]];
     const actual = SpiralMatrix.ofSize(1);
 
