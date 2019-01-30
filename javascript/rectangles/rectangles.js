@@ -1,5 +1,6 @@
 export class Rectangles {
   static count(inputArray) {
-    return 0;
+    if (inputArray.length < 3) return 0;
+
   }
 }
