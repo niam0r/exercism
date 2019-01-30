@@ -16,8 +16,13 @@ const gifts = {
 };
 
 export class TwelveDays {
-  verse(n) {
-    return this.buildVerse(n);
+  verse(start, end) {
+    if (end === undefined) return this.buildVerse(start);
+    let verses = [];
+    for (let n = start; n <= end; n += 1) {
+      verses.push(this.buildVerse(n));
+    }
+    return verses.join('\n')
   }
 
   buildList(n) {

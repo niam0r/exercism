@@ -79,7 +79,7 @@ describe('TwelveDays', () => {
     expect(twelveDaysObject.verse(12)).toEqual(expectedVerseTwelve);
   });
 
-  xtest('test multiple verse', () => {
+  test('test multiple verse', () => {
     const expectedVerseOneToThree =
       'On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.\n\n' +
       'On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.\n\n' +
