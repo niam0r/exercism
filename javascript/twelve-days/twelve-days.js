@@ -14,7 +14,7 @@ const days = {
 };
 
 const gifts = {
-  1: 'a Partridge in a Pear Tree.',
+  1: 'a Partridge in a Pear Tree',
   2: 'Turtle Doves,',
   3: 'French Hens,',
   4: 'Calling Birds',
@@ -34,7 +34,8 @@ export class TwelveDays {
   }
 
   buildVerse(n) {
-    return `On the ${days[n]} day of Christmas my true love gave to me: ${gifts[n]}.\n\n`;
+
+    return `On the ${days[n]} day of Christmas my true love gave to me: ${gifts[n]}.\n`;
   }
 }
 
