@@ -1,3 +1,5 @@
+const converter = require('number-to-words');
+
 const days = {
   1: 'first',
   2: 'second',
@@ -36,14 +38,18 @@ export class TwelveDays {
   buildList(n) {
     const list = [];
     for (let i = n; i >= 1 ; i -= 1) {
-      if (i === 1 ) {list.push('and ')}
-      list.push(gifts[i]);
+      if (i === 1 ) {
+        list.push(`and ${gifts[i]}`);
+        return list.join(' ');
+      }
+      let quantityAndGift = `${converter.toWords(i)} ${gifts[i]}`
+      list.push(quantityAndGift);
     }
     return list.join(' ');
   }
 
   buildVerse(n) {
-    let list = n === 1 ? gifts[n] : buildList(n);
+    let list = n === 1 ? gifts[n] : this.buildList(n);
     return `On the ${days[n]} day of Christmas my true love gave to me: ${list}.\n`;
   }
 }

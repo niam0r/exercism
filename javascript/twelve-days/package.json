@@ -76,5 +76,7 @@
     }
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "number-to-words": "^1.2.4"
+  }
 }
