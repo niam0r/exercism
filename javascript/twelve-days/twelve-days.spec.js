@@ -87,7 +87,7 @@ describe('TwelveDays', () => {
     expect(twelveDaysObject.verse(1, 3)).toEqual(expectedVerseOneToThree);
   });
 
-  xtest('test sing whole song', () => {
+  test('test sing whole song', () => {
     const expectedSong =
       'On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.\n\n' +
       'On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.\n\n' +
