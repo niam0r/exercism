@@ -33,9 +33,18 @@ export class TwelveDays {
     return this.buildVerse(n);
   }
 
-  buildVerse(n) {
+  buildList(n) {
+    const list = [];
+    for (let i = n; i >= 1 ; i -= 1) {
+      if (i === 1 ) {list.push('and ')}
+      list.push(gifts[i]);
+    }
+    return list.join(' ');
+  }
 
-    return `On the ${days[n]} day of Christmas my true love gave to me: ${gifts[n]}.\n`;
+  buildVerse(n) {
+    let list = n === 1 ? gifts[n] : buildList(n);
+    return `On the ${days[n]} day of Christmas my true love gave to me: ${list}.\n`;
   }
 }
 
