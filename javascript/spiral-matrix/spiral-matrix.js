@@ -1,4 +1,4 @@
-const buildMatrix = (size) => Array(size).fill().map(() => Array(size).fill());
+const buildMatrix = size => Array(size).fill().map(() => Array(size).fill());
 
 export const SpiralMatrix = {
   ofSize(size) {
@@ -26,3 +26,5 @@ export const SpiralMatrix = {
     return matrix;
   }
 };
+
+// video explanation: https://youtu.be/HbjReoYp3LQ
