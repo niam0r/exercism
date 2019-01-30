@@ -50,7 +50,7 @@ export class TwelveDays {
 
   buildVerse(n) {
     let list = n === 1 ? gifts[n] : this.buildList(n);
-    return `On the ${days[n]} day of Christmas my true love gave to me: ${list}.\n`;
+    return `On the ${converter.toWordsOrdinal(n)} day of Christmas my true love gave to me: ${list}.\n`;
   }
 }
 
