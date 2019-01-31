@@ -4,8 +4,8 @@ const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 // B.B
 // .A.
 
-// ··A··
-// ·B·B·
+// ··A··    position = 2
+// ·B·B·    size = 5
 // C···C
 // ·B·B·
 // ··A··
@@ -13,12 +13,20 @@ const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P
 // export class Diamond {
 class Diamond {
   makeDiamond(letter) {
-    const position = alphabet.indexOf(letter);
+    const position = alphabet.indexOf(letter); // also middle
     const size = (position * 2) + 1;
-    const grid = Array(size).fill().map(() => Array(size).fill());
+    const grid = Array(size).fill().map(() => Array(size).fill(' '));
     console.log(grid);
 
-    return 'A\n';
+    for(let i = 0; i <= position ; i += 1) {
+      grid[i][position] = alphabet[i]
+      grid[size - i - 1][position] = alphabet[i]
+
+    }
+
+    console.log(grid)
+
+    return grid;
   }
 }
 
