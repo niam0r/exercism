@@ -63,13 +63,13 @@ describe('say', () => {
     expect(say.inEnglish(987654321123)).toBe(expected);
   });
 
-  xtest('raises an error below zero', () => {
+  test('raises an error below zero', () => {
     expect(() => {
       say.inEnglish(-1);
     }).toThrow(new Error('Number must be between 0 and 999,999,999,999.'));
   });
 
-  xtest('raises an error above 999,999,999,999', () => {
+  test('raises an error above 999,999,999,999', () => {
     expect(() => {
       say.inEnglish(1000000000000);
     }).toThrow(new Error('Number must be between 0 and 999,999,999,999.'));
