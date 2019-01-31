@@ -5,10 +5,11 @@ export class ISBN {
   }
 
   isValid() {
-    if (!this.isbn.every(char => /\d|X/.test(char))) return false;
+    let isbn = this.isbn;
+    if (!isbn.every(char => /\d|X/.test(char)) || isbn.length > 10) return false;
 
     let sum = 0;
-    this.isbn.forEach((char, i) => {
+    isbn.forEach((char, i) => {
        sum += char === 'X' ? 10 : parseInt(char, 10) * (10 - i);
     })
 

@@ -55,25 +55,25 @@ describe('ISBN Verifier Test Suite', () => {
     expect(isbn.isValid()).toEqual(false);
   });
 
-  xtest('too long isbn and no dashes', () => {
+  test('too long isbn and no dashes', () => {
     const isbn = new ISBN('3598215078X');
 
     expect(isbn.isValid()).toEqual(false);
   });
 
-  xtest('isbn without check digit', () => {
+  test('isbn without check digit', () => {
     const isbn = new ISBN('3-598-21507');
 
     expect(isbn.isValid()).toEqual(false);
   });
 
-  xtest('too long isbn', () => {
+  test('too long isbn', () => {
     const isbn = new ISBN('3-598-21507-XA');
 
     expect(isbn.isValid()).toEqual(false);
   });
 
-  xtest('check digit of X should not be used for 0', () => {
+  test('check digit of X should not be used for 0', () => {
     const isbn = new ISBN('3-598-21515-X');
 
     expect(isbn.isValid()).toEqual(false);
