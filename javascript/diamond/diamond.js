@@ -1,35 +1,31 @@
-const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-
-// .A.
-// B.B
-// .A.
-
-// ··A··    position = 2
-// ·B·B·    size = 5
-// C···C
-// ·B·B·
-// ··A··
-
-// export class Diamond {
-class Diamond {
+export class Diamond {
   makeDiamond(letter) {
-    const position = alphabet.indexOf(letter); // also middle
-    const size = (position * 2) + 1;
-    const grid = Array(size).fill().map(() => Array(size).fill(' '));
-    console.log(grid);
+    const letterIndex = letter.charCodeAt() - 65;
+    let output = '';
 
-    for(let i = 0; i <= position ; i += 1) {
-      grid[i][position] = alphabet[i]
-      grid[size - i - 1][position] = alphabet[i]
-
+    for (let i = 0; i <= letterIndex; i += 1) {
+      output += buildLine(letterIndex, i);
     }
-
-    console.log(grid)
-
-    return grid;
+    for (let i = letterIndex -1 ; i >= 0; i -= 1) {
+      output += buildLine(letterIndex, i);
+    }
+    return output;
   }
 }
 
-const diamond = new Diamond();
-diamond.makeDiamond('C')
+const buildLine = (letterIndex, i) => {
+  const diff = letterIndex - i;
+  return `${pad(diff) + printAlphabets(i) + pad(diff)}\n`;
+}
 
+const printAlphabets = index => {
+  const character = 65 + index;
+  if (index === 0) {
+    return 'A';
+  }
+  return String.fromCharCode(character) + pad((index - 1) * 2 + 1) + String.fromCharCode(character);
+}
+
+function pad(times) {
+  return ' '.repeat(times);
+}
