@@ -19,7 +19,7 @@ describe('Prime', () => {
     expect(prime.nth(10001)).toEqual(104743);
   });
 
-  xtest('weird case', () => {
+  test('weird case', () => {
     expect(() => prime.nth(0))
       .toThrow(new Error('Prime is not possible'));
   });
