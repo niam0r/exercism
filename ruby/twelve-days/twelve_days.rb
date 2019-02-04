@@ -1,4 +1,6 @@
 require 'numbers_and_words'
+# p 42.to_words
+# p 42.to_words(ordinal: true)
 
 GIFTS = {
   1 => 'a Partridge in a Pear Tree',
@@ -16,7 +18,20 @@ GIFTS = {
 }
 
 class TwelveDays
-  def self.verse
+  def self.build_list(n)
+    return "and #{GIFTS[1]}" if n == 1
+
+    list = ''
+    for i in [*2..n].reverse
+      list << "#{i.to_words} #{GIFTS[i]} "
+    end
+    list << "and #{GIFTS[1]}"
+    list
+  end
+
+  def self.verse(n)
+    "On the #{n.to_words(ordinal: true)} day of Christmas my true love gave to me: #{build_list(n)}."
+
 
   end
 
@@ -25,4 +40,6 @@ class TwelveDays
   end
 end
 
-p I18n.with_locale(:en) { 42.to_words }
+
+
+p TwelveDays.verse(3)
