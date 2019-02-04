@@ -14,18 +14,16 @@ const generatePrimes = (max) => {
   return primes;
 }
 
-// export class Prime {
-//   constructor() {
-//     this.primes = [];
-//   }
+export class Prime {
+  constructor() {
+    this.primes = generatePrimes(105000);
+    // should try to find a way to dynamically set max
+    // or set the expected size of array it returns
+  }
+  nth(n) {
+    if (n <= 0) throw new Error('Prime is not possible');
 
+    return this.primes[n - 1];
+  }
+}
 
-
-//   nth(n) {
-//     if (n <= 0) throw new Error('Prime is not possible');
-//     this.generatePrimes(n + 1);
-//     return this.prime[n - 1];
-//   }
-// }
-
-console.log(generatePrimes(100));
