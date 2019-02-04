@@ -13,7 +13,7 @@ GIFTS = {
   10 => 'Lords-a-Leaping,',
   11 => 'Pipers Piping,',
   12 => 'Drummers Drumming,'
-}
+}.freeze
 
 class TwelveDays
   def self.build_list(n)
@@ -31,7 +31,7 @@ class TwelveDays
 
   def self.song
     song = []
-    GIFTS.each_key { |key| song << verse(key.to_i) }
+    GIFTS.each_key { |key| song << verse(key) }
     song.join("\n\n") + "\n"
   end
 end
