@@ -19,7 +19,7 @@ GIFTS = {
 
 class TwelveDays
   def self.build_list(n)
-    return "and #{GIFTS[1]}" if n == 1
+    return "#{GIFTS[1]}" if n == 1
 
     list = ''
     for i in [*2..n].reverse
@@ -31,15 +31,19 @@ class TwelveDays
 
   def self.verse(n)
     "On the #{n.to_words(ordinal: true)} day of Christmas my true love gave to me: #{build_list(n)}."
-
-
   end
 
   def self.song
-
+    song = []
+    GIFTS.each_key do |key|
+      song << verse(key.to_i)
+    end
+    song.join("\n\n") + "\n"
   end
 end
 
 
 
-p TwelveDays.verse(3)
+# p TwelveDays.song
+
+p IO.read(File.expand_path('../song.txt', __FILE__))
