@@ -99,7 +99,7 @@ end
 
 class DisorderedTest < Minitest::Test
   def setup
-    skip
+    # skip
     diagram = "VCRRGVRG\nRVGCCGCV"
     students = %w(Samantha Patricia Xander Roger)
     @garden = Garden.new(diagram, students)
@@ -108,22 +108,22 @@ class DisorderedTest < Minitest::Test
   attr_reader :garden
 
   def test_patricia
-    skip
+    # skip
     assert_equal [:violets, :clover, :radishes, :violets], garden.patricia
   end
 
   def test_roger
-    skip
+    # skip
     assert_equal [:radishes, :radishes, :grass, :clover], garden.roger
   end
 
   def test_samantha
-    skip
+    # skip
     assert_equal [:grass, :violets, :clover, :grass], garden.samantha
   end
 
   def test_xander
-    skip
+    # skip
     assert_equal [:radishes, :grass, :clover, :violets], garden.xander
   end
 end
@@ -142,7 +142,7 @@ class TwoGardensDifferentStudents < Minitest::Test
   end
 
   def test_bob_and_charlie_per_garden
-    skip
+    # skip
     assert_equal [:radishes, :radishes, :grass, :clover], garden_1.bob
     assert_equal [:violets, :clover, :radishes, :violets], garden_2.bob
     assert_equal [:grass, :violets, :clover, :grass], garden_1.charlie
