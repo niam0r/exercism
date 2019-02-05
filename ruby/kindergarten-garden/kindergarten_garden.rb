@@ -5,20 +5,19 @@ DEFAULT_STUDENTS = %w[Alice Bob Charlie David Eve Fred Ginny Harriet Ileana Jose
 class Garden # :nodoc:
   def initialize(diagram, students = DEFAULT_STUDENTS)
     @rows = parse(diagram)
-    @students = students.sort
+    @students = students.map(&:downcase).sort
   end
 
   def method_missing(method_name, *args, &block)
-    possible_student = method_name.id2name.capitalize
-    if students.include?(possible_student)
-      plants_for(possible_student)
+    if students.include?(method_name.to_s)
+      plants_for(method_name.to_s)
     else
       super
     end
   end
 
   def respond_to_missing?(method_name, *args)
-    students.include?(method_name.id2name.capitalize) || super
+    students.include?(method_name.to_s) || super
   end
 
   private
