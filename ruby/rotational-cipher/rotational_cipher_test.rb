@@ -9,7 +9,7 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_a_by_1
-    skip
+    # skip
     assert_equal "b", RotationalCipher.rotate("a", 1)
   end
 
@@ -19,7 +19,7 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_m_by_13
-    skip
+    # skip
     assert_equal "z", RotationalCipher.rotate("m", 13)
   end
 
@@ -29,17 +29,17 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_capital_letters
-    skip
+    # skip
     assert_equal "TRL", RotationalCipher.rotate("OMG", 5)
   end
 
   def test_rotate_spaces
-    skip
+    # skip
     assert_equal "T R L", RotationalCipher.rotate("O M G", 5)
   end
 
   def test_rotate_numbers
-    skip
+    # skip
     assert_equal "Xiwxmrk 1 2 3 xiwxmrk", RotationalCipher.rotate("Testing 1 2 3 testing", 4)
   end
 
