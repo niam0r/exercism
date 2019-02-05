@@ -14,13 +14,13 @@ class GardenTest < Minitest::Test
   end
 
   def test_bobs_garden
-    skip
+    # skip
     garden = Garden.new("VVCG\nVVRC")
     assert_equal [:clover, :grass, :radishes, :clover], garden.bob
   end
 
   def test_bob_and_charlies_gardens
-    skip
+    # skip
     garden = Garden.new("VVCCGG\nVVCCGG")
     assert_equal [:clover, :clover, :clover, :clover], garden.bob
     assert_equal [:grass, :grass, :grass, :grass], garden.charlie

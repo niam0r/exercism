@@ -1,23 +1,19 @@
-PLANTS = {
-  'C' => :clover,
-  'G' => :grass,
-  'R' => :radishes,
-  'V' => :violets
-}
+PLANTS = { 'C' => :clover, 'G' => :grass, 'R' => :radishes, 'V' => :violets }
 
 STUDENTS = %w(Alice Bob Charlie David Eve Fred Ginny Harriet Ileana Joseph Kincaid Larry)
 
 class Garden
+  attr_reader :rows
   def initialize(str)
-    @garden_rows = str.split("\n")
+    @rows = str.split("\n").map { |row| row.chars.map { |char| PLANTS[char] } }
   end
 
   def plants_for(student)
     plants = []
-    student_index = STUDENTS.index(student)
-    @garden_rows.each do |row|
-      plants << PLANTS[row[student_index]]
-      plants << PLANTS[row[student_index + 1]]
+    position = STUDENTS.index(student) * 2
+    @rows.each do |row|
+      plants << row[position]
+      plants << row[position + 1]
     end
     plants
   end
@@ -32,8 +28,7 @@ class Garden
   end
 end
 
-
-garden = Garden.new("RC\nGG")
-garden.alice
+# garden = Garden.new("RC\nGG")
+# garden.alice
 
 
