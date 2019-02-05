@@ -4,7 +4,7 @@ class PrimeFactors
     divisor = 2
 
     while number > 1
-      if number % divisor == 0
+      if (number % divisor).zero?
         number /= divisor
         factors << divisor
       else
