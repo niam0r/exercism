@@ -45,5 +45,3 @@ class House
     song
   end
 end
-
-puts House.recite
