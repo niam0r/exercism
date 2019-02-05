@@ -5,7 +5,7 @@ STUDENTS = %w(Alice Bob Charlie David Eve Fred Ginny Harriet Ileana Joseph Kinca
 class Garden
   attr_reader :rows
   def initialize(str)
-    @rows = str.split("\n").map { |row| row.chars.map { |char| PLANTS[char] } }
+    @rows = str.split("\n").map { |row| row.chars.map { |char| PLANTS[char] }}
   end
 
   def plants_for(student)

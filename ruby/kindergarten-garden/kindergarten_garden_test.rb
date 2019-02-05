@@ -29,7 +29,7 @@ end
 
 class TestFullGarden < Minitest::Test
   def setup
-    skip
+    # skip
     diagram = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
     @garden = Garden.new(diagram)
   end
@@ -37,62 +37,62 @@ class TestFullGarden < Minitest::Test
   attr_reader :garden
 
   def test_alice
-    skip
+    # skip
     assert_equal [:violets, :radishes, :violets, :radishes], garden.alice
   end
 
   def test_bob
-    skip
+    # skip
     assert_equal [:clover, :grass, :clover, :clover], garden.bob
   end
 
   def test_charlie
-    skip
+    # skip
     assert_equal [:violets, :violets, :clover, :grass], garden.charlie
   end
 
   def test_david
-    skip
+    # skip
     assert_equal [:radishes, :violets, :clover, :radishes], garden.david
   end
 
   def test_eve
-    skip
+    # skip
     assert_equal [:clover, :grass, :radishes, :grass], garden.eve
   end
 
   def test_fred
-    skip
+    # skip
     assert_equal [:grass, :clover, :violets, :clover], garden.fred
   end
 
   def test_ginny
-    skip
+    # skip
     assert_equal [:clover, :grass, :grass, :clover], garden.ginny
   end
 
   def test_harriet
-    skip
+    # skip
     assert_equal [:violets, :radishes, :radishes, :violets], garden.harriet
   end
 
   def test_ileana
-    skip
+    # skip
     assert_equal [:grass, :clover, :violets, :clover], garden.ileana
   end
 
   def test_joseph
-    skip
+    # skip
     assert_equal [:violets, :clover, :violets, :grass], garden.joseph
   end
 
   def test_kincaid
-    skip
+    # skip
     assert_equal [:grass, :clover, :clover, :grass], garden.kincaid
   end
 
   def test_larry
-    skip
+    # skip
     assert_equal [:grass, :violets, :clover, :violets], garden.larry
   end
 end
