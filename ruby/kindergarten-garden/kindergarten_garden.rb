@@ -1,8 +1,8 @@
 PLANTS = {
-  clover: 'C',
-  grass: 'G',
-  radishes: 'R',
-  violets: 'V'
+  'C' => :clover,
+  'G' => :grass,
+  'R' => :radishes,
+  'V' => :violets
 }
 
 STUDENTS = %w(Alice Bob Charlie David Eve Fred Ginny Harriet Ileana Joseph Kincaid Larry)
@@ -13,7 +13,13 @@ class Garden
   end
 
   def plants_for(student)
-    p "#{student}"
+    plants = []
+    student_index = STUDENTS.index(student)
+    @garden_rows.each do |row|
+      plants << PLANTS[row[student_index]]
+      plants << PLANTS[row[student_index + 1]]
+    end
+    plants
   end
 
   def method_missing(method_name, *args)
@@ -29,3 +35,5 @@ end
 
 garden = Garden.new("RC\nGG")
 garden.alice
+
+
