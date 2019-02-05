@@ -4,6 +4,9 @@ ITEMS = {
   3 => 'rat',
   4 => 'dog',
   5 => 'cow with the crumpled horn',
+  6 => 'maiden all forlorn',
+  7 => 'man all tattered and torn',
+  8 => 'priest all shaven and shorn',
 }
 
 VERBS = {
@@ -11,6 +14,9 @@ VERBS = {
   3 => 'ate',
   4 => 'worried',
   5 => 'tossed',
+  6 => 'milked',
+  7 => 'kissed',
+  8 => 'married',
 }
 
 class House
@@ -27,7 +33,7 @@ class House
 
   def self.recite
     song = ""
-    (1..5).each { |n| song << "#{verse(n)}\n\n" }
+    (1..8).each { |n| song << "#{verse(n)}\n\n" }
     song
   end
 end
@@ -35,33 +41,6 @@ end
 puts House.recite
 
 expected = <<-RHYME
-
-This is the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
 
 This is the rooster that crowed in the morn
 that woke the priest all shaven and shorn
