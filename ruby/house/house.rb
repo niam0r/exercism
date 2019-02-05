@@ -2,21 +2,29 @@ ITEMS = {
   1 => 'house',
   2 => 'malt',
   3 => 'rat',
-  4 => 'dog',
-  5 => 'cow with the crumpled horn',
-  6 => 'maiden all forlorn',
-  7 => 'man all tattered and torn',
-  8 => 'priest all shaven and shorn',
+  4 => 'cat',
+  5 => 'dog',
+  6 => 'cow with the crumpled horn',
+  7 => 'maiden all forlorn',
+  8 => 'man all tattered and torn',
+  9 => 'priest all shaven and shorn',
+  10 => 'rooster that crowed in the morn',
+  11 => 'farmer sowing his corn',
+  12 => 'horse and the hound and the horn',
 }
 
 VERBS = {
   2 => 'lay in',
   3 => 'ate',
-  4 => 'worried',
-  5 => 'tossed',
-  6 => 'milked',
-  7 => 'kissed',
-  8 => 'married',
+  4 => 'killed',
+  5 => 'worried',
+  6 => 'tossed',
+  7 => 'milked',
+  8 => 'kissed',
+  9 => 'married',
+  10 => 'woke',
+  11 => 'kept',
+  12 => 'belonged to',
 }
 
 class House
@@ -33,48 +41,9 @@ class House
 
   def self.recite
     song = ""
-    (1..8).each { |n| song << "#{verse(n)}\n\n" }
+    (1..12).each { |n| song << "#{verse(n)}\n\n" }
     song
   end
 end
 
 puts House.recite
-
-expected = <<-RHYME
-
-This is the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the farmer sowing his corn
-that kept the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-
-This is the horse and the hound and the horn
-that belonged to the farmer sowing his corn
-that kept the rooster that crowed in the morn
-that woke the priest all shaven and shorn
-that married the man all tattered and torn
-that kissed the maiden all forlorn
-that milked the cow with the crumpled horn
-that tossed the dog
-that worried the cat
-that killed the rat
-that ate the malt
-that lay in the house that Jack built.
-    RHYME
