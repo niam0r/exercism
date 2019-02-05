@@ -12,9 +12,20 @@ class Garden
     @garden_rows = str.split("\n")
   end
 
-  def method_missing(method_id)
-    if STUDENTS.include?(method_id)
+  def plants_for(student)
+    p "#{student}"
+  end
 
+  def method_missing(method_name, *args)
+    possible_student = method_name.id2name.capitalize
+    if STUDENTS.include?(possible_student)
+      plants_for(possible_student)
+    else
+      super
     end
   end
 end
+
+
+garden = Garden.new("RC\nGG")
+garden.alice
