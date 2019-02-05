@@ -8,16 +8,6 @@ class Garden
     @students = students.sort
   end
 
-  def plants_for(student)
-    plants = []
-    position = @students.index(student) * 2
-    @rows.each do |row|
-      plants << row[position]
-      plants << row[position + 1]
-    end
-    plants
-  end
-
   def method_missing(method_name, *args, &block)
     possible_student = method_name.id2name.capitalize
     if @students.include?(possible_student)
@@ -32,6 +22,16 @@ class Garden
   end
 
   private
+
+  def plants_for(student)
+    plants = []
+    position = @students.index(student) * 2
+    @rows.each do |row|
+      plants << row[position]
+      plants << row[position + 1]
+    end
+    plants
+  end
 
   def parse(diagram)
     diagram.split("\n").map do |row|
