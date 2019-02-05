@@ -1,11 +1,11 @@
 PLANTS = { 'C' => :clover, 'G' => :grass, 'R' => :radishes, 'V' => :violets }.freeze
 
-STUDENTS = %w[Alice Bob Charlie David Eve Fred Ginny Harriet Ileana Joseph Kincaid Larry].freeze
+DEFAULT_STUDENTS = %w[Alice Bob Charlie David Eve Fred Ginny Harriet Ileana Joseph Kincaid Larry].freeze
 
 class Garden
-  def initialize(diagram, students = nil)
-    @rows = diagram.split("\n").map { |row| row.chars.map { |char| PLANTS[char] } }
-    @students = students ? students.sort : STUDENTS
+  def initialize(diagram, students = DEFAULT_STUDENTS)
+    @rows = parse(diagram)
+    @students = students.sort
   end
 
   def plants_for(student)
@@ -29,5 +29,15 @@ class Garden
 
   def respond_to_missing?(method_name, *args)
     @students.include?(method_name.id2name.capitalize) || super
+  end
+
+  private
+
+  def parse(diagram)
+    diagram.split("\n").map do |row|
+      row.chars.map do |char|
+        PLANTS[char]
+      end
+    end
   end
 end
