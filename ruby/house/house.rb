@@ -1,35 +1,37 @@
 ITEMS = {
   1 => 'house',
   2 => 'malt',
+  3 => 'rat',
 }
 
 VERBS = {
-  2 => 'lay'
+  2 => 'lay',
+  3 => 'ate',
 }
 
 class House
   def self.verse(n)
-    return "This is the house that Jack built.\n" if n == 1
+    return "This is the house that Jack built." if n == 1
 
-    verse = "This is the "
+    verse = "This is the #{ITEMS[n]}"
 
-    (2..n).each do |n|
-      verse << ITEMS[n]
-      verse << "\n"
-      verse << "that #{VERBS[n]} the #{ITEMS[n - 1]}"
+    (2..n).reverse_each do |n|
+      verse << "\nthat #{VERBS[n]} the #{ITEMS[n - 1]}"
     end
 
     verse << " that Jack built."
-    verse
+    # verse
   end
 
 
   def self.recite
-
+    song = ""
+    (1..3).each { |n| song << "#{verse(n)}\n\n" }
+    song
   end
 end
 
-p House.verse(2)
+puts House.recite
 
 expected = <<-RHYME
 This is the house that Jack built.
