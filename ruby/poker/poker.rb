@@ -18,6 +18,7 @@ end
 
 class Card
   def initialize(rank_and_suit)
-
+    @rank = rank_and_suit[0..-2] # grabbing first char or first and second
+    @suit = rank_and_suit[-1]
   end
 end
