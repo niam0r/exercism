@@ -1,10 +1,13 @@
 class PrimeFactors
-  def self.for(n)
+  def self.for(number)
     factors = []
+    divisor = 2
 
-    until n == 1
-      [2..n / 2].each do |divisor|
-        factors << divisor if n % divisor == 0
+    while number > 1
+      if number % divisor == 0
+        number /= divisor
+        factors << divisor
+      else
         divisor += 1
       end
     end
