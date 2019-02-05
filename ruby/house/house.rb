@@ -10,8 +10,8 @@ ITEMS = {
   9 => 'priest all shaven and shorn',
   10 => 'rooster that crowed in the morn',
   11 => 'farmer sowing his corn',
-  12 => 'horse and the hound and the horn',
-}
+  12 => 'horse and the hound and the horn'
+}.freeze
 
 VERBS = {
   2 => 'lay in',
@@ -24,23 +24,22 @@ VERBS = {
   9 => 'married',
   10 => 'woke',
   11 => 'kept',
-  12 => 'belonged to',
-}
+  12 => 'belonged to'
+}.freeze
 
 class House
-  def self.verse(n)
-    return "This is the house that Jack built." if n == 1
+  def self.verse(num)
+    return 'This is the house that Jack built.' if num == 1
 
-    verse = "This is the #{ITEMS[n]}"
+    verse = "This is the #{ITEMS[num]}"
 
-    (2..n).reverse_each { |n| verse << "\nthat #{VERBS[n]} the #{ITEMS[n - 1]}" }
+    (2..num).reverse_each { |n| verse << "\nthat #{VERBS[n]} the #{ITEMS[n - 1]}" }
 
-    verse << " that Jack built."
+    verse << ' that Jack built.'
   end
 
-
   def self.recite
-    song = ""
+    song = ''
     (1..12).each { |n| song << "#{verse(n)}\n\n" }
     song
   end
