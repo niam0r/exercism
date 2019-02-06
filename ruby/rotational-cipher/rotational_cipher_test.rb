@@ -24,7 +24,7 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_n_by_13_with_wrap_around_alphabet
-    skip
+    # skip
     assert_equal "a", RotationalCipher.rotate("n", 13)
   end
 
@@ -44,12 +44,12 @@ class RotationalCipherTest < Minitest::Test
   end
 
   def test_rotate_punctuation
-    skip
+    # skip
     assert_equal "Gzo'n zvo, Bmviyhv!", RotationalCipher.rotate("Let's eat, Grandma!", 21)
   end
 
   def test_rotate_all_letters
-    skip
+    # skip
     assert_equal "Gur dhvpx oebja sbk whzcf bire gur ynml qbt.", RotationalCipher.rotate("The quick brown fox jumps over the lazy dog.", 13)
   end
 end
