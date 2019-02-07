@@ -10,4 +10,10 @@ export class CustomSet {
   contains(el) {
     return this.values.includes(el);
   }
+
+  subset(otherSet) {
+    if (this.empty()) return true;
+    if (otherSet.empty()) return false;
+    return this.values.every(value => otherSet.contains(value));
+  }
 }
