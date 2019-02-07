@@ -16,4 +16,9 @@ export class CustomSet {
     if (otherSet.empty()) return false;
     return this.values.every(value => otherSet.contains(value));
   }
+
+  disjoint(otherSet) {
+    if (this.empty() || otherSet.empty()) return true;
+    return !this.values.some(value => otherSet.contains(value));
+  }
 }
