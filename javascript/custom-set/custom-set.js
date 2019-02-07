@@ -38,4 +38,13 @@ export class CustomSet {
     const commonValues = this.values.filter(value => otherSet.contains(value));
     return new CustomSet(commonValues);
   }
+
+  difference(otherSet) {
+    if ((this.empty() && otherSet.empty()) || (this.empty() && !otherSet.empty())) {
+      return new CustomSet([]);
+    }
+    if (otherSet.empty()) return this;
+    const commonValues = this.values.filter(value => !otherSet.contains(value));
+    return new CustomSet(commonValues);
+  }
 }

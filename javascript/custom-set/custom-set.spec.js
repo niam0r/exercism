@@ -169,25 +169,25 @@ describe('CustomSet', () => {
   });
 
   describe('difference of a set is a set of all elements that are only in the first set', () => {
-    xtest('difference of two empty sets is an empty set', () => {
+    test('difference of two empty sets is an empty set', () => {
       const actual = new CustomSet().difference(new CustomSet());
       const expected = new CustomSet();
       expect(actual.eql(expected)).toBe(true);
     });
 
-    xtest('difference of empty set and non-empty set is an empty set', () => {
+    test('difference of empty set and non-empty set is an empty set', () => {
       const actual = new CustomSet().difference(new CustomSet([3, 2, 5]));
       const expected = new CustomSet();
       expect(actual.eql(expected)).toBe(true);
     });
 
-    xtest('difference of a non-empty set and an empty set is the non-empty set', () => {
+    test('difference of a non-empty set and an empty set is the non-empty set', () => {
       const actual = new CustomSet([1, 2, 3, 4]).difference(new CustomSet());
       const expected = new CustomSet([1, 2, 3, 4]);
       expect(actual.eql(expected)).toBe(true);
     });
 
-    xtest('difference of two non-empty sets is a set of elements that are only in the first set', () => {
+    test('difference of two non-empty sets is a set of elements that are only in the first set', () => {
       const actual = new CustomSet([3, 2, 1]).difference(new CustomSet([2, 4]));
       const expected = new CustomSet([1, 3]);
       expect(actual.eql(expected)).toBe(true);
