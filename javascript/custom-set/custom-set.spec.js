@@ -14,17 +14,17 @@ describe('CustomSet', () => {
   });
 
   describe('contains: sets can report if they contain an element', () => {
-    xtest('nothing is contained in an empty set', () => {
+    test('nothing is contained in an empty set', () => {
       const actual = new CustomSet().contains(1);
       expect(actual).toBe(false);
     });
 
-    xtest('when the element is in the set', () => {
+    test('when the element is in the set', () => {
       const actual = new CustomSet([1, 2, 3]).contains(1);
       expect(actual).toBe(true);
     });
 
-    xtest('when the element is not in the set', () => {
+    test('when the element is not in the set', () => {
       const actual = new CustomSet([1, 2, 3]).contains(4);
       expect(actual).toBe(false);
     });
