@@ -47,4 +47,8 @@ export class CustomSet {
     const commonValues = this.values.filter(value => !otherSet.contains(value));
     return new CustomSet(commonValues);
   }
+
+  union(otherSet) {
+    return new CustomSet([...this.values, ...otherSet.values]);
+  }
 }
