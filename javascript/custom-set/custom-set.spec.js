@@ -2,12 +2,12 @@ import { CustomSet } from './custom-set';
 
 describe('CustomSet', () => {
   describe('empty: returns true if the set contains no elements', () => {
-    xtest('sets with no elements are empty', () => {
+    test('sets with no elements are empty', () => {
       const actual = new CustomSet().empty();
       expect(actual).toBe(true);
     });
 
-    xtest('sets with elements are not empty', () => {
+    test('sets with elements are not empty', () => {
       const actual = new CustomSet([1]).empty();
       expect(actual).toBe(false);
     });
