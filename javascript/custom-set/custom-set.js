@@ -21,4 +21,10 @@ export class CustomSet {
     if (this.empty() || otherSet.empty()) return true;
     return !this.values.some(value => otherSet.contains(value));
   }
+
+  eql(otherSet) {
+    if (this.empty() && otherSet.empty()) return true;
+    return this.values.every(value => otherSet.contains(value)) &&
+      otherSet.values.every(value => this.contains(value));
+  }
 }
