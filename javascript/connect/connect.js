@@ -4,8 +4,17 @@ export class Board {
   }
 
   winner() {
-    if (this.board.every(row => !row.includes(/X|0/))) return '';
+    if (this.board.every(row => !row.match(/X|0/))) return '';
 
   }
 }
 
+// const board = [
+    //   '. . . . .',
+    //   ' . . . . .',
+    //   '  . . . . .',
+    //   '   . . . . .',
+    //   '    . . . . .',
+    // ];
+
+// console.log((board.every(row => !row.match(/X|0/))))
