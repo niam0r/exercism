@@ -27,4 +27,9 @@ export class CustomSet {
     return this.values.every(value => otherSet.contains(value)) &&
       otherSet.values.every(value => this.contains(value));
   }
+
+  add(value) {
+    if (!this.contains(value)) this.values.push(value);
+    return this;
+  }
 }
