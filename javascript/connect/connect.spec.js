@@ -12,14 +12,14 @@ describe('Judging a game of connect', () => {
     expect(new Board(board).winner()).toEqual('');
   });
 
-  xtest('X can win on a 1x1 board', () => {
+  test('X can win on a 1x1 board', () => {
     const board = [
       'X',
     ];
     expect(new Board(board).winner()).toEqual('X');
   });
 
-  xtest('O can win on a 1x1 board', () => {
+  test('O can win on a 1x1 board', () => {
     const board = [
       'O',
     ];

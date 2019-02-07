@@ -4,7 +4,9 @@ export class Board {
   }
 
   winner() {
-    if (this.board.every(row => !row.match(/X|0/))) return '';
+    const { board } = this;
+    if (board.every(row => !row.match(/X|O/))) return '';
+    if (board.length === 1 && board[0] == 'X' || board[0] == 'O') return board[0];
 
   }
 }
