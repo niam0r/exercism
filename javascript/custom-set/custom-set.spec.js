@@ -137,31 +137,31 @@ describe('CustomSet', () => {
   });
 
   describe('intersection: returns a set of all shared elements', () => {
-    xtest('intersection of two empty sets is an empty set', () => {
+    test('intersection of two empty sets is an empty set', () => {
       const actual = new CustomSet().intersection(new CustomSet());
       const expected = new CustomSet();
       expect(actual.eql(expected)).toBe(true);
     });
 
-    xtest('intersection of an empty set and non-empty set is an empty set', () => {
+    test('intersection of an empty set and non-empty set is an empty set', () => {
       const actual = new CustomSet().intersection(new CustomSet([3, 2, 5]));
       const expected = new CustomSet([]);
       expect(actual.eql(expected)).toBe(true);
     });
 
-    xtest('intersection of a non-empty set and an empty set is an empty set', () => {
+    test('intersection of a non-empty set and an empty set is an empty set', () => {
       const actual = new CustomSet([1, 2, 3, 4]).intersection(new CustomSet([]));
       const expected = new CustomSet([]);
       expect(actual.eql(expected)).toBe(true);
     });
 
-    xtest('intersection of two sets with no shared elements is an empty set', () => {
+    test('intersection of two sets with no shared elements is an empty set', () => {
       const actual = new CustomSet([1, 2, 3]).intersection(new CustomSet([4, 5, 6]));
       const expected = new CustomSet([]);
       expect(actual.eql(expected)).toBe(true);
     });
 
-    xtest('intersection of two sets with shared elements is a set of the shared elements', () => {
+    test('intersection of two sets with shared elements is a set of the shared elements', () => {
       const actual = new CustomSet([1, 2, 3, 4]).intersection(new CustomSet([3, 2, 5]));
       const expected = new CustomSet([2, 3]);
       expect(actual.eql(expected)).toBe(true);

@@ -32,4 +32,10 @@ export class CustomSet {
     if (!this.contains(value)) this.values.push(value);
     return this;
   }
+
+  intersection(otherSet) {
+    if (this.empty() || otherSet.empty() || this.disjoint(otherSet)) return new CustomSet([]);
+    const commonValues = this.values.filter(value => otherSet.contains(value));
+    return new CustomSet(commonValues);
+  }
 }
