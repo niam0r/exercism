@@ -24,8 +24,8 @@ export class CustomSet {
 
   eql(otherSet) {
     if (this.empty() && otherSet.empty()) return true;
-    return this.values.every(value => otherSet.contains(value)) &&
-      otherSet.values.every(value => this.contains(value));
+    return this.values.every(value => otherSet.contains(value))
+      && otherSet.values.every(value => this.contains(value));
   }
 
   add(value) {
