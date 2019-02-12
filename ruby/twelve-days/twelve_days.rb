@@ -16,7 +16,7 @@ GIFTS = {
 }.freeze
 
 class TwelveDays
-  def self.build_list(n)
+  def self.gifts(n)
     return GIFTS[1] if n == 1
 
     list = ''
@@ -26,7 +26,7 @@ class TwelveDays
   end
 
   def self.verse(n)
-    "On the #{n.to_words(ordinal: true)} day of Christmas my true love gave to me: #{build_list(n)}."
+    "On the #{n.to_words(ordinal: true)} day of Christmas my true love gave to me: #{gifts(n)}."
   end
 
   def self.song
