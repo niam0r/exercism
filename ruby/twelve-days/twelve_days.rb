@@ -19,10 +19,8 @@ class TwelveDays
   def self.gifts(n)
     return GIFTS[1] if n == 1
 
-    list = ''
-    [*2..n].reverse_each { |i| list << "#{i.to_words} #{GIFTS[i]} " }
-    list << "and #{GIFTS[1]}"
-    list
+    list = [*2..n].reverse_each.map { |i| "#{i.to_words} #{GIFTS[i]} " }
+    list.push("and #{GIFTS[1]}").join('')
   end
 
   def self.verse(n)
@@ -30,8 +28,6 @@ class TwelveDays
   end
 
   def self.song
-    song = []
-    GIFTS.each_key { |key| song << verse(key) }
-    song.join("\n\n") + "\n"
+    GIFTS.each_key.map { |key| verse(key) }.join("\n\n") + "\n"
   end
 end
