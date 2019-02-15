@@ -11,6 +11,7 @@ class Team
 
   private
 
+
   def calculate_points
     # A win earns 3 points. A draw earns 1. A loss earns 0
     @W * 3 + @D
