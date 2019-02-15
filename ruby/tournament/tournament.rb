@@ -2,10 +2,10 @@ require_relative 'teams'
 
 class Tournament
   @teams = Teams.new
-  @first_line = "Team                           | MP |  W |  D |  L |  P\n"
+  @tally = ["Team                           | MP |  W |  D |  L |  P\n"]
 
   def self.tally(input)
-    return @first_line if input == "\n"
+    return @tally.first if input == "\n"
 
     input.split('\n').each { |line| parse_line(line)}
 
@@ -22,11 +22,9 @@ class Tournament
 
     case result
     when 'win'
-      puts 'winning'
       first_team.win
       secong_team.loose
     when 'loss'
-      puts 'loosing'
       first_team.loose
       secong_team.win
     when 'draw'
@@ -36,14 +34,15 @@ class Tournament
   end
 
   def self.print_tally(teams)
-    @first_line
-    teams.each { |team| team.print_line } unless teams.empty?
+    @tally << teams.map { |team| team.print_line }# unless teams.empty?
+    puts @tally
+    @tally.join("\n")
   end
 end
 
 
-input = <<-INPUT.gsub(/^ */, '')
-    Allegoric Alaskans;Blithering Badgers;win
-    INPUT
+# input = <<-INPUT.gsub(/^ */, '')
+#     Allegoric Alaskans;Blithering Badgers;win
+#     INPUT
 
-Tournament.tally(input)
+# Tournament.tally(input)

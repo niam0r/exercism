@@ -17,16 +17,19 @@ class Team
   # private
 
   def win
-    @points += 3
     @MP += 1
+    @W += 1
+    @points += 3
   end
 
   def draw
-    @points += 1
     @MP += 1
+    @D += 1
+    @points += 1
   end
 
   def loose
     @MP += 1
+    @L += 1
   end
 end
