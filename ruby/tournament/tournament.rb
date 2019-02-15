@@ -6,6 +6,7 @@ class Tournament
 
   def self.tally(input)
     return @first_line if input == "\n"
+
     input.split('\n').each { |line| parse_line(line)}
 
     print_tally(@teams.sorted_teams)
@@ -16,14 +17,16 @@ class Tournament
   def self.parse_line(line)
     # Allegoric Alaskans;Blithering Badgers;win
     first_team = @teams.find(line.split(';').first)
-    secong_team = @teams.find(line.split(';')[2])
-    result = line.split(';').last
+    secong_team = @teams.find(line.split(';')[1])
+    result = line.split(';').last.strip
 
     case result
     when 'win'
+      puts 'winning'
       first_team.win
       secong_team.loose
     when 'loss'
+      puts 'loosing'
       first_team.loose
       secong_team.win
     when 'draw'
@@ -37,3 +40,10 @@ class Tournament
     teams.each { |team| team.print_line } unless teams.empty?
   end
 end
+
+
+input = <<-INPUT.gsub(/^ */, '')
+    Allegoric Alaskans;Blithering Badgers;win
+    INPUT
+
+Tournament.tally(input)

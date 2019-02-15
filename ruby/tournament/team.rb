@@ -14,7 +14,7 @@ class Team
     "#{@name}            |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}"
   end
 
-  private
+  # private
 
   def win
     @points += 3
