@@ -10,11 +10,8 @@ class Team
   end
 
   def print_line
-    # Devastating Donkeys            |  3 |  2 |  1 |  0 |  7
-    "#{@name}            |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}"
+    "#{@name}             |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}\n"
   end
-
-  # private
 
   def win
     @MP += 1
