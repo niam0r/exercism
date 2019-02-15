@@ -6,16 +6,10 @@ class Tournament
   def self.tally(input)
     input.split('\n').each { |line| parse_line(line)}
 
-
-
-    print_tally
+    print_tally(@teams.sorted_teams)
   end
 
   private
-
-  def self.print_tally
-    "Team                           | MP |  W |  D |  L |  P\n"
-  end
 
   def self.parse_line(line)
     # Allegoric Alaskans;Blithering Badgers;win
@@ -34,7 +28,10 @@ class Tournament
       first_team.draw
       secong_team.draw
     end
+  end
 
-
+  def self.print_tally(teams)
+    "Team                           | MP |  W |  D |  L |  P\n"
+    teams.each { |team| team.print_line }
   end
 end

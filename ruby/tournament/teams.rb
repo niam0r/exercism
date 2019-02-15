@@ -1,6 +1,8 @@
 require_relative 'team'
 
 class Teams
+  attr_reader :all
+
   def initialize
     @all = {}
   end
@@ -11,5 +13,9 @@ class Teams
     else
       @all[team_name] = Team.new(team_name)
     end
+  end
+
+  def sorted_teams
+    @all.sort_by(&:points)
   end
 end
