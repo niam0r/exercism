@@ -13,17 +13,14 @@ class Tournament
 
     case result
     when 'win'
-      first_team.W += 1
-      secong_team.L += 1
+      first_team.win
+      secong_team.loose
     when 'lost'
-      first_team.L += 1
-      secong_team.W += 1
-    end
-
-
-    teams.each do |team|
-      team.MP += 1
-      team.calculate_points
+      first_team.loose
+      secong_team.win
+    when 'draw'
+      first_team.draw
+      secong_team.draw
     end
   end
 end

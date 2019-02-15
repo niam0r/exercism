@@ -6,14 +6,22 @@ class Team
     @W = matches_won
     @D = matches_drawn
     @L = matches_lost
-    @points = calculate_points
+    @points = points
   end
 
   private
 
+  def win
+    @points += 3
+    @MP += 1
+  end
 
-  def calculate_points
-    # A win earns 3 points. A draw earns 1. A loss earns 0
-    @W * 3 + @D
+  def loose
+    @MP += 1
+  end
+
+  def draw
+    @points += 1
+    @MP += 1
   end
 end
