@@ -16,6 +16,7 @@ class Teams
   end
 
   def sorted_teams
-    @all.sort_by(&:points)
+    return [] if @all.empty?
+    @all.values.sort_by(&:points)
   end
 end

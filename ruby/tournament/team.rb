@@ -9,6 +9,11 @@ class Team
     @points = points
   end
 
+  def print_line
+    # Devastating Donkeys            |  3 |  2 |  1 |  0 |  7
+    "#{@name}            |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}"
+  end
+
   private
 
   def win
@@ -23,10 +28,5 @@ class Team
 
   def loose
     @MP += 1
-  end
-
-  def print_line
-    # Devastating Donkeys            |  3 |  2 |  1 |  0 |  7
-    "#{@name}            |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}"
   end
 end

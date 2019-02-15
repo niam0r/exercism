@@ -2,8 +2,10 @@ require_relative 'teams'
 
 class Tournament
   @teams = Teams.new
+  @first_line = "Team                           | MP |  W |  D |  L |  P\n"
 
   def self.tally(input)
+    return @first_line if input == "\n"
     input.split('\n').each { |line| parse_line(line)}
 
     print_tally(@teams.sorted_teams)
@@ -21,7 +23,7 @@ class Tournament
     when 'win'
       first_team.win
       secong_team.loose
-    when 'lost'
+    when 'loss'
       first_team.loose
       secong_team.win
     when 'draw'
@@ -31,7 +33,7 @@ class Tournament
   end
 
   def self.print_tally(teams)
-    "Team                           | MP |  W |  D |  L |  P\n"
-    teams.each { |team| team.print_line }
+    @first_line
+    teams.each { |team| team.print_line } unless teams.empty?
   end
 end
