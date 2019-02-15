@@ -1,14 +1,17 @@
-require_relative 'team'
+require_relative 'teams'
 
 class Tournament
+  @teams = Teams.new
+
   def self.tally(input)
+
     "Team                           | MP |  W |  D |  L |  P\n"
   end
 
   def parse_line(line)
     # Allegoric Alaskans;Blithering Badgers;win
-    first_team = Team.new(line.split(';').first)
-    secong_team = Team.new(line.split(';')[2])
+    first_team = @teams.find(line.split(';').first)
+    secong_team = @teams.find(line.split(';')[2])
     result = line.split(';').last
 
     case result
@@ -22,5 +25,7 @@ class Tournament
       first_team.draw
       secong_team.draw
     end
+
+
   end
 end
