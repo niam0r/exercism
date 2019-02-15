@@ -16,12 +16,17 @@ class Team
     @MP += 1
   end
 
+  def draw
+    @points += 1
+    @MP += 1
+  end
+
   def loose
     @MP += 1
   end
 
-  def draw
-    @points += 1
-    @MP += 1
+  def print_line
+    # Devastating Donkeys            |  3 |  2 |  1 |  0 |  7
+    "#{@name}            |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}"
   end
 end
