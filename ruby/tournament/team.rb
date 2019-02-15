@@ -1,6 +1,7 @@
 class Team
-  attr_reader :MP, :W, :D, :L, :points
-  def initialize(matches_played = 0, matches_won = 0, matches_drawn = 0, matches_lost = 0, points = 0)
+  attr_reader :name, :MP, :W, :D, :L, :points
+  def initialize(name, matches_played = 0, matches_won = 0, matches_drawn = 0, matches_lost = 0, points = 0)
+    @name = name
     @MP = matches_played
     @W = matches_won
     @D = matches_drawn
