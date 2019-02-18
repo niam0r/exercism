@@ -19,19 +19,23 @@ class Tournament # :nodoc:
   def parse_line(line)
     split_line = line.split(';').map(&:strip)
     first_team = find_or_create_team(split_line.first)
-    secong_team = find_or_create_team(split_line[1])
+    second_team = find_or_create_team(split_line[1])
     result = split_line.last
 
+    score(first_team, second_team, result)
+  end
+
+  def score(first_team, second_team, result)
     case result
     when 'win'
       first_team.win
-      secong_team.loose
+      second_team.loose
     when 'loss'
       first_team.loose
-      secong_team.win
+      second_team.win
     when 'draw'
       first_team.draw
-      secong_team.draw
+      second_team.draw
     end
   end
 
