@@ -1,11 +1,12 @@
 require_relative 'team'
+require 'pry'
 
 class Tournament # :nodoc:
   attr_reader :teams
   def initialize(input)
     @teams = {}
-    input.split('\n').each do |line|
-      # puts line
+    input.split("\n").each do |line|
+      # binding.pry
       parse_line(line)
     end
   end
@@ -19,7 +20,6 @@ class Tournament # :nodoc:
     sorted_teams_lines = tournament.sort.map(&:print_line).join('')
 
     first_line + sorted_teams_lines
-    # puts    first_line + sorted_teams_lines
   end
 
   def parse_line(line)
@@ -32,6 +32,7 @@ class Tournament # :nodoc:
   end
 
   def score(first_team, second_team, result)
+
     case result
     when 'win'
       first_team.win!
@@ -44,6 +45,7 @@ class Tournament # :nodoc:
       first_team.draw!
       second_team.draw!
     end
+
   end
 
   def find_or_create_team(name)
@@ -57,12 +59,14 @@ end
 
 # input = <<-INPUT.gsub(/^ */, '')
 #     Allegoric Alaskans;Blithering Badgers;draw
+#     Allegoric Alaskans;Blithering Badgers;draw
 #     INPUT
+# Tournament.tally(input)
 
 # input = <<-INPUT.gsub(/^ */, '')
 #     Allegoric Alaskans;Blithering Badgers;win
 #     Allegoric Alaskans;Blithering Badgers;win
 #     INPUT
-
 # Tournament.tally(input)
+
 

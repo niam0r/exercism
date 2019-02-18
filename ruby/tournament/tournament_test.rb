@@ -62,7 +62,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_a_draw_is_one_point_each
-    # skip
+    skip
     input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Blithering Badgers;draw
     INPUT
@@ -77,7 +77,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_there_can_be_more_than_one_match
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Blithering Badgers;win
     Allegoric Alaskans;Blithering Badgers;win
