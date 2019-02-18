@@ -1,12 +1,12 @@
 class Team # :nodoc:
   attr_reader :name, :MP, :W, :D, :L, :points
-  def initialize(name, matches_played = 0, matches_won = 0, matches_drawn = 0, matches_lost = 0, points = 0)
+  def initialize(name)
     @name = name
-    @MP = matches_played
-    @W = matches_won
-    @D = matches_drawn
-    @L = matches_lost
-    @points = points
+    @MP = 0
+    @W = 0
+    @D = 0
+    @L = 0
+    @points = 0
   end
 
   def print_line
