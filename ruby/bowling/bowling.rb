@@ -13,16 +13,17 @@ class Game
     # called each time the player rolls a ball.
     # The argument is the number of pins knocked down.
 
-    raise BowlingError if pins_down > 10
+    raise BowlingError if pins_down > 10 || pins_down < 0
 
     if pins_down == 10
-      @frames < Frame.new(10, 0, strike: true)
+      @frames << Frame.new(10, 0, strike: true)
     elsif @previous_roll.nil?
       # check logic
       @previous_roll = pins_down
     else
+      raise BowlingError if (@previous_roll + pins_down) > 10
       spare = (10 - @previous_roll - pins_down) == 0
-      @frames < Frame.new(@previous_roll, pins_down, spare: spare)
+      @frames << Frame.new(@previous_roll, pins_down, spare: spare)
       @previous_roll = nil
     end
 
@@ -31,17 +32,17 @@ class Game
   def score
     # called only at the very end of the game.
     # It returns the total score for that game.
-
+    0
   end
 end
 
 class Frame
   attr_reader :first, :second
-  def initialize(first, second)
+  def initialize(first, second, strike = false, spare = false)
     @first = first
     @second = second
-    @strike = false
-    @spare = false
+    @strike = strike
+    @spare = spare
   end
 end
 

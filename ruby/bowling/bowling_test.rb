@@ -116,7 +116,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_rolls_cannot_score_negative_points
-    skip
+    # skip
     game = Game.new
     rolls = []
     rolls.each { |pins| game.roll(pins) }
@@ -136,7 +136,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_two_rolls_in_a_frame_cannot_score_more_than_10_points
-    skip
+    # skip
     game = Game.new
     rolls = [5]
     rolls.each { |pins| game.roll(pins) }
