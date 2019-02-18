@@ -9,24 +9,26 @@ class Team # :nodoc:
     @points = 0
   end
 
-  def print_line
-    "#{@name}             |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}\n"
-  end
-
-  def win
+  def win!
+    # puts '#win'
     @MP += 1
     @W += 1
     @points += 3
   end
 
-  def draw
+  def draw!
     @MP += 1
     @D += 1
     @points += 1
   end
 
-  def loose
+  def loose!
+    # puts '#loose'
     @MP += 1
     @L += 1
+  end
+
+  def print_line
+    "#{@name}             |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}\n"
   end
 end
