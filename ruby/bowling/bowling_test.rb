@@ -194,7 +194,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_an_unstarted_game_cannot_be_scored
-    skip
+    # skip
     game = Game.new
     rolls = []
     rolls.each { |pins| game.roll(pins) }
@@ -204,7 +204,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_an_incomplete_game_cannot_be_scored
-    skip
+    # skip
     game = Game.new
     rolls = [0, 0]
     rolls.each { |pins| game.roll(pins) }

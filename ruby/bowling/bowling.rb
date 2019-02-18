@@ -6,6 +6,7 @@ class Game
 
   def initialize
     @frames = []
+    @number_of_frames = @frames.length
     @previous_roll = nil
   end
 
@@ -13,7 +14,7 @@ class Game
     # called each time the player rolls a ball.
     # The argument is the number of pins knocked down.
 
-    raise BowlingError if pins_down > 10 || pins_down < 0
+    raise BowlingError if pins_down > 10 || pins_down < 0 #|| @number_of_frames == 10
 
     if pins_down == 10
       @frames << Frame.new(10, 0, strike: true)
@@ -32,6 +33,7 @@ class Game
   def score
     # called only at the very end of the game.
     # It returns the total score for that game.
+    raise BowlingError if @frames.empty? || @frames.length != 10
     0
   end
 end
