@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require_relative 'tournament'
+require 'pry'
 
 # Common test data version: 1.4.0 ee01fe0
 class TournamentTest < Minitest::Test
@@ -62,7 +63,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_a_draw_is_one_point_each
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Blithering Badgers;draw
     INPUT
@@ -73,6 +74,7 @@ class TournamentTest < Minitest::Test
     Blithering Badgers             |  1 |  0 |  1 |  0 |  1
     TALLY
 
+    # binding.pry
     assert_equal expected, Tournament.tally(input)
   end
 

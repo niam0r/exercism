@@ -6,7 +6,6 @@ class Tournament # :nodoc:
   def initialize(input)
     @teams = {}
     input.split("\n").each do |line|
-      # binding.pry
       parse_line(line)
     end
   end
@@ -32,7 +31,6 @@ class Tournament # :nodoc:
   end
 
   def score(first_team, second_team, result)
-
     case result
     when 'win'
       first_team.win!
@@ -41,11 +39,9 @@ class Tournament # :nodoc:
       first_team.loose!
       second_team.win!
     when 'draw'
-      # p 'its a draw'
       first_team.draw!
       second_team.draw!
     end
-
   end
 
   def find_or_create_team(name)
@@ -53,15 +49,15 @@ class Tournament # :nodoc:
   end
 
   def sort
-    @teams.values.sort_by(&:points).reverse
+    # @teams.values.sort_by(&:points).reverse
+    @teams.values.sort_by{ |team| [-team.points, team.name[0]] }
   end
 end
 
 # input = <<-INPUT.gsub(/^ */, '')
 #     Allegoric Alaskans;Blithering Badgers;draw
-#     Allegoric Alaskans;Blithering Badgers;draw
 #     INPUT
-# Tournament.tally(input)
+# puts Tournament.tally(input)
 
 # input = <<-INPUT.gsub(/^ */, '')
 #     Allegoric Alaskans;Blithering Badgers;win

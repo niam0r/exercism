@@ -10,7 +10,6 @@ class Team # :nodoc:
   end
 
   def win!
-    # puts '#win'
     @MP += 1
     @W += 1
     @points += 3
@@ -23,7 +22,6 @@ class Team # :nodoc:
   end
 
   def loose!
-    # puts '#loose'
     @MP += 1
     @L += 1
   end
