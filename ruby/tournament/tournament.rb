@@ -36,12 +36,8 @@ class Tournament
     end
   end
 
-  def find_or_create(team_name)
-    if @teams[team_name]
-      @teams[team_name]
-    else
-      @teams[team_name] = Team.new(team_name)
-    end
+  def find_or_create(name)
+    @teams[name] ? @teams[name] : @teams[name] = Team.new(name)
   end
 
   def sort
