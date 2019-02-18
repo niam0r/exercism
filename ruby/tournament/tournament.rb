@@ -1,24 +1,26 @@
-require_relative 'teams'
+require_relative 'team'
 
 class Tournament
-  @teams = Teams.new
+  def initialize(input)
+    @teams = {}
+    input.split('\n').each { |line| parse_line(line)}
+  end
 
   def self.tally(input)
     first_line = "Team                           | MP |  W |  D |  L |  P\n"
     return first_line if input == "\n"
 
-    input.split('\n').each { |line| parse_line(line)}
+    tournament = Tournament.new(input)
 
-    sorted_teams_lines = @teams.sorted_teams.map { |team| team.print_line }.join('')
+    sorted_teams_lines = tournament.sort.map { |team| team.print_line }.join('')
 
     first_line + sorted_teams_lines
   end
 
-  private
 
-  def self.parse_line(line)
-    first_team = @teams.find(line.split(';').first)
-    secong_team = @teams.find(line.split(';')[1])
+  def parse_line(line)
+    first_team = find_or_create(line.split(';').first)
+    secong_team = find_or_create(line.split(';')[1])
     result = line.split(';').last.strip
 
     case result
@@ -32,5 +34,17 @@ class Tournament
       first_team.draw
       secong_team.draw
     end
+  end
+
+  def find_or_create(team_name)
+    if @teams[team_name]
+      @teams[team_name]
+    else
+      @teams[team_name] = Team.new(team_name)
+    end
+  end
+
+  def sort
+    @teams.values.sort_by(&:points).reverse
   end
 end
