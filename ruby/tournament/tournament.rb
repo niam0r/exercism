@@ -1,13 +1,10 @@
 require_relative 'team'
-require 'pry'
 
 class Tournament # :nodoc:
   attr_reader :teams
   def initialize(input)
     @teams = {}
-    input.split("\n").each do |line|
-      parse_line(line)
-    end
+    input.split("\n").each { |line| parse_line(line) }
   end
 
   def self.tally(input)
@@ -31,14 +28,13 @@ class Tournament # :nodoc:
   end
 
   def score(first_team, second_team, result)
-    case result
-    when 'win'
+    if result == 'win'
       first_team.win!
       second_team.loose!
-    when 'loss'
+    elsif result == 'loss'
       first_team.loose!
       second_team.win!
-    when 'draw'
+    elsif result == 'draw'
       first_team.draw!
       second_team.draw!
     end
@@ -52,5 +48,3 @@ class Tournament # :nodoc:
     @teams.values.sort_by { |team| [-team.points, team.name[0]] }
   end
 end
-
-# puts Tournament.tally(input)
