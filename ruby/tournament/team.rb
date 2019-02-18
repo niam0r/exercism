@@ -1,4 +1,4 @@
-class Team
+class Team # :nodoc:
   attr_reader :name, :MP, :W, :D, :L, :points
   def initialize(name, matches_played = 0, matches_won = 0, matches_drawn = 0, matches_lost = 0, points = 0)
     @name = name

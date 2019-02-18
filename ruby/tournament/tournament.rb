@@ -1,9 +1,9 @@
 require_relative 'team'
 
-class Tournament
+class Tournament # :nodoc:
   def initialize(input)
     @teams = {}
-    input.split('\n').each { |line| parse_line(line)}
+    input.split('\n').each { |line| parse_line(line) }
   end
 
   def self.tally(input)
@@ -12,15 +12,14 @@ class Tournament
 
     tournament = Tournament.new(input)
 
-    sorted_teams_lines = tournament.sort.map { |team| team.print_line }.join('')
+    sorted_teams_lines = tournament.sort.map(&:print_line).join('')
 
     first_line + sorted_teams_lines
   end
 
-
   def parse_line(line)
-    first_team = find_or_create_team(line.split(';').first)
-    secong_team = find_or_create_team(line.split(';')[1])
+    first_team = find_or_create_team(line.split(';').first.strip)
+    secong_team = find_or_create_team(line.split(';')[1].strip)
     result = line.split(';').last.strip
 
     case result
@@ -37,7 +36,7 @@ class Tournament
   end
 
   def find_or_create_team(name)
-    @teams[name] ? @teams[name] : @teams[name] = Team.new(name)
+    @teams[name] || @teams[name] = Team.new(name)
   end
 
   def sort
