@@ -32,7 +32,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_a_win_can_also_be_expressed_as_a_loss
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ */, '')
     Blithering Badgers;Allegoric Alaskans;loss
     INPUT
@@ -47,7 +47,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_a_different_team_can_win
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ */, '')
     Blithering Badgers;Allegoric Alaskans;win
     INPUT

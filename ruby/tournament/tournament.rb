@@ -19,8 +19,8 @@ class Tournament
 
 
   def parse_line(line)
-    first_team = find_or_create(line.split(';').first)
-    secong_team = find_or_create(line.split(';')[1])
+    first_team = find_or_create_team(line.split(';').first)
+    secong_team = find_or_create_team(line.split(';')[1])
     result = line.split(';').last.strip
 
     case result
@@ -36,7 +36,7 @@ class Tournament
     end
   end
 
-  def find_or_create(name)
+  def find_or_create_team(name)
     @teams[name] ? @teams[name] : @teams[name] = Team.new(name)
   end
 
