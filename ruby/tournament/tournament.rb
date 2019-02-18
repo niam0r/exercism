@@ -49,8 +49,7 @@ class Tournament # :nodoc:
   end
 
   def sort
-    # @teams.values.sort_by(&:points).reverse
-    @teams.values.sort_by{ |team| [-team.points, team.name[0]] }
+    @teams.values.sort_by { |team| [-team.points, team.name[0]] }
   end
 end
 
@@ -64,5 +63,3 @@ end
 #     Allegoric Alaskans;Blithering Badgers;win
 #     INPUT
 # Tournament.tally(input)
-
-

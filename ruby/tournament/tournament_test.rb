@@ -95,7 +95,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_there_can_be_more_than_one_winner
-    skip
+    # skips
     input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Blithering Badgers;loss
     Allegoric Alaskans;Blithering Badgers;win
