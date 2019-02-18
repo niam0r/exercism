@@ -1,7 +1,6 @@
 require_relative 'team'
 
 class Tournament # :nodoc:
-  attr_reader :teams
   def initialize(input)
     @teams = {}
     input.split("\n").each { |line| parse_line(line) }
@@ -13,9 +12,7 @@ class Tournament # :nodoc:
 
     tournament = Tournament.new(input)
 
-    sorted_teams_lines = tournament.sort.map(&:print_line).join('')
-
-    first_line + sorted_teams_lines
+    first_line + tournament.sort.map(&:print_line).join('')
   end
 
   def parse_line(line)
@@ -45,6 +42,6 @@ class Tournament # :nodoc:
   end
 
   def sort
-    @teams.values.sort_by { |team| [-team.points, team.name[0]] }
+    @teams.values.sort_by { |team| [-team.points, team.name] }
   end
 end
