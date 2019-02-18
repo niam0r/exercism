@@ -11,16 +11,16 @@ class Tournament # :nodoc:
     return first_line if input == "\n"
 
     tournament = Tournament.new(input)
-
     sorted_teams_lines = tournament.sort.map(&:print_line).join('')
-
+    # puts sorted_teams_lines
     first_line + sorted_teams_lines
   end
 
   def parse_line(line)
-    first_team = find_or_create_team(line.split(';').first.strip)
-    secong_team = find_or_create_team(line.split(';')[1].strip)
-    result = line.split(';').last.strip
+    split_line = line.split(';').map(&:strip)
+    first_team = find_or_create_team(split_line.first)
+    secong_team = find_or_create_team(split_line[1])
+    result = split_line.last
 
     case result
     when 'win'
@@ -43,3 +43,9 @@ class Tournament # :nodoc:
     @teams.values.sort_by(&:points).reverse
   end
 end
+
+# input = <<-INPUT.gsub(/^ */, '')
+#     Allegoric Alaskans;Blithering Badgers;draw
+#     INPUT
+
+# Tournament.tally(input)
