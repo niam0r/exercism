@@ -129,7 +129,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_typical_input
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Blithering Badgers;win
     Devastating Donkeys;Courageous Californians;draw
@@ -151,7 +151,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_incomplete_competition_not_all_pairs_have_played
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Blithering Badgers;loss
     Devastating Donkeys;Allegoric Alaskans;loss
@@ -171,7 +171,7 @@ class TournamentTest < Minitest::Test
   end
 
   def test_ties_broken_alphabetically
-    skip
+    # skip
     input = <<-INPUT.gsub(/^ */, '')
     Courageous Californians;Devastating Donkeys;win
     Allegoric Alaskans;Blithering Badgers;win
