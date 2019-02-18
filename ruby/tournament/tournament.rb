@@ -53,13 +53,9 @@ class Tournament # :nodoc:
   end
 end
 
-# input = <<-INPUT.gsub(/^ */, '')
-#     Allegoric Alaskans;Blithering Badgers;draw
-#     INPUT
-# puts Tournament.tally(input)
-
-# input = <<-INPUT.gsub(/^ */, '')
-#     Allegoric Alaskans;Blithering Badgers;win
-#     Allegoric Alaskans;Blithering Badgers;win
-#     INPUT
-# Tournament.tally(input)
+input = <<-INPUT.gsub(/^ */, '')
+    Allegoric Alaskans;Blithering Badgers;win
+    Blithering Badgers;Courageous Californians;win
+    Courageous Californians;Allegoric Alaskans;loss
+    INPUT
+puts Tournament.tally(input)

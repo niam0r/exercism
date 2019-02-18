@@ -27,6 +27,6 @@ class Team # :nodoc:
   end
 
   def print_line
-    "#{@name}             |  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}\n"
+    "#{@name.ljust(31)}|  #{@MP} |  #{@W} |  #{@D} |  #{@L} |  #{@points}\n"
   end
 end
