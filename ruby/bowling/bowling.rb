@@ -16,13 +16,16 @@ class Game
 
     raise BowlingError if pins_down > 10 || pins_down < 0 #|| @number_of_frames == 10
 
+    # it's a strike
     if pins_down == 10
       @frames << Frame.new(10, 0, strike: true)
+    # it's the first roll of a frame
     elsif @previous_roll.nil?
-      # check logic
       @previous_roll = pins_down
+    # it's the second roll of a frame
     else
       raise BowlingError if (@previous_roll + pins_down) > 10
+      # check if this second roll is a spare
       spare = (10 - @previous_roll - pins_down) == 0
       @frames << Frame.new(@previous_roll, pins_down, spare: spare)
       @previous_roll = nil
@@ -37,22 +40,3 @@ class Game
     0
   end
 end
-
-class Frame
-  attr_reader :first, :second
-  def initialize(first, second, strike = false, spare = false)
-    @first = first
-    @second = second
-    @strike = strike
-    @spare = spare
-  end
-
-  def strike?
-    @strike
-  end
-
-  def spare?
-    @spare
-  end
-end
-
