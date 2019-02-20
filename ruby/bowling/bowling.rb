@@ -16,6 +16,8 @@ class Game
     # The argument is the number of pins knocked down.
 
     raise BowlingError if pins_down > 10 || pins_down < 0 || @frames.count == 10
+    # raise BowlingError if @frames.count == 10 unless @frames.last.spare?
+    # raise BowlingError if @frames.count == 10 unless @frames.last.strike?
 
     # it's a strike
     if pins_down == 10
@@ -52,6 +54,12 @@ class Game
         total += (frame.first + frame.second)
       end
     end
+
+    # if @frames.last.spare?
+
+    # end
+
+
     total
   end
 end
