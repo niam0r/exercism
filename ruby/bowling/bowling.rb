@@ -42,7 +42,6 @@ class Game
 
     total = 0
     @frames.each_with_index do |frame, i|
-        binding.pry
       if frame.strike?
         # total += (10 + @frames[i+1].first + @frames[i+1].first)
         # need to implement case wher next frame is a strike
@@ -57,7 +56,7 @@ class Game
   end
 end
 
-game = Game.new
-rolls = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]
-rolls.each { |pins| game.roll(pins) }
-game.score
+# game = Game.new
+# rolls = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]
+# rolls.each { |pins| game.roll(pins) }
+# game.score
