@@ -27,8 +27,8 @@ class Game
     else
       raise BowlingError if (@previous_roll_count + pins_down) > 10
       # check if this second roll is a spare
-      spare = (10 - @previous_roll_count - pins_down) == 0
-      @frames << Frame.new(@previous_roll_count, pins_down, spare: spare)
+      spare = ((10 - @previous_roll_count - pins_down) == 0)
+      @frames << Frame.new(@previous_roll_count, pins_down, false, spare)
       @previous_roll_count = nil
     end
 
@@ -42,6 +42,7 @@ class Game
 
     total = 0
     @frames.each_with_index do |frame, i|
+        binding.pry
       if frame.strike?
         # total += (10 + @frames[i+1].first + @frames[i+1].first)
         # need to implement case wher next frame is a strike
@@ -56,7 +57,7 @@ class Game
   end
 end
 
-# game = Game.new
-# rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-# rolls.each { |pins| game.roll(pins) }
-# game.score
+game = Game.new
+rolls = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6]
+rolls.each { |pins| game.roll(pins) }
+game.score
