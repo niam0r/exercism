@@ -214,7 +214,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_cannot_roll_if_game_already_has_ten_frames
-    skip
+    # skip
     game = Game.new
     rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rolls.each { |pins| game.roll(pins) }
