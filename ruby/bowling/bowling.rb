@@ -39,7 +39,20 @@ class Game
     # It returns the total score for that game.
     # binding.pry
     raise BowlingError if @frames.empty? || @frames.length != 10
-    0
+
+    total = 0
+    @frames.each_with_index do |frame, i|
+      if frame.strike?
+        # total += (10 + @frames[i+1].first + @frames[i+1].first)
+        # need to implement case wher next frame is a strike
+        # need to implement case wher next frame is a spare
+      elsif frame.spare?
+        total += (10 + @frames[i+1].first)
+      else
+        total += (frame.first + frame.second)
+      end
+    end
+    total
   end
 end
 
