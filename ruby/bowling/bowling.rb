@@ -6,7 +6,7 @@ class Game
 
   def initialize
     @frames = []
-    @number_of_frames = @frames.length
+    @frames_count = @frames.length
     @previous_roll = nil
   end
 
@@ -45,6 +45,14 @@ class Frame
     @second = second
     @strike = strike
     @spare = spare
+  end
+
+  def strike?
+    @strike
+  end
+
+  def spare?
+    @spare
   end
 end
 
