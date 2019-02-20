@@ -1,4 +1,5 @@
 require_relative 'frame'
+require 'pry'
 
 class Game
   class BowlingError < StandardError; end
@@ -7,7 +8,6 @@ class Game
 
   def initialize
     @frames = []
-    @frames_count = @frames.length
     @previous_roll_count = nil
   end
 
@@ -15,7 +15,7 @@ class Game
     # called each time the player rolls a ball.
     # The argument is the number of pins knocked down.
 
-    raise BowlingError if pins_down > 10 || pins_down < 0 || @frames_count == 10
+    raise BowlingError if pins_down > 10 || pins_down < 0 || @frames.count == 10
 
     # it's a strike
     if pins_down == 10
@@ -37,7 +37,13 @@ class Game
   def score
     # called only at the very end of the game.
     # It returns the total score for that game.
+    # binding.pry
     raise BowlingError if @frames.empty? || @frames.length != 10
     0
   end
 end
+
+# game = Game.new
+# rolls = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+# rolls.each { |pins| game.roll(pins) }
+# game.score
