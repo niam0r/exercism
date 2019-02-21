@@ -17,9 +17,11 @@ class Tournament # :nodoc:
 
   def parse_line(line)
     split_line = line.split(';').map(&:strip)
-    first_team = @teams[split_line.first]
-    second_team = @teams[split_line[1]]
-    result = split_line.last
+
+    first_team_name, second_team_name, result = split_line
+
+    first_team = @teams[first_team_name]
+    second_team = @teams[second_team_name]
 
     score(first_team, second_team, result)
   end
