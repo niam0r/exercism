@@ -8,9 +8,8 @@ class Tournament # :nodoc:
 
   def self.tally(input)
     first_line = "Team                           | MP |  W |  D |  L |  P\n"
-    return first_line if input == "\n"
 
-    tournament = Tournament.new(input)
+    tournament = Tournament.new(input) || ''
 
     first_line + tournament.sort_teams.map(&:print_line).join('')
   end
