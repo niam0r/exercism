@@ -2,7 +2,7 @@ require_relative 'team'
 
 class Tournament # :nodoc:
   def initialize(input)
-    @teams = {}
+    @teams = Hash.new { |h, k| h[k] = Team.new(k) }
     input.split("\n").each { |line| parse_line(line) }
   end
 
@@ -17,8 +17,8 @@ class Tournament # :nodoc:
 
   def parse_line(line)
     split_line = line.split(';').map(&:strip)
-    first_team = find_or_create_team(split_line.first)
-    second_team = find_or_create_team(split_line[1])
+    first_team = @teams[split_line.first]
+    second_team = @teams[split_line[1]]
     result = split_line.last
 
     score(first_team, second_team, result)
@@ -35,10 +35,6 @@ class Tournament # :nodoc:
       first_team.draw!
       second_team.draw!
     end
-  end
-
-  def find_or_create_team(name)
-    @teams[name] || @teams[name] = Team.new(name)
   end
 
   def sort_teams
