@@ -52,7 +52,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_a_strike_earns_ten_points_in_a_frame_with_a_single_roll
-    skip
+    # skip
     game = Game.new
     rolls = [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rolls.each { |pins| game.roll(pins) }
@@ -60,7 +60,7 @@ class BowlingTest < Minitest::Test
   end
 
   def test_points_scored_in_the_two_rolls_after_a_strike_are_counted_twice_as_a_bonus
-    skip
+    # skip
     game = Game.new
     rolls = [10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     rolls.each { |pins| game.roll(pins) }

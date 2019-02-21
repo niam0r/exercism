@@ -48,6 +48,7 @@ class Game
         # total += (10 + @frames[i+1].first + @frames[i+1].first)
         # need to implement case wher next frame is a strike
         # need to implement case wher next frame is a spare
+        total += (10 + @frames[i+1].first + @frames[i+1].second)
       elsif frame.spare?
         total += (10 + @frames[i+1].first)
       else
