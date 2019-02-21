@@ -1,4 +1,4 @@
-class Frame
+class Frame # :nodoc:
   attr_reader :first, :second
   def initialize(first, second, strike = false, spare = false)
     @first = first

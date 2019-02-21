@@ -1,7 +1,7 @@
 require_relative 'frame'
 require 'pry'
 
-class Game
+class Game # :nodoc:
   class BowlingError < StandardError; end
   class RollError < BowlingError; end
   class GameError < BowlingError; end
@@ -16,6 +16,7 @@ class Game
     # The argument is the number of pins knocked down.
 
     raise BowlingError if pins_down > 10 || pins_down < 0 || @frames.count == 10
+
     # raise BowlingError if @frames.count == 10 unless @frames.last.spare?
     # raise BowlingError if @frames.count == 10 unless @frames.last.strike?
 
@@ -28,8 +29,9 @@ class Game
     # it's the second roll of a frame
     else
       raise BowlingError if (@previous_roll_count + pins_down) > 10
+
       # check if this second roll is a spare
-      spare = ((10 - @previous_roll_count - pins_down) == 0)
+      spare = (10 - @previous_roll_count - pins_down).zero?
       @frames << Frame.new(@previous_roll_count, pins_down, false, spare)
       @previous_roll_count = nil
     end
@@ -44,22 +46,22 @@ class Game
 
     total = 0
     @frames.each_with_index do |frame, i|
+      total +=
       if frame.strike?
         # total += (10 + @frames[i+1].first + @frames[i+1].first)
         # need to implement case wher next frame is a strike
         # need to implement case wher next frame is a spare
-        total += (10 + @frames[i+1].first + @frames[i+1].second)
+        10 + @frames[i + 1].first + @frames[i + 1].second
       elsif frame.spare?
-        total += (10 + @frames[i+1].first)
+        10 + @frames[i + 1].first
       else
-        total += (frame.first + frame.second)
+        frame.first + frame.second
       end
     end
 
     # if @frames.last.spare?
 
     # end
-
 
     total
   end
