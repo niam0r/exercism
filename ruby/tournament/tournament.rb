@@ -12,7 +12,7 @@ class Tournament # :nodoc:
 
     tournament = Tournament.new(input)
 
-    first_line + tournament.sort.map(&:print_line).join('')
+    first_line + tournament.sort_teams.map(&:print_line).join('')
   end
 
   def parse_line(line)
@@ -41,7 +41,7 @@ class Tournament # :nodoc:
     @teams[name] || @teams[name] = Team.new(name)
   end
 
-  def sort
+  def sort_teams
     @teams.values.sort_by { |team| [-team.points, team.name] }
   end
 end
