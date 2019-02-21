@@ -1,32 +1,33 @@
 class Team # :nodoc:
-  attr_reader :name, :played, :won, :drawn, :lost, :points
+  attr_reader :name, :won, :drawn, :lost
   def initialize(name)
     @name = name
-    @played = 0
     @won = 0
     @drawn = 0
     @lost = 0
-    @points = 0
   end
 
   def win!
-    @played += 1
     @won += 1
-    @points += 3
   end
 
   def draw!
-    @played += 1
     @drawn += 1
-    @points += 1
   end
 
   def loose!
-    @played += 1
     @lost += 1
   end
 
+  def mathces_played
+    @won + @drawn + @lost
+  end
+
+  def points
+    @won * 3 + @drawn
+  end
+
   def print_line
-    "#{@name.ljust(31)}|  #{@played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{@points}\n"
+    "#{@name.ljust(31)}|  #{mathces_played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{points}\n"
   end
 end
