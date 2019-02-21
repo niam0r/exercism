@@ -19,7 +19,7 @@ class Team # :nodoc:
     @lost += 1
   end
 
-  def mathces_played
+  def matches_played
     @won + @drawn + @lost
   end
 
@@ -28,6 +28,6 @@ class Team # :nodoc:
   end
 
   def print_line
-    "#{@name.ljust(31)}|  #{mathces_played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{points}\n"
+    "#{@name.ljust(31)}|  #{matches_played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{points}\n"
   end
 end
