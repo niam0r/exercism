@@ -7,12 +7,10 @@ class Tournament # :nodoc:
   end
 
   def self.tally(input)
-    # headers = "#{'Team'.ljust(31)}| MP |  W |  D |  L |  P\n"
     headers = ['Team'.ljust(31), 'MP', 'W', 'D', 'L', 'P']
 
     tournament = Tournament.new(input) || ''
 
-    # headers + tournament.sort_teams.map(&:print_line).join('')
     print_line(headers) + tournament.sort_teams.map(&:print_line).join('')
   end
 
