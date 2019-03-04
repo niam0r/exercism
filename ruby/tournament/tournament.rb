@@ -11,7 +11,8 @@ class Tournament # :nodoc:
 
     tournament = Tournament.new(input) || ''
 
-    print_line(headers) + "\n" + tournament.sort_teams.map(&:print_line).join('')
+    # print_line(headers) + "\n" + tournament.sort_teams.map(&:print_line).join('')
+    print_line(headers) + "\n" + tournament.sort_teams.map { |team| print_line(team.to_data) }
   end
 
   def parse_line(line)
