@@ -7,11 +7,11 @@ class Tournament # :nodoc:
   end
 
   def self.tally(input)
-    headers = ['Team'.ljust(31), 'MP', 'W', 'D', 'L', 'P']
+    headers = ['Team'.ljust(31), 'MP', ' W', ' D', ' L', 'P']
 
     tournament = Tournament.new(input) || ''
 
-    print_line(headers) + tournament.sort_teams.map(&:print_line).join('')
+    print_line(headers) + "\n" + tournament.sort_teams.map(&:print_line).join('')
   end
 
   def parse_line(line)
@@ -43,6 +43,6 @@ class Tournament # :nodoc:
   end
 
   def self.print_line(data)
-    "%s| %s | %s | %s | %s |  %s" % [*data]
+    '%s| %s | %s | %s | %s |  %s' % [*data]
   end
 end
