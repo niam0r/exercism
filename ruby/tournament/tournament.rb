@@ -7,12 +7,18 @@ class Tournament # :nodoc:
   end
 
   def self.tally(input)
-    headers = ['Team'.ljust(31), 'MP', ' W', ' D', ' L', 'P']
+    headers = %w(Team MP W D L P)
 
     tournament = Tournament.new(input) || ''
 
-    # print_line(headers) + "\n" + tournament.sort_teams.map(&:print_line).join('')
-    print_line(headers) + "\n" + tournament.sort_teams.map { |team| print_line(team.to_data) }
+    print_line(headers) + "\n" + tournament.sort_teams.map(&:print_line).join('')
+
+    # tournament.sort_teams.map do |team|
+    #   # print_line(team.to_data)
+    #   puts team.to_data
+    # end
+
+    # print_line(headers) + "\n" + tournament.sort_teams.map { |team| print_line(team.to_data) }
   end
 
   def parse_line(line)
@@ -44,6 +50,24 @@ class Tournament # :nodoc:
   end
 
   def self.print_line(data)
-    '%s| %s | %s | %s | %s |  %s' % [*data]
+    "%<name.ljust(31)>s| %s | %s | %s | %s |  %s" % [*data]
+    "%s%31| %s | %s | %s | %s | %s " % [*data]
+  end
+
+  def to_data
+    # [@name.ljust(31), matches_played, @won, @drawn, @lost, points].map(&:to_s)
+    "#{@name.ljust(31)}|  #{matches_played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{points}\n"
   end
 end
+
+input = <<-INPUT.gsub(/^ */, '')
+    Courageous Californians;Devastating Donkeys;win
+    Allegoric Alaskans;Blithering Badgers;win
+    Devastating Donkeys;Allegoric Alaskans;loss
+    Courageous Californians;Blithering Badgers;win
+    Blithering Badgers;Devastating Donkeys;draw
+    Allegoric Alaskans;Courageous Californians;draw
+    INPUT
+
+# Tournament.tally(input)
+puts Tournament.tally(input)

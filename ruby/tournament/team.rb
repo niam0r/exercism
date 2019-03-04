@@ -26,16 +26,4 @@ class Team # :nodoc:
   def points
     @won * 3 + @drawn
   end
-
-  def print_line
-    "#{@name.ljust(31)}|  #{matches_played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{points}\n"
-  end
-
-  def self.print_line(data)
-    '%s| %s | %s | %s | %s |  %s' % [*data]
-  end
-
-  def to_data
-    [@name, matches_played, @won, @drawn, @lost, points]
-  end
 end
