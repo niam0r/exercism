@@ -1,4 +1,5 @@
 require_relative 'team'
+require_relative 'report'
 
 class Tournament # :nodoc:
   def initialize(input)
@@ -11,14 +12,9 @@ class Tournament # :nodoc:
 
     tournament = Tournament.new(input) || ''
 
-    print_line(headers) + "\n" + tournament.sort_teams.map(&:print_line).join('')
-
-    # tournament.sort_teams.map do |team|
-    #   # print_line(team.to_data)
-    #   puts team.to_data
-    # end
-
-    # print_line(headers) + "\n" + tournament.sort_teams.map { |team| print_line(team.to_data) }
+    Report.print_line(headers) + "\n" + tournament.sort_teams.map do |team|
+      Report.print_line(Report.to_data(team))
+    end
   end
 
   def parse_line(line)
@@ -47,16 +43,6 @@ class Tournament # :nodoc:
 
   def sort_teams
     @teams.values.sort_by { |team| [-team.points, team.name] }
-  end
-
-  def self.print_line(data)
-    "%<name.ljust(31)>s| %s | %s | %s | %s |  %s" % [*data]
-    "%s%31| %s | %s | %s | %s | %s " % [*data]
-  end
-
-  def to_data
-    # [@name.ljust(31), matches_played, @won, @drawn, @lost, points].map(&:to_s)
-    "#{@name.ljust(31)}|  #{matches_played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{points}\n"
   end
 end
 

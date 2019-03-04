@@ -1,11 +1,9 @@
 class Report # :nodoc:
   def self.to_data(team)
-    # [@name.ljust(31), matches_played, @won, @drawn, @lost, points].map(&:to_s)
-    "#{@name.ljust(31)}|  #{matches_played} |  #{@won} |  #{@drawn} |  #{@lost} |  #{points}\n"
+    [team.name, team.matches_played, team.won, team.drawn, team.lost, team.points].map(&:to_s)
   end
 
   def self.print_line(data)
-    "%<name.ljust(31)>s| %s | %s | %s | %s |  %s" % [*data]
-    "%s%31| %s | %s | %s | %s | %s " % [*data]
+    "%-31s| %s | %s | %s | %s | %s " % [*data]
   end
 end
