@@ -9,6 +9,8 @@ class Tournament # :nodoc:
   end
 
   def self.tally(input)
+    return Report.headers_only if input == "\n"
+
     tournament = Tournament.new(input)
 
     Report.new(tournament.teams).print_report

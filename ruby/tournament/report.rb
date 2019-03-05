@@ -1,7 +1,9 @@
-require 'pry'
-
 class Report # :nodoc:
   HEADERS = %w[Team MP W D L P].freeze
+
+  def self.headers_only
+    "Team                           | MP |  W |  D |  L |  P\n"
+  end
 
   def initialize(teams)
     @teams = teams
@@ -20,8 +22,6 @@ class Report # :nodoc:
   end
 
   def print_report
-    # return print_line(HEADERS) unless @teams
-
     rows = [HEADERS] + sort_teams.map(&method(:to_data))
     rows.map(&method(:print_line)).join
   end
