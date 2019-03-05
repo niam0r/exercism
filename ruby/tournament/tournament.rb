@@ -9,7 +9,7 @@ class Tournament # :nodoc:
   end
 
   def self.tally(input)
-    tournament = Tournament.new(input) || ''
+    tournament = Tournament.new(input)
 
     Report.new(tournament.teams).print_report
   end
