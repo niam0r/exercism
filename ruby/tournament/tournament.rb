@@ -2,6 +2,7 @@ require_relative 'team'
 require_relative 'report'
 
 class Tournament # :nodoc:
+  attr_reader :teams
   def initialize(input)
     @teams = Hash.new { |h, k| h[k] = Team.new(k) }
     input.split("\n").each { |line| parse_line(line) }
@@ -10,8 +11,7 @@ class Tournament # :nodoc:
   def self.tally(input)
     tournament = Tournament.new(input) || ''
 
-    report = Report.new(tournament.sort_teams)
-    report.print_report
+    Report.new(tournament.teams).print_report
   end
 
   def parse_line(line)
@@ -37,10 +37,6 @@ class Tournament # :nodoc:
       second_team.draw!
     end
   end
-
-  def sort_teams
-    @teams.values.sort_by { |team| [-team.points, team.name] }
-  end
 end
 
 input = <<-INPUT.gsub(/^ */, '')
@@ -52,5 +48,5 @@ input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Courageous Californians;draw
     INPUT
 
-Tournament.tally(input)
-# puts Tournament.tally(input)
+# Tournament.tally(input)
+puts Tournament.tally(input)

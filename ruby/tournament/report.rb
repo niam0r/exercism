@@ -17,8 +17,11 @@ class Report # :nodoc:
 
   def print_report
     headers = %w[Team MP W D L P]
-    print_line(headers) + "\n" + sort_teams.map do |team|
-      print_line(to_data(team))
+    report = []
+    report << print_line(headers)
+    sort_teams.map do |team|
+      report << print_line(to_data(team))
     end
+    report.join("\n")
   end
 end
