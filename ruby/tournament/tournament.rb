@@ -5,7 +5,7 @@ class Tournament # :nodoc:
   attr_reader :teams
   def initialize(input)
     @teams = Hash.new { |h, k| h[k] = Team.new(k) }
-    input.split("\n").each { |line| parse_line(line) }
+    input.each_line { |line| parse_line(line) }
   end
 
   def self.tally(input)

@@ -1,4 +1,5 @@
 class Report # :nodoc:
+  HEADERS = %w[Team MP W D L P]
   def initialize(teams)
     @teams = teams
   end
@@ -17,8 +18,7 @@ class Report # :nodoc:
   end
 
   def print_report
-    headers = %w[Team MP W D L P]
-    report = [print_line(headers)]
+    report = [print_line(HEADERS)]
     sort_teams.map { |team| report << print_line(to_data(team)) }
     report.join
   end
