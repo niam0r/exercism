@@ -52,5 +52,5 @@ input = <<-INPUT.gsub(/^ */, '')
     Allegoric Alaskans;Courageous Californians;draw
     INPUT
 
-# Tournament.tally(input)
-puts Tournament.tally(input)
+Tournament.tally(input)
+# puts Tournament.tally(input)
