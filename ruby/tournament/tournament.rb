@@ -15,9 +15,9 @@ class Tournament # :nodoc:
   end
 
   def parse_line(line)
-    split_line = line.split(';').map(&:strip)
+    matchdata = line.match(/^(.*);(.*);(.*)$/)
 
-    first_team_name, second_team_name, result = split_line
+    first_team_name, second_team_name, result = matchdata.captures
 
     first_team = @teams[first_team_name]
     second_team = @teams[second_team_name]
@@ -38,27 +38,3 @@ class Tournament # :nodoc:
     end
   end
 end
-
-# puts <<-TALLY.gsub(/^ */, '')
-#     Team                           | MP |  W |  D |  L |  P
-#     Allegoric Alaskans             |  3 |  2 |  1 |  0 |  7
-#     Courageous Californians        |  3 |  2 |  1 |  0 |  7
-#     Blithering Badgers             |  3 |  0 |  1 |  2 |  1
-#     Devastating Donkeys            |  3 |  0 |  1 |  2 |  1
-#     TALLY
-
-# input = <<-INPUT.gsub(/^ */, '')
-#     Courageous Californians;Devastating Donkeys;win
-#     Allegoric Alaskans;Blithering Badgers;win
-#     Devastating Donkeys;Allegoric Alaskans;loss
-#     Courageous Californians;Blithering Badgers;win
-#     Blithering Badgers;Devastating Donkeys;draw
-#     Allegoric Alaskans;Courageous Californians;draw
-#     INPUT
-
-# puts Tournament.tally(input)
-
-# puts <<-TALLY.gsub(/^ */, '')
-#     Team                           | MP |  W |  D |  L |  P
-#     TALLY
-# puts Tournament.tally('')

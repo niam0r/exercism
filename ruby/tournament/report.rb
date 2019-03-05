@@ -2,6 +2,7 @@ require 'pry'
 
 class Report # :nodoc:
   HEADERS = %w[Team MP W D L P].freeze
+
   def initialize(teams)
     @teams = teams
   end
@@ -19,7 +20,7 @@ class Report # :nodoc:
   end
 
   def print_report
-    return print_line(HEADERS) if @teams.empty?
+    # return print_line(HEADERS) unless @teams
 
     rows = [HEADERS] + sort_teams.map(&method(:to_data))
     rows.map(&method(:print_line)).join
