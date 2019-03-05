@@ -9,14 +9,14 @@ class Tournament # :nodoc:
   end
 
   def self.tally(input)
-    return Report.headers_only if input == "\n"
-
-    tournament = Tournament.new(input)
+    tournament = new(input)
 
     Report.new(tournament.teams).print_report
   end
 
   def parse_line(line)
+    return if line == "\n"
+
     matchdata = line.match(/^(.*);(.*);(.*)$/)
 
     first_team_name, second_team_name, result = matchdata.captures

@@ -1,10 +1,6 @@
 class Report # :nodoc:
   HEADERS = %w[Team MP W D L P].freeze
 
-  def self.headers_only
-    "Team                           | MP |  W |  D |  L |  P\n"
-  end
-
   def initialize(teams)
     @teams = teams
   end
