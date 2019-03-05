@@ -1,3 +1,5 @@
+require 'pry'
+
 class Report # :nodoc:
   HEADERS = %w[Team MP W D L P]
   def initialize(teams)
@@ -18,8 +20,7 @@ class Report # :nodoc:
   end
 
   def print_report
-    report = [print_line(HEADERS)]
-    sort_teams.map { |team| report << print_line(to_data(team)) }
-    report.join
+    rows = [HEADERS] + sort_teams.map(&method(:to_data))
+    rows.map(&method(:print_line)).join
   end
 end

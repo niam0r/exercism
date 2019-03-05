@@ -57,3 +57,8 @@ end
 #     INPUT
 
 # puts Tournament.tally(input)
+
+# puts <<-TALLY.gsub(/^ */, '')
+#     Team                           | MP |  W |  D |  L |  P
+#     TALLY
+# puts Tournament.tally('')
