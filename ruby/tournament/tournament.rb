@@ -39,6 +39,14 @@ class Tournament # :nodoc:
   end
 end
 
+puts <<-TALLY.gsub(/^ */, '')
+    Team                           | MP |  W |  D |  L |  P
+    Allegoric Alaskans             |  3 |  2 |  1 |  0 |  7
+    Courageous Californians        |  3 |  2 |  1 |  0 |  7
+    Blithering Badgers             |  3 |  0 |  1 |  2 |  1
+    Devastating Donkeys            |  3 |  0 |  1 |  2 |  1
+    TALLY
+
 input = <<-INPUT.gsub(/^ */, '')
     Courageous Californians;Devastating Donkeys;win
     Allegoric Alaskans;Blithering Badgers;win
