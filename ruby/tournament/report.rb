@@ -12,7 +12,7 @@ class Report # :nodoc:
   end
 
   def print_line(data)
-    "%-31s| %-2s|  %s |  %s |  %s |  %s " % [*data]
+    "%-31s| % 2s |  %s |  %s |  %s |  %s\n" % [*data]
   end
 
   def print_report
@@ -20,6 +20,6 @@ class Report # :nodoc:
     report = []
     report << print_line(headers)
     sort_teams.map { |team| report << print_line(to_data(team)) }
-    report.join("\n")
+    report.join
   end
 end
