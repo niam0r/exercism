@@ -8,13 +8,10 @@ class Tournament # :nodoc:
   end
 
   def self.tally(input)
-    headers = %w(Team MP W D L P)
-
     tournament = Tournament.new(input) || ''
 
-    Report.print_line(headers) + "\n" + tournament.sort_teams.map do |team|
-      Report.print_line(Report.to_data(team))
-    end
+    report = Report.new(tournament.sort_teams)
+    report.print_report
   end
 
   def parse_line(line)
