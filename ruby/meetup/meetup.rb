@@ -1,6 +1,14 @@
 require 'date'
 
 class Meetup # :nodoc:
+  # RANGES = {
+  #   teenth: 13..19,
+  #   first: 1..7,
+  #   second: 8..15,
+  #   third: 15..22,
+  #   fourth:
+  # }
+
   def initialize(month, year)
     @month = month
     @year = year
@@ -8,46 +16,38 @@ class Meetup # :nodoc:
 
   def day(day, option)
     if option == :teenth
-      find_date(day, 13, 19)
+      find_date(day, 13..19)
     elsif option == :first
-      find_date(day, 1, 7)
+      find_date(day, 1..7)
     elsif option == :second
-      find_date(day, 8, 15)
+      find_date(day, 8..15)
     elsif option == :third
-      find_date(day, 15, 22)
+      find_date(day, 15..22)
     elsif option == :fourth
       find_fourth(day)
     elsif option == :last
-      find_last(day)
+      find_date(day, last_week_range)
     end
   end
 
   def find_fourth(day)
-    Date.leap?(@year) ? find_date(day, 22, 29) : find_date(day, 22, 28)
+    Date.leap?(@year) ? find_date(day, 22..29) : find_date(day, 22..28)
   end
 
-  def find_last(day)
-    first, last = get_last_week_days
-    find_date(day, first, last)
-  end
-
-  def find_date(day, first, last)
-    possible_dates(first, last).find do |date|
+  def find_date(day, range)
+    possible_dates(range).find do |date|
       day.to_s == date.strftime('%A').downcase
     end
   end
 
-  def possible_dates(first, last)
-    [*first..last].map do |day|
-      # next if @month == 2 && day > 28
-      Date.new(@year, @month, day)
-    end
+  def possible_dates(range)
+    [*range].map { |day| Date.new(@year, @month, day) }
   end
 
-  def get_last_week_days
+  def last_week_range
     last = Date.new(@year, @month, -1).mday
     first = last - 6
-    [first, last]
+    first..last
   end
 end
 
