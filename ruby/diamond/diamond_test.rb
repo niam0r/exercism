@@ -27,6 +27,19 @@ class DiamondTest < Minitest::Test
     assert_equal string, answer
   end
 
+  def test_letter_d
+    skip
+    answer = Diamond.make_diamond('D')
+    string = "   A   \n"\
+             "  B B  \n"\
+             " C   C \n"\
+             "D     D\n"\
+             " C   C \n"\
+             "  B B  \n"\
+             "   A   \n"
+    assert_equal string, answer
+  end
+
   def test_letter_e
     skip
     answer = Diamond.make_diamond('E')
