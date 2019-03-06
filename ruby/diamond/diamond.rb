@@ -1,6 +1,6 @@
 require 'pry'
 
-class Diamond
+class Diamond # :nodoc:
   def initialize(letter)
     @letter = letter
     @position = letter.ord - 64
@@ -24,11 +24,12 @@ class Diamond
     @diamond_rows << middle_row
     @diamond_rows << build_rows.reverse
     @diamond_rows << letter_a_row
-    @diamond_rows.flatten.join("\n")
+    @diamond_rows.flatten.join("\n") + "\n"
   end
 
   def letter_a_row
-    " " * ((@row_length - 1) / 2) + 'A' + " " * ((@row_length - 1) / 2)
+    padding = (@row_length - 1) / 2
+    ' ' * padding + 'A' + ' ' * padding
   end
 
   def build_rows
@@ -37,19 +38,19 @@ class Diamond
 
   def row(letter)
     padding(letter) + letter + inside_space(letter) + letter + padding(letter)
-   end
+  end
 
   def padding(letter)
-    " " * position(letter)
+    ' ' * position(letter)
   end
 
   def inside_space(letter)
-    " " * position(letter)
+    ' ' * position(letter)
   end
 
   def middle_row
-    @letter + " " * ((@position - 1) * 2) + @letter
+    @letter + ' ' * (@diamond_rows.length * 2 - 1) + @letter
   end
 end
 
-puts Diamond.make_diamond('C')
+puts Diamond.make_diamond('B')

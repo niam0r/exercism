@@ -8,10 +8,10 @@ class DiamondTest < Minitest::Test
   end
 
   def test_letter_b
-    # skip
+    skip
     answer = Diamond.make_diamond('B') # position = 2
     string = " A \n"\
-             "B B\n"\ # 1 inner space
+             "B B\n"\
              " A \n"
     assert_equal string, answer
   end
@@ -21,7 +21,7 @@ class DiamondTest < Minitest::Test
     answer = Diamond.make_diamond('C') # position = 3
     string = "  A  \n"\
              " B B \n"\
-             "C   C\n"\ # 3 inner spaces
+             "C   C\n"\
              " B B \n"\
              "  A  \n"
     assert_equal string, answer
@@ -33,7 +33,7 @@ class DiamondTest < Minitest::Test
     string = "   A   \n"\
              "  B B  \n"\
              " C   C \n"\
-             "D     D\n"\ # 5 inner spaces
+             "D     D\n"\
              " C   C \n"\
              "  B B  \n"\
              "   A   \n"
@@ -47,7 +47,7 @@ class DiamondTest < Minitest::Test
              "   B B   \n"\
              "  C   C  \n"\
              " D     D \n"\
-             "E       E\n"\ # 7 inner spaces
+             "E       E\n"\
              " D     D \n"\
              "  C   C  \n"\
              "   B B   \n"\
@@ -63,7 +63,7 @@ class DiamondTest < Minitest::Test
              "   C   C   \n"\
              "  D     D  \n"\
              " E       E \n"\
-             "F         F\n"\ # 9 inner spaces
+             "F         F\n"\
              " E       E \n"\
              "  D     D  \n"\
              "   C   C   \n"\
