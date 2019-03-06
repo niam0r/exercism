@@ -13,6 +13,10 @@ class Meetup # :nodoc:
       find_date(day, 1, 7)
     elsif option == :second
       find_date(day, 8, 15)
+    elsif option == :third
+      find_date(day, 15, 22)
+    elsif option == :fourth
+      find_date(day, 22, 29)
     end
   end
 
