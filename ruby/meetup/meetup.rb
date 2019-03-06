@@ -28,6 +28,7 @@ class Meetup # :nodoc:
 
   def possible_dates(first, last)
     [*first..last].map do |day|
+      next if @month == 2 && day > 28
       Date.new(@year, @month, day)
     end
   end
