@@ -6,7 +6,7 @@ class Meetup # :nodoc:
     first: 1..7,
     second: 8..15,
     third: 15..22
-  }
+  }.freeze
 
   def initialize(month, year)
     @month = month
@@ -17,14 +17,16 @@ class Meetup # :nodoc:
     if RANGES.key?(option)
       find_date(day, RANGES[option])
     elsif option == :fourth
-      find_fourth(day)
+      find_date(day, find_fourth_range)
     elsif option == :last
       find_date(day, last_week_range)
     end
   end
 
-  def find_fourth(day)
-    Date.leap?(@year) ? find_date(day, 22..29) : find_date(day, 22..28)
+  private
+
+  def find_fourth_range
+    Date.leap?(@year) ? 22..29 : 22..28
   end
 
   def find_date(day, range)
@@ -42,8 +44,3 @@ class Meetup # :nodoc:
     last - 6..last
   end
 end
-
-# meetup = Meetup.new(5, 2013).day(:monday, :teenth)
-
-# p Date.parse("2013-05-13")
-# p meetup
