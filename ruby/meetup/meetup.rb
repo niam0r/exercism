@@ -13,7 +13,9 @@ class Meetup
   end
 
   def find_date(day, first, last)
-    puts possible_dates(first, last)
+    possible_dates(first, last).find do |date|
+      day.to_s == date.strftime('%A').downcase
+    end
   end
 
   def possible_dates(first, last)
@@ -23,6 +25,9 @@ class Meetup
   end
 end
 
-meetup = Meetup.new(5, 2013).day(:monday, :teenth)
+# meetup = Meetup.new(5, 2013).day(:monday, :teenth)
+
+# p Date.parse("2013-05-13")
+# p meetup
 
 
