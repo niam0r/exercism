@@ -5,7 +5,7 @@ class Diamond
     @letter = letter
     @position = letter.ord - 64
     @row_length = @position * 2 - 1
-    @diamond = ""
+    @diamond_rows = []
   end
 
   def position(letter)
@@ -19,36 +19,36 @@ class Diamond
   end
 
   def build_diamond
-    @diamond += letter_a_row
-    @diamond += build_rows.join
-    @diamond += middle_row
-    @diamond += build_rows.reverse.join
-    @diamond += letter_a_row
-    # binding.pry
+    @diamond_rows << letter_a_row
+    @diamond_rows << build_rows
+    @diamond_rows << middle_row
+    @diamond_rows << build_rows.reverse
+    @diamond_rows << letter_a_row
+    @diamond_rows.flatten.join("\n")
   end
 
   def letter_a_row
-    " " * ((@row_length - 1) / 2) + 'A' + " " * ((@row_length - 1) / 2) + "\n"
+    " " * ((@row_length - 1) / 2) + 'A' + " " * ((@row_length - 1) / 2)
   end
 
   def build_rows
-    [*'B'...@letter].map { |letter| row(letter) } || ''
+    [*'B'...@letter].map { |letter| row(letter) } || nil
   end
 
   def row(letter)
-    padding(letter) + inside_spacing(letter) + padding(letter) + "\n"
+    padding(letter) + letter + inside_space(letter) + letter + padding(letter)
    end
 
   def padding(letter)
     " " * position(letter)
   end
 
-  def inside_spacing(letter)
-    letter + " " * position(letter) + letter
+  def inside_space(letter)
+    " " * position(letter)
   end
 
   def middle_row
-    @letter + " " * (@position - 1) + @letter + "\n"
+    @letter + " " * ((@position - 1) * 2) + @letter
   end
 end
 
