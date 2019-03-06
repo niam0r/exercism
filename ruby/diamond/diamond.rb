@@ -1,18 +1,27 @@
 class Diamond
-  class << self
-    def make_diamond(letter)
-      return "A\n" if letter == 'A'
+  def initialize(letter)
+    @letter = letter
+    @position = letter.ord - 65
+    @diamond = ""
+  end
 
-      result = preceding_rows(letter)
-      result << row(letter)
-      result << following_rows(letter)
-    end
+  def self.make_diamond(letter)
+    return "A\n" if letter == 'A'
 
-    def row(letter)
-      position = letter.ord - 65
-      letter + " " * position + letter + "\n"
-    end
+    new(letter).build_diamond
+  end
+
+  def build_diamond
+
+    # @diamond = preceding_rows(letter)
+    @diamond << middle_row
+    # @diamond << following_rows(letter)
+    @diamond
+  end
+
+  def middle_row
+    @letter + " " * @position + @letter + "\n"
   end
 end
 
-puts Diamond.row('E')
+puts Diamond.make_diamond('E')
