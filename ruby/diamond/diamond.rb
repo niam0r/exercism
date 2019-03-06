@@ -49,7 +49,7 @@ class Diamond
   end
 
   def middle_row
-    @letter + " " * @position + @letter + "\n"
+    @letter + " " * (@position - 1) + @letter + "\n"
   end
 end
 
