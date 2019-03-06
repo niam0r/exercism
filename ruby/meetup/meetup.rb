@@ -17,6 +17,9 @@ class Meetup # :nodoc:
       find_date(day, 15, 22)
     elsif option == :fourth
       find_date(day, 22, 29)
+    elsif option == :last
+      first, last = get_last_week_days
+      find_date(day, first, last)
     end
   end
 
@@ -31,6 +34,12 @@ class Meetup # :nodoc:
       next if @month == 2 && day > 28
       Date.new(@year, @month, day)
     end
+  end
+
+  def get_last_week_days
+    last = Date.new(@year, @month, -1).mday
+    first = last - 6
+    [first, last]
   end
 end
 
