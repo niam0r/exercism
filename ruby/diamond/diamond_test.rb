@@ -9,19 +9,19 @@ class DiamondTest < Minitest::Test
 
   def test_letter_b
     # skip
-    answer = Diamond.make_diamond('B')
+    answer = Diamond.make_diamond('B') # position = 2
     string = " A \n"\
-             "B B\n"\
+             "B B\n"\ # 1 inner space
              " A \n"
     assert_equal string, answer
   end
 
   def test_letter_c
-    skip
-    answer = Diamond.make_diamond('C')
+    # skip
+    answer = Diamond.make_diamond('C') # position = 3
     string = "  A  \n"\
              " B B \n"\
-             "C   C\n"\
+             "C   C\n"\ # 3 inner spaces
              " B B \n"\
              "  A  \n"
     assert_equal string, answer
@@ -29,11 +29,11 @@ class DiamondTest < Minitest::Test
 
   def test_letter_d
     skip
-    answer = Diamond.make_diamond('D')
+    answer = Diamond.make_diamond('D') # position = 4
     string = "   A   \n"\
              "  B B  \n"\
              " C   C \n"\
-             "D     D\n"\
+             "D     D\n"\ # 5 inner spaces
              " C   C \n"\
              "  B B  \n"\
              "   A   \n"
@@ -42,16 +42,33 @@ class DiamondTest < Minitest::Test
 
   def test_letter_e
     skip
-    answer = Diamond.make_diamond('E')
+    answer = Diamond.make_diamond('E') # position = 5
     string = "    A    \n"\
              "   B B   \n"\
              "  C   C  \n"\
              " D     D \n"\
-             "E       E\n"\
+             "E       E\n"\ # 7 inner spaces
              " D     D \n"\
              "  C   C  \n"\
              "   B B   \n"\
              "    A    \n"
+    assert_equal string, answer
+  end
+
+  def test_letter_f
+    skip
+    answer = Diamond.make_diamond('F') # position = 6
+    string = "     A     \n"\
+             "    B B    \n"\
+             "   C   C   \n"\
+             "  D     D  \n"\
+             " E       E \n"\
+             "F         F\n"\ # 9 inner spaces
+             " E       E \n"\
+             "  D     D  \n"\
+             "   C   C   \n"\
+             "    B B    \n"\
+             "     A     \n"
     assert_equal string, answer
   end
 end

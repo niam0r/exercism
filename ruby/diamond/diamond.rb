@@ -16,14 +16,13 @@ class Diamond
     return "A\n" if letter == 'A'
 
     Diamond.new(letter).build_diamond
-    # @diamond
   end
 
   def build_diamond
     @diamond += letter_a_row
-    @diamond += build_rows
+    @diamond += build_rows.join
     @diamond += middle_row
-    @diamond += build_rows.reverse
+    @diamond += build_rows.reverse.join
     @diamond += letter_a_row
     # binding.pry
   end
@@ -33,7 +32,7 @@ class Diamond
   end
 
   def build_rows
-    [*'B'...@letter].map { |letter| row(letter) }.first || ''
+    [*'B'...@letter].map { |letter| row(letter) } || ''
   end
 
   def row(letter)
@@ -53,4 +52,4 @@ class Diamond
   end
 end
 
-puts Diamond.make_diamond('B')
+puts Diamond.make_diamond('C')
