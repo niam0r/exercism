@@ -1,13 +1,12 @@
 require 'date'
 
 class Meetup # :nodoc:
-  # RANGES = {
-  #   teenth: 13..19,
-  #   first: 1..7,
-  #   second: 8..15,
-  #   third: 15..22,
-  #   fourth:
-  # }
+  RANGES = {
+    teenth: 13..19,
+    first: 1..7,
+    second: 8..15,
+    third: 15..22
+  }
 
   def initialize(month, year)
     @month = month
@@ -15,14 +14,8 @@ class Meetup # :nodoc:
   end
 
   def day(day, option)
-    if option == :teenth
-      find_date(day, 13..19)
-    elsif option == :first
-      find_date(day, 1..7)
-    elsif option == :second
-      find_date(day, 8..15)
-    elsif option == :third
-      find_date(day, 15..22)
+    if RANGES.key?(option)
+      find_date(day, RANGES[option])
     elsif option == :fourth
       find_fourth(day)
     elsif option == :last
@@ -46,8 +39,7 @@ class Meetup # :nodoc:
 
   def last_week_range
     last = Date.new(@year, @month, -1).mday
-    first = last - 6
-    first..last
+    last - 6..last
   end
 end
 
