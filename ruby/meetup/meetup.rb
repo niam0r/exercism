@@ -1,6 +1,6 @@
 require 'date'
 
-class Meetup
+class Meetup # :nodoc:
   def initialize(month, year)
     @month = month
     @year = year
@@ -9,6 +9,8 @@ class Meetup
   def day(day, option)
     if option == :teenth
       find_date(day, 13, 19)
+    elsif option == :first
+      find_date(day, 1, 7)
     end
   end
 
@@ -29,5 +31,3 @@ end
 
 # p Date.parse("2013-05-13")
 # p meetup
-
-
