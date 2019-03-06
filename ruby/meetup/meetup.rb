@@ -23,7 +23,7 @@ class Meetup # :nodoc:
   end
 
   def find_fourth(day)
-    find_date(day, 22, 29)
+    Date.leap?(@year) ? find_date(day, 22, 29) : find_date(day, 22, 28)
   end
 
   def find_last(day)
