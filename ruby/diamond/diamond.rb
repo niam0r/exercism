@@ -1,5 +1,3 @@
-require 'pry'
-
 class Diamond # :nodoc:
   def initialize(letter)
     @letter = letter
@@ -37,7 +35,8 @@ class Diamond # :nodoc:
   end
 
   def row(letter)
-    letter.rjust(padding(letter) + 1) + inside_space(letter) + letter.ljust(padding(letter) + 1)
+    padding = padding(letter) + 1
+    letter.rjust(padding) + inside_space(letter) + letter.ljust(padding)
   end
 
   def padding(letter)
@@ -52,10 +51,3 @@ class Diamond # :nodoc:
     @letter + ' ' * @row_whitespaces + @letter
   end
 end
-
-puts Diamond.make_diamond('B')
-puts Diamond.make_diamond('C')
-puts Diamond.make_diamond('D')
-puts Diamond.make_diamond('E')
-puts Diamond.make_diamond('F')
-puts Diamond.make_diamond('G')
