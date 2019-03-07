@@ -3,7 +3,8 @@ require 'pry'
 class Diamond # :nodoc:
   def initialize(letter)
     @letter = letter
-    @row_length = (letter.ord - 64) * 2 - 1
+    @position = letter.ord - 64
+    @row_length = @position * 2 - 1
     @diamond_rows = []
   end
 
@@ -27,7 +28,7 @@ class Diamond # :nodoc:
   end
 
   def letter_a_row
-    padding = (@row_length - 1) / 2
+    padding = @position - 1
     ' ' * padding + 'A' + ' ' * padding
   end
 
@@ -36,11 +37,11 @@ class Diamond # :nodoc:
   end
 
   def row(letter)
-    padding(letter) + letter + inside_space(letter) + letter + padding(letter)
+    letter.rjust(padding(letter)) + inside_space(letter) + letter.ljust(padding(letter))
   end
 
   def padding(letter)
-    ' ' * position(letter)
+    (@row_length - 2 - position(letter)) / 2 + 1
   end
 
   def inside_space(letter)
@@ -52,4 +53,4 @@ class Diamond # :nodoc:
   end
 end
 
-puts Diamond.make_diamond('B')
+puts Diamond.make_diamond('D')
