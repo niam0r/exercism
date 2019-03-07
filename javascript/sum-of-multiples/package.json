@@ -9,6 +9,8 @@
     "url": "https://github.com/exercism/javascript"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
