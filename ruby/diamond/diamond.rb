@@ -3,8 +3,7 @@ require 'pry'
 class Diamond # :nodoc:
   def initialize(letter)
     @letter = letter
-    @position = letter.ord - 64
-    @row_length = @position * 2 - 1
+    @row_length = (letter.ord - 64) * 2 - 1
     @diamond_rows = []
   end
 
@@ -49,7 +48,7 @@ class Diamond # :nodoc:
   end
 
   def middle_row
-    @letter + ' ' * (@diamond_rows.length * 2 - 1) + @letter
+    @letter + ' ' * (@row_length - 2) + @letter
   end
 end
 
