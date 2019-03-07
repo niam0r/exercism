@@ -4,7 +4,7 @@ class Diamond # :nodoc:
   def initialize(letter)
     @letter = letter
     @position = letter.ord - 64
-    @row_length = @position * 2 - 1
+    @row_whitespaces = @position * 2 - 3
     @diamond_rows = []
   end
 
@@ -41,15 +41,15 @@ class Diamond # :nodoc:
   end
 
   def padding(letter)
-    (@row_length - 2 - position(letter)) / 2 + 1
+    (@row_whitespaces - position(letter)) / 2 + 1
   end
 
   def inside_space(letter)
-    ' ' * position(letter)
+    ' ' * (@row_whitespaces - ((padding(letter) + 1) * 2))
   end
 
   def middle_row
-    @letter + ' ' * (@row_length - 2) + @letter
+    @letter + ' ' * (@row_whitespaces) + @letter
   end
 end
 
