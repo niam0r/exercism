@@ -1,5 +1,5 @@
 const countMines = (lineIndex, charIndex) => {
-
+  return 'c';
 };
 
 const process = (lines) => {
@@ -25,22 +25,22 @@ const process = (lines) => {
 
 // const annotate = (inputArray) => {
 export const annotate = (inputArray) => {
-  if (inputArray.every(line => line.match(/\s/g))
-    || inputArray.every(line => line.match(/\*/g))
+
+  if (inputArray.every(line => /^(.)\1+$/.test(line))
+
     || inputArray.length === 1
   ) {
     return inputArray;
   } else {
-   return process(inputArray);
+   // return process(inputArray);
+   return 'process';
   }
 };
 
-// const input = [
-//       '   ',
-//       '   ',
-//       '   ',
-//     ];
+const input = [
+      '   ',
+      ' * ',
+      '   ',
+    ];
 
-// console.log(input.every(line => line.match(/\s/g)))
-
-// // console.log(annotate(input))
+console.log(annotate(input))
