@@ -1,5 +1,17 @@
-const countMines = (lineIndex, charIndex) => {
-  return 'c';
+const countMines = (lines, lineIndex, charIndex) => {
+  let count = 0;
+  const adjacents = [
+    lines[lineIndex - 1][charIndex - 1],
+    lines[lineIndex - 1][charIndex],
+    lines[lineIndex - 1][charIndex + 1],
+    lines[lineIndex][charIndex - 1],
+    lines[lineIndex][charIndex + 1],
+    lines[lineIndex + 1][charIndex - 1],
+    lines[lineIndex + 1][charIndex],
+    lines[lineIndex + 1][charIndex + 1]
+  ]
+
+  return adjacents.filter(el => el === '*').length;
 };
 
 const process = (lines) => {
@@ -10,7 +22,7 @@ const process = (lines) => {
         return char;
       } else {
         // if its a space, check how many mines around and replace by count
-        return countMines(lineIndex, charIndex);
+        return countMines(lines, lineIndex, charIndex);
       }
     }).join('')
   });
