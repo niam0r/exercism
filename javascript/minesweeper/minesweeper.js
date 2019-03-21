@@ -1,5 +1,24 @@
+const countMines = (lineIndex, charIndex) => {
+
+};
+
 const process = (lines) => {
   const result = [];
+
+  lines.forEach((line, lineIndex) => {
+    [...line].forEach((char, charIndex) => {
+      // if its a mine, do nothing
+      if (char === '*') {
+        return char;
+      } else {
+        // if its a space, check how many mines around and replace by count
+        return countMines(lineIndex, charIndex);
+      }
+    })
+    // join the line
+  });
+
+
 
   return result;
 };
