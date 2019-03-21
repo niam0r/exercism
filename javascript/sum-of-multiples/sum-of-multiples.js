@@ -1,7 +1,4 @@
-const toRange = (start, end) => {
-  if (start === end) return [start];
-  return [start, ...toRange(start + 1, end)];
-};
+const toRange = n => [...Array(n).keys()];
 
 export const sumOfMultiples = (factors, number) => {
   if (number === 1) return 0;
@@ -15,7 +12,7 @@ export const sumOfMultiples = (factors, number) => {
   return multiples.reduce((acc, el) => acc + el);
 };
 
-// exercism's example:
+// // exercism's example:
 // export const sumOfMultiples = (factors, limit) => {
 //   const multiples = {};
 //   factors.forEach((factor) => {
