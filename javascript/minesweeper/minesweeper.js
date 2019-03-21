@@ -6,7 +6,10 @@ const process = (lines) => {
 
 // const annotate = (inputArray) => {
 export const annotate = (inputArray) => {
-  if (inputArray.every(line => line.match(/\s/g)) || inputArray.length === 1) {
+  if (inputArray.every(line => line.match(/\s/g))
+    || inputArray.every(line => line.match(/\*/g))
+    || inputArray.length === 1
+  ) {
     return inputArray;
   } else {
    return process(inputArray);

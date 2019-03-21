@@ -23,7 +23,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles board with only mines', () => {
+  test('handles board with only mines', () => {
     const input = [
       '***',
       '***',
