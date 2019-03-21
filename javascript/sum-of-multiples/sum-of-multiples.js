@@ -1,13 +1,9 @@
 const toRange = n => [...Array(n).keys()];
 
-export const sumOfMultiples = (factors, number) => {
-  if (number === 1) return 0;
+export const sumOfMultiples = (factors, limit) => {
+  if (limit === 1) return 0;
 
-  const smallestFactor = Math.min(...factors);
-
-  const range = toRange(smallestFactor, number - 1);
-
-  const multiples = range.filter(el => factors.some(factor => el % factor === 0));
+  const multiples = toRange(limit).filter(el => factors.some(factor => el % factor === 0));
 
   return multiples.reduce((acc, el) => acc + el);
 };
