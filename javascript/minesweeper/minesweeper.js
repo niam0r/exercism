@@ -3,10 +3,8 @@ const countMines = (lineIndex, charIndex) => {
 };
 
 const process = (lines) => {
-  const result = [];
-
-  lines.forEach((line, lineIndex) => {
-    [...line].forEach((char, charIndex) => {
+  return lines.map((line, lineIndex) => {
+    return [...line].map((char, charIndex) => {
       // if its a mine, do nothing
       if (char === '*') {
         return char;
@@ -14,26 +12,19 @@ const process = (lines) => {
         // if its a space, check how many mines around and replace by count
         return countMines(lineIndex, charIndex);
       }
-    })
-    // join the line
+    }).join('')
   });
-
-
-
-  return result;
 };
 
-// const annotate = (inputArray) => {
-export const annotate = (inputArray) => {
+const annotate = (inputArray) => {
+// export const annotate = (inputArray) => {
 
   if (inputArray.every(line => /^(.)\1+$/.test(line))
-
     || inputArray.length === 1
   ) {
     return inputArray;
   } else {
-   // return process(inputArray);
-   return 'process';
+   return process(inputArray);
   }
 };
 
