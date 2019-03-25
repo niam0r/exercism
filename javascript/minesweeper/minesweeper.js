@@ -1,16 +1,19 @@
 const padArray = (array) => {
   const newArray = array;
-
-  newArray.map(line => ` ${line} `);
-  newArray.push('   ');
-  newArray.unshift('   ');
-  return newArray;
-}
+  const topOrBottom = ' '.repeat(array[0].length);
+  newArray.push(topOrBottom);
+  newArray.unshift(topOrBottom);
+  return newArray.map(line => ` ${line} `);
+};
 
 const countAdjacentMines = (lines, lineIndex, charIndex) => {
+  console.log({lineIndex})
+  console.log({charIndex})
   let count = 0;
 
   const paddedLines = padArray(lines);
+
+  console.log(paddedLines)
 
   const adjacents = [
     paddedLines[lineIndex - 1][charIndex - 1],
@@ -32,13 +35,13 @@ const processLines = (lines) => {
       // if its a mine, do nothing
       if (char === '*') { return char; }
       // if its a space, check how many adjacent mines and replace by count
-      return countAdjacentMines(lines, lineIndex, charIndex);
+      return countAdjacentMines(lines, lineIndex + 1, charIndex + 1);
     }).join('');
   });
 };
 
-const annotate = (inputArray) => {
-// export const annotate = (inputArray) => {
+// const annotate = (inputArray) => {
+export const annotate = (inputArray) => {
 
   if (inputArray.every(line => /^(.)\1+$/.test(line))
     || inputArray.length === 1
@@ -54,4 +57,4 @@ const input = [
   '   ',
 ];
 
-console.log(annotate(input));
+// console.log(annotate(input));

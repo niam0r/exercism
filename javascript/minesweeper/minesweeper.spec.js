@@ -37,7 +37,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles mine surrounded by spaces', () => {
+  test('handles mine surrounded by spaces', () => {
     const input = [
       '   ',
       ' * ',
