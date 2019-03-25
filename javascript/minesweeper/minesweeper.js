@@ -1,30 +1,23 @@
-const padArray = (array) => {
-  const newArray = array;
-  const topOrBottom = ' '.repeat(array[0].length);
-  newArray.push(topOrBottom);
-  newArray.unshift(topOrBottom);
-  return newArray.map(line => ` ${line} `);
-};
-
 const countAdjacentMines = (lines, lineIndex, charIndex) => {
-  console.log({lineIndex})
-  console.log({charIndex})
-  let count = 0;
-
-  const paddedLines = padArray(lines);
-
-  console.log(paddedLines)
-
-  const adjacents = [
-    paddedLines[lineIndex - 1][charIndex - 1],
-    paddedLines[lineIndex - 1][charIndex],
-    paddedLines[lineIndex - 1][charIndex + 1],
-    paddedLines[lineIndex][charIndex - 1],
-    paddedLines[lineIndex][charIndex + 1],
-    paddedLines[lineIndex + 1][charIndex - 1],
-    paddedLines[lineIndex + 1][charIndex],
-    paddedLines[lineIndex + 1][charIndex + 1],
+  const adjacentsCoords = [
+    { row: lineIndex - 1, col: charIndex - 1 },
+    { row: lineIndex - 1, col: charIndex },
+    { row: lineIndex - 1, col: charIndex + 1 },
+    { row: lineIndex, col: charIndex - 1 },
+    { row: lineIndex, col: charIndex + 1 },
+    { row: lineIndex + 1, col: charIndex - 1 },
+    { row: lineIndex + 1, col: charIndex },
+    { row: lineIndex + 1, col: charIndex + 1 },
   ];
+
+  const height = lines.length;
+  const width = lines[0].length;
+
+  adjacentsCoords.filter((coords) => {
+    const { row, col } = coords;
+    return row >= 0 && row < height && col >= 0 && col <= width
+    }
+  })
 
   return adjacents.filter(el => el === '*').length;
 };
@@ -35,7 +28,7 @@ const processLines = (lines) => {
       // if its a mine, do nothing
       if (char === '*') { return char; }
       // if its a space, check how many adjacent mines and replace by count
-      return countAdjacentMines(lines, lineIndex + 1, charIndex + 1);
+      return countAdjacentMines(lines, lineIndex, charIndex);
     }).join('');
   });
 };
