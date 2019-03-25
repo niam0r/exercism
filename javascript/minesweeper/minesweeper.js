@@ -1,5 +1,8 @@
-const countMines = (lines, lineIndex, charIndex) => {
+const countAdjacentMines = (lines, lineIndex, charIndex) => {
   let count = 0;
+  lines.push('   ');
+  lines.unshift('   ');
+
   const adjacents = [
     lines[lineIndex - 1][charIndex - 1],
     lines[lineIndex - 1][charIndex],
@@ -20,7 +23,7 @@ const processLines = (lines) => {
       // if its a mine, do nothing
       if (char === '*') { return char; }
       // if its a space, check how many mines around and replace by count
-      return countMines(lines, lineIndex, charIndex);
+      return countAdjacentMines(lines, lineIndex, charIndex);
     }).join('');
   });
 };
