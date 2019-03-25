@@ -9,12 +9,12 @@ const countMines = (lines, lineIndex, charIndex) => {
     lines[lineIndex + 1][charIndex - 1],
     lines[lineIndex + 1][charIndex],
     lines[lineIndex + 1][charIndex + 1]
-  ]
+  ];
 
   return adjacents.filter(el => el === '*').length;
 };
 
-const process = (lines) => {
+const processLines = (lines) => {
   return lines.map((line, lineIndex) => {
     return [...line].map((char, charIndex) => {
       // if its a mine, do nothing
@@ -36,7 +36,7 @@ const annotate = (inputArray) => {
   ) {
     return inputArray;
   } else {
-   return process(inputArray);
+   return processLines(inputArray);
   }
 };
 
