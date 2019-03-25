@@ -15,15 +15,15 @@ const countAdjacentMines = (lines, lineIndex, charIndex) => {
 
   const filteredCoords = adjacentsCoords.filter((coords) => {
     const { row, col } = coords;
-    return row >= 0 && row < height && col >= 0 && col <= width
+    return row >= 0 && row < height && col >= 0 && col <= width;
   });
 
   let count = 0;
-  filteredCoords.forEach(coords => {
+  filteredCoords.forEach((coords) => {
     if (lines[coords.row][coords.col] === '*') {
-      return count++;
+      return count += 1;
     }
-  })
+  });
 
   return count === 0 ? ' ' : count;
 };
@@ -41,19 +41,12 @@ const processLines = (lines) => {
 
 // const annotate = (inputArray) => {
 export const annotate = (inputArray) => {
-
   if (inputArray.every(line => /^(.)\1+$/.test(line))
-    || inputArray.length === 1
-  ) {
-    return inputArray;
-  }
+  ) { return inputArray; }
+
   return processLines(inputArray);
 };
 
-const input = [
-  '   ',
-  ' * ',
-  '   ',
-];
-
-// console.log(annotate(input));
+const input = [' * * '];
+// annotate(input)
+console.log(annotate(input));
