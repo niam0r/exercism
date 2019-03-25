@@ -51,7 +51,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles space surrounded by mines', () => {
+  test('handles space surrounded by mines', () => {
     const input = [
       '***',
       '* *',
@@ -65,7 +65,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles space surrounded by mines', () => {
+  test('handles space surrounded by mines', () => {
     const input = [
       '***',
       '* *',
@@ -91,7 +91,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles vertical line', () => {
+  test('handles vertical line', () => {
     const input = [
       ' ',
       '*',
@@ -109,7 +109,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles vertical line, mines at edges', () => {
+  test('handles vertical line, mines at edges', () => {
     const input = [
       '*',
       ' ',
@@ -127,7 +127,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles cross', () => {
+  test('handles cross', () => {
     const input = [
       '  *  ',
       '  *  ',
@@ -145,7 +145,7 @@ describe(')', () => {
     expect(annotate(input)).toEqual(expected);
   });
 
-  xtest('handles large board', () => {
+  test('handles large board', () => {
     const input = [
       ' *  * ',
       '  *   ',

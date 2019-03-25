@@ -25,7 +25,7 @@ const countAdjacentMines = (lines, lineIndex, charIndex) => {
     }
   })
 
-  return count;
+  return count === 0 ? ' ' : count;
 };
 
 const processLines = (lines) => {
