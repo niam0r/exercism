@@ -1,17 +1,26 @@
+const padArray = (array) => {
+  const newArray = array;
+
+  newArray.map(line => ` ${line} `);
+  newArray.push('   ');
+  newArray.unshift('   ');
+  return newArray;
+}
+
 const countAdjacentMines = (lines, lineIndex, charIndex) => {
   let count = 0;
-  lines.push('   ');
-  lines.unshift('   ');
+
+  const paddedLines = padArray(lines);
 
   const adjacents = [
-    lines[lineIndex - 1][charIndex - 1],
-    lines[lineIndex - 1][charIndex],
-    lines[lineIndex - 1][charIndex + 1],
-    lines[lineIndex][charIndex - 1],
-    lines[lineIndex][charIndex + 1],
-    lines[lineIndex + 1][charIndex - 1],
-    lines[lineIndex + 1][charIndex],
-    lines[lineIndex + 1][charIndex + 1],
+    paddedLines[lineIndex - 1][charIndex - 1],
+    paddedLines[lineIndex - 1][charIndex],
+    paddedLines[lineIndex - 1][charIndex + 1],
+    paddedLines[lineIndex][charIndex - 1],
+    paddedLines[lineIndex][charIndex + 1],
+    paddedLines[lineIndex + 1][charIndex - 1],
+    paddedLines[lineIndex + 1][charIndex],
+    paddedLines[lineIndex + 1][charIndex + 1],
   ];
 
   return adjacents.filter(el => el === '*').length;
@@ -22,7 +31,7 @@ const processLines = (lines) => {
     return [...line].map((char, charIndex) => {
       // if its a mine, do nothing
       if (char === '*') { return char; }
-      // if its a space, check how many mines around and replace by count
+      // if its a space, check how many adjacent mines and replace by count
       return countAdjacentMines(lines, lineIndex, charIndex);
     }).join('');
   });
