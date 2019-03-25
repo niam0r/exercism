@@ -13,13 +13,19 @@ const countAdjacentMines = (lines, lineIndex, charIndex) => {
   const height = lines.length;
   const width = lines[0].length;
 
-  adjacentsCoords.filter((coords) => {
+  const filteredCoords = adjacentsCoords.filter((coords) => {
     const { row, col } = coords;
     return row >= 0 && row < height && col >= 0 && col <= width
+  });
+
+  let count = 0;
+  filteredCoords.forEach(coords => {
+    if (lines[coords.row][coords.col] === '*') {
+      return count++;
     }
   })
 
-  return adjacents.filter(el => el === '*').length;
+  return count;
 };
 
 const processLines = (lines) => {
