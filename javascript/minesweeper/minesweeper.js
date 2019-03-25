@@ -18,7 +18,7 @@ const countAdjacentMines = (lines, lineIndex, charIndex) => {
   });
 
   const count = filteredCoords.reduce((acc, coords) => {
-    return lines[coords.row][coords.col] === '*' ? acc += 1 : acc;
+    return lines[coords.row][coords.col] === '*' ? acc + 1 : acc;
   }, 0);
 
   return count === 0 ? ' ' : count;
